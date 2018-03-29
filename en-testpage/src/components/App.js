@@ -4,6 +4,7 @@ import { LoginPage } from 'components';
 
 class App extends Component {
   render() {
+    console.log(LoginPage);
     return (
       <div>
         <Switch>
