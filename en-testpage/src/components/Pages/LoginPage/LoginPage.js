@@ -1,8 +1,13 @@
 import React from 'react';
+import { Login } from 'components';
 
-const LoginPage = () => {
+const LoginPage = ({children}) => {
+    console.log(children);
     return (
-        <div>helldddddddddddddddo</div>
+        <div>
+            <Login/>
+            {children}
+        </div>
     )
 }
 
