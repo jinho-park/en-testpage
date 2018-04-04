@@ -1,13 +1,9 @@
 import React from 'react';
-import { Login } from 'components';
+import { LoginContainer } from 'containers';
 
-const LoginPage = ({children}) => {
-    console.log(children);
+const LoginPage = () => {
     return (
-        <div>
-            <Login/>
-            {children}
-        </div>
+        <LoginContainer/>
     )
 }
 

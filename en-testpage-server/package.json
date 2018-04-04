@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "start:dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js"
+  }
+}

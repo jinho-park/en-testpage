@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import { LoginPage } from 'components';
+import React, { Component } from 'react';
+import { Login } from 'components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import * as readingActions from 'store/modules/reading';
 
 class LoginContainer extends Component{
     onClickLoginhandle = () => {
@@ -14,12 +15,19 @@ class LoginContainer extends Component{
             prefix : 'seconds elapsed',
             delay : 100
         };
-
+        console.log(readingActions);
         return(
-            <LoginPage>
-            </LoginPage>
+            <Login >
+            </Login>
         )
     }
 }
 
-export default connect()(withRouter(LoginContainer));
+export default connect(
+    /*(state) => ({
+        question : state.reading.get('question')
+    }),
+    (dispatch) => ({
+        ReadingActions : bindActionCreators(readingActions, dispatch)
+    })*/
+)(withRouter(LoginContainer));
