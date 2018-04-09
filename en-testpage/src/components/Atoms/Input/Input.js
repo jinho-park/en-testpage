@@ -1,8 +1,18 @@
 import React from 'react';
 
-const Input = () => {
+const Input = ({
+    changehandle, 
+    onKeyPress,
+    name,
+    userName
+}) => {
     return(
-        <input />
+        <input 
+            onChange={changehandle}
+            onKeyPress={onKeyPress}
+            name={name}
+            value={userName}
+        />
     )
 }
 

@@ -3,31 +3,58 @@ import { Login } from 'components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import * as readingActions from 'store/modules/reading';
+import * as userActions from 'store/modules/user';
 
 class LoginContainer extends Component{
-    onClickLoginhandle = () => {
-        
+    handleKeyPress = (e) => {
+        if(e.key !== 'Enter') return;
+        console.log('get');
+
+        this.onLoginhandle();
+    }
+
+    onChangeInput = (e) => {
+        const { UserActions } = this.props;
+        const { name, value } = e.target;
+
+        UserActions.userSetInput({value});
+    }
+
+    onLoginhandle = () => {
+        const { UserActions } = this.props;
+        const { userName } = this.props;
+
+        UserActions.userLogin(userName);
     }
     
     render(){
-        var options = {
-            prefix : 'seconds elapsed',
-            delay : 100
-        };
-        console.log(readingActions);
+        const {
+            onLoginhandle,
+            onChangeInput,
+            handleKeyPress
+        } = this;
+        const {
+            userName
+        } = this.props;
+
         return(
-            <Login >
+            <Login 
+                changehandle={onChangeInput}
+                clickhandle={onLoginhandle}
+                onKeyPress={handleKeyPress}
+                userName={userName}
+            >
             </Login>
         )
     }
 }
 
 export default connect(
-    /*(state) => ({
-        question : state.reading.get('question')
+    (state) => ({
+        userName : state.user.get('userName'),
+        isLogin : state.user.get('isLogin')
     }),
     (dispatch) => ({
-        ReadingActions : bindActionCreators(readingActions, dispatch)
-    })*/
+        UserActions : bindActionCreators(userActions, dispatch)
+    })
 )(withRouter(LoginContainer));
