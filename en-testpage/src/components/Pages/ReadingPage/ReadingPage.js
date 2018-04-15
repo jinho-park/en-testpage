@@ -1,8 +1,12 @@
 import React from 'react';
+import { ReadingContainer } from 'containers';
+import { questionTemplate } from 'components';
 
 const ReadingPage = () => {
     return (
-        <div>reading page</div>
+        <questionTemplate>
+            <ReadingContainer/>
+        </questionTemplate>
     )
 }
 

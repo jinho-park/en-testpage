@@ -9,8 +9,9 @@ export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
 
 const initialState = Map({
     problem : null,
+    tNum : null,
     cpNum : 0,
-    chooseAnswer : List()
+    chooseAnswer : null
 });
 
 export default handleActions({
