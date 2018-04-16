@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Question = ({childeren}) => {
+const Question = ({children}) => {
     return(
         <div>
             {children}

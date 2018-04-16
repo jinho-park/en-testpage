@@ -5,3 +5,5 @@ const Label = ({children}) => {
         <div>{children}</div>
     )
 }
+
+export default Label;
