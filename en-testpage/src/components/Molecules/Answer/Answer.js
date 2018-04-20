@@ -3,11 +3,15 @@ import { RadioButton } from 'components';
 
 const Answer = ({data}) => {
     return(
-        <form>
-            <RadioButton name="" value="1"/>
-            <RadioButton name="" value="2"/>
-            <RadioButton name="" value="3"/>
-            <RadioButton name="" value="4"/>
-        </form>
+        <div>
+            <form>
+                <label><RadioButton value="1" checked="true"/></label>
+                <label><RadioButton value="2"/></label>
+                <RadioButton value="3"/>
+                <RadioButton value="4"/>
+            </form>
+        </div>
     )
 }
+
+export default Answer;

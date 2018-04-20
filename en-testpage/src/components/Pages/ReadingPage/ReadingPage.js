@@ -1,12 +1,14 @@
 import React from 'react';
-import { ReadingContainer } from 'containers';
-import { questionTemplate } from 'components';
+import { ReadingContainer, HeaderContainer } from 'containers';
+import { QuestionTemplate } from 'components';
 
 const ReadingPage = () => {
     return (
-        <questionTemplate>
+        <QuestionTemplate
+            header={<HeaderContainer/>}
+        >
             <ReadingContainer/>
-        </questionTemplate>
+        </QuestionTemplate>
     )
 }
 

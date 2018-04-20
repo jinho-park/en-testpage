@@ -3,11 +3,26 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as readingActions from 'store/modules/reading';
+import { QReading } from 'components';
 
 class ReadingContainer extends Component{
+    ComponentWillMount(){
+        const { ReadingActions } = this;
+        ReadingActions.readingGetQuestion();
+    }
+
+    onChange = (e) => {
+        console.log('change');
+    }
+
     render(){
+        const { onChange } = this;
+        const { tNum, cpNum, problem, chooseAnswer } = this.props;
+
         return(
-            <div></div>
+            <QReading
+                onChangehandle={onChange}
+            />
         )
     }
 }

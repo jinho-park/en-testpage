@@ -1,1 +1,1 @@
-export { default } from './questionTemplate';
+export { default } from './QuestionTemplate';

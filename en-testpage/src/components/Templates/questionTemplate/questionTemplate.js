@@ -1,19 +1,16 @@
 import React from 'react';
-import { Header } from 'components';
 
-const questionTemplate = ({children, header}) => {
+const QuestionTemplate = ({header, children}) => {
     return(
         <div>
+            <header>
+                {header}
+            </header>
             <div>
-                <header>
-                    {header}
-                </header>
-            </div>
-            <main>
                 {children}
-            </main>
+            </div>
         </div>
     )
 }
 
-export default questionTemplate;
+export default QuestionTemplate;
