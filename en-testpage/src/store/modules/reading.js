@@ -15,24 +15,27 @@ const initialState = Map({
     problem : null,
     tNum : null,
     cpNum : 0,
-    chooseAnswer : null
+    chooseAnswer : List()
 });
 
 export default handleActions({
     [READING_CHOOSE_ANSWER] : (state, action) => {
-        return state.set('cpNum', 0);
+        const { e, cpNum } = action.payload;
+        console.log(e);
+        return state.setIn(['chooseAnswer', cpNum], e);
     },
     ...pender({
         type : READING_GET_QUESTION,
         onSuccess : (state, action) => {
             console.log(action);
-
+            return;
         }
     }),
     ...pender({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
             console.log(action);
+            return;
         }
     })
 }, initialState);

@@ -14,9 +14,10 @@ app.use(bodyParser.json());
 
 app.use('/api', api);
 
-/*app.get('*', (req, res) => {
-    res.send('heelo');
-});*/
+app.use('/', express.static(__dirname+'/../../en-testpage/build'));
+app.get('*', function(req, res){
+    res.sendFile(path.resolve(__dirname, '../../en-testpage/build', 'index.html'))
+});
 
 app.listen(port , () => {
     console.log(`server start {port}`)

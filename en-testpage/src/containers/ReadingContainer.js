@@ -8,11 +8,16 @@ import { QReading } from 'components';
 class ReadingContainer extends Component{
     ComponentWillMount(){
         const { ReadingActions } = this;
+        console.log('dd');
         ReadingActions.readingGetQuestion();
     }
 
     onChange = (e) => {
-        console.log('change');
+        const { ReadingActions } = this.props;
+        const { cpNum, chooseAnswer } = this.props;
+        
+        console.log(chooseAnswer);
+        ReadingActions.readingChooseAnswer({e, cpNum});
     }
 
     render(){
