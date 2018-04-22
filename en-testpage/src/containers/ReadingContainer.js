@@ -7,13 +7,13 @@ import { QReading } from 'components';
 
 class ReadingContainer extends Component{
     componentWillMount(){
-        const { ReadingActions } = this;
+        const { ReadingActions } = this.props;
         console.log('dd');
-        //ReadingActions.readingGetQuestion();
+        ReadingActions.readingGetQuestion();
     }
 
     componentDidMount(){
-        const { ReadingActions } = this;
+        const { ReadingActions } = this.props;
         const { tNum } = this.props;
 
         for(var i=0;i<tNum;i++){
@@ -25,14 +25,15 @@ class ReadingContainer extends Component{
     onChange = (e) => {
         const { ReadingActions } = this.props;
         const { cpNum, chooseAnswer } = this.props;
-        
-        console.log(chooseAnswer);
+
         ReadingActions.readingChooseAnswer({e, cpNum});
     }
 
     render(){
         const { onChange } = this;
         const { tNum, cpNum, problem, chooseAnswer } = this.props;
+
+        console.log(problem);
 
         return(
             <QReading

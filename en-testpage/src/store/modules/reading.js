@@ -28,7 +28,7 @@ export default handleActions({
     },
     [READING_CHOOSE_ANSWER] : (state, action) => {
         const { e, cpNum } = action.payload;
-        console.log(e);
+
         return state.setIn(['chooseAnswer', cpNum], e);
     },
     ...pender({
@@ -41,8 +41,9 @@ export default handleActions({
     ...pender({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
-            console.log(action);
-            return;
+            const { data } = action.payload;
+            console.log("data" + data);
+            return state.set('problem', data);
         }
     })
 }, initialState);

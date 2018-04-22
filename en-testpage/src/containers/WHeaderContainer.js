@@ -10,7 +10,7 @@ class WHeaderContainer extends Component{
         const { WritingActions } = this.props;
         const { rcNum, tNum } = this.props;
 
-        if(tNum == rcNum-1){
+        if(tNum === (rcNum-1)){
             return;
         }
 
@@ -33,6 +33,6 @@ export default connect(
         tNum : state.writing.get('tNum')
     }),
     (dispatch) => ({
-        WritingActions : bindActionCreators(WritingActions, dispatch)
+        WritingActions : bindActionCreators(writingActions, dispatch)
     })
 )(withRouter(WHeaderContainer));

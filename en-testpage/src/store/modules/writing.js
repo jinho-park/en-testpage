@@ -2,7 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 import { Map, fromJS, List } from 'immutable';
 import { pender } from 'redux-pender';
 
-const WRITING_INITAL_ANSWER = "writing/WRITING_INITAL_ANSWER";
+const WRITING_INITIAL_ANSWER = "writing/WRITING_INITAL_ANSWER";
 const WRITING_CHANGE_ANSWER = "writing/WRTING_CHANGE_ANSWER";
 const WRITING_GET_QUESTION = "writing/WRITING_GET_QUESTION";
 const WRITING_POST_ANSWER = "writing/WRITING_POST_ANSWER";
@@ -20,7 +20,7 @@ const initialState = Map({
 });
 
 export default handleActions({
-    [WRITING_INITAL_ANSWER] : (state, action) =>{
+    [WRITING_INITIAL_ANSWER] : (state, action) =>{
         return;
     }
 }, initialState);

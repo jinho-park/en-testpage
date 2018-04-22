@@ -8,7 +8,7 @@ const WritingPage = () => {
             header={<WHeaderContainer/>}
         >
             <WritingContainer/>
-        </QuestionTamplate>
+        </QuestionTemplate>
     );
 }
 
