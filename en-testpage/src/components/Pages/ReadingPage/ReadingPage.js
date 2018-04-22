@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReadingContainer, HeaderContainer } from 'containers';
+import { ReadingContainer, RHeaderContainer } from 'containers';
 import { QuestionTemplate } from 'components';
 
 const ReadingPage = () => {
     return (
         <QuestionTemplate
-            header={<HeaderContainer/>}
+            header={<RHeaderContainer/>}
         >
             <ReadingContainer/>
         </QuestionTemplate>

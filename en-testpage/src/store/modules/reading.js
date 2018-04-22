@@ -3,10 +3,13 @@ import { Map, fromJS, List } from 'immutable';
 import * as ReadingAPI from 'api/reading';
 import { pender } from 'redux-pender';
 
+const READING_INITIAL_ANSWER = "reading/READING_INITAL_ANSWER";
 const READING_GET_QUESTION = "reading/READING_GET_QUESTION";
 const READING_CHOOSE_ANSWER = "reading/READING_CHOOSE_ANSWER";
 const READING_POST_ANSWER = "reading/READING_POST_ANSWER";
 
+
+export const readingInitialAnswer = createAction(READING_INITIAL_ANSWER);
 export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
 export const readingGetQuestion = createAction(READING_GET_QUESTION, ReadingAPI.getQuestion);
 export const readingPostAnswer = createAction(READING_POST_ANSWER, ReadingAPI.resAnswer);
@@ -19,6 +22,10 @@ const initialState = Map({
 });
 
 export default handleActions({
+    [READING_INITIAL_ANSWER] : (state, action) => {
+        console.log(action.payload);
+        return state.setIn(['chooseAnswer', action.payload], 0);
+    },
     [READING_CHOOSE_ANSWER] : (state, action) => {
         const { e, cpNum } = action.payload;
         console.log(e);

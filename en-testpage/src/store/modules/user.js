@@ -21,6 +21,8 @@ export default handleActions({
     },
     [USER_LOGIN] : (state, action) => {
         console.log(action.payload);
+        const { value } = action.payload;
+        localStorage.getItem('user', value);
         return state.set('isLogin', false);
     }
 }, initialState);

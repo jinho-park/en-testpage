@@ -22,9 +22,11 @@ class LoginContainer extends Component{
 
     onLoginhandle = () => {
         const { UserActions } = this.props;
-        const { userName } = this.props;
+        const { userName, history } = this.props;
 
         UserActions.userLogin(userName);
+
+        history.push('/reading');
     }
     
     render(){

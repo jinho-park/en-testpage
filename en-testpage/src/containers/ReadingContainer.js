@@ -6,10 +6,20 @@ import * as readingActions from 'store/modules/reading';
 import { QReading } from 'components';
 
 class ReadingContainer extends Component{
-    ComponentWillMount(){
+    componentWillMount(){
         const { ReadingActions } = this;
         console.log('dd');
-        ReadingActions.readingGetQuestion();
+        //ReadingActions.readingGetQuestion();
+    }
+
+    componentDidMount(){
+        const { ReadingActions } = this;
+        const { tNum } = this.props;
+
+        for(var i=0;i<tNum;i++){
+            console.log('asdf')
+            ReadingActions.readingInitialAnswer(i);
+        }
     }
 
     onChange = (e) => {
@@ -26,6 +36,7 @@ class ReadingContainer extends Component{
 
         return(
             <QReading
+                question={problem}
                 onChangehandle={onChange}
             />
         )

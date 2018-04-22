@@ -1,12 +1,14 @@
 {
-    "q1" : {
-        "question" : "hononononononol",
-        "select" : {
-            "first" : "aaaaaa",
-            "second" : "bbbbbbb",
-            "third" : "cccccc",
-            "fourth" : "dddddd"
-        },
-        "answer" : 1
-    }
+    "question" : [
+        {
+            "problem" : "who are you?",
+            "example" : [
+                "a",
+                "b",
+                "c",
+                "d"
+            ],
+            "answer" : 2
+        }
+    ]
 }

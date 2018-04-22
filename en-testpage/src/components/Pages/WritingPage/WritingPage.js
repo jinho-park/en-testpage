@@ -1,8 +1,14 @@
 import React from 'react';
+import { QuestionTemplate } from 'components';
+import { WritingContainer, WHeaderContainer } from 'containers';
 
 const WritingPage = () => {
     return(
-        <div>Writing Page</div>
+        <QuestionTemplate
+            header={<WHeaderContainer/>}
+        >
+            <WritingContainer/>
+        </QuestionTamplate>
     );
 }
 

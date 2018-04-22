@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'components';
 
-const Header = ({children}) => {
+const Header = ({onNext, onPrev, children}) => {
     return(
         <div>
             <div>
@@ -9,8 +9,8 @@ const Header = ({children}) => {
                     {children}
                 </div>
                 <div>
-                    <Button>이전</Button>
-                    <Button>다음</Button>
+                    <Button onClick={onPrev}>이전</Button>
+                    <Button onClick={onNext}>다음</Button>
                 </div>
             </div>
         </div>
