@@ -24,7 +24,7 @@ class LoginContainer extends Component{
         const { UserActions } = this.props;
         const { userName, history } = this.props;
 
-        UserActions.userLogin(userName);
+        UserActions.userLogin({userName});
 
         history.push('/reading');
     }

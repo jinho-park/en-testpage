@@ -34,8 +34,12 @@ export default handleActions({
     ...pender({
         type : READING_GET_QUESTION,
         onSuccess : (state, action) => {
-            console.log(action);
-            return;
+            console.log(action.payload.data);
+            const { question } = action.payload.data;
+            const data = fromJS(question);
+            console.log(data.question.length);
+            return state.set('problem', data)
+                        .set('tNum', data.question.length);
         }
     }),
     ...pender({

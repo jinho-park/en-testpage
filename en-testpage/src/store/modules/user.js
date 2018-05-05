@@ -20,9 +20,9 @@ export default handleActions({
         return state.set('userName', action.payload);
     },
     [USER_LOGIN] : (state, action) => {
-        console.log(action.payload);
-        const { value } = action.payload;
-        localStorage.getItem('user', value);
-        return state.set('isLogin', false);
+        const { value } = action.payload.userName;
+        console.log(value);
+        localStorage.setItem('user', value);
+        return state.set('isLogin', true);
     }
 }, initialState);
