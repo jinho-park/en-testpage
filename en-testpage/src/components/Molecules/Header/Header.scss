@@ -1,0 +1,27 @@
+@import 'utils';
+
+.header{
+    height: 3.5rem;
+
+    .wrapper-item{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        height: 100%;
+
+        .logo{
+            padding : 0.5rem;
+            width:3rem;
+        }
+
+        .chapter{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .item{
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    }
+}

@@ -13,8 +13,8 @@ export const writingGetQuestion = createAction(WRITING_GET_QUESTION);
 export const writingPostAnswer = createAction(WRITING_POST_ANSWER);
 
 const initialState = Map({
-    problem : null,
-    tNum : null,
+    problem : '',
+    tNum : 1,
     cpNum : 0,
     chooseAnswer : List()
 });
@@ -22,5 +22,9 @@ const initialState = Map({
 export default handleActions({
     [WRITING_INITIAL_ANSWER] : (state, action) =>{
         return;
+    },
+    [WRITING_CHANGE_ANSWER] : (state, action) => {
+        const { cpNum, e } = action.payload;
+        return state.setIn(['chooseAnswer', cpNum], e);
     }
 }, initialState);

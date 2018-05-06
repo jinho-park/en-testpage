@@ -8,16 +8,24 @@ import * as readingActions from 'store/modules/reading';
 class RHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { ReadingActions } = this.props;
-        const { rcNum, tNum } = this.props;
+        const { rcNum, tNum, history, chooseAnswer } = this.props;
 
-        if(tNum == rcNum-1){
-            return;
+        console.log('click next');
+
+        if(rcNum+1 >= tNum){
+            console.log('next');
+            ReadingActions.readingPostAnswer({chooseAnswer});
+            history.push('./writing');
         }
-
+        else
+            ReadingActions.readingNextProblem(rcNum+1);
     }
 
     onClickPrevhandle = () => {
+        const { ReadingActions } = this.props;
+        const { rcNum, tNum } = this.props;
 
+        ReadingActions.readingPrevProblem(rcNum-1);
     }
 
     render(){

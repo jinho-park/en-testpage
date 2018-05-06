@@ -1,28 +1,34 @@
 import React from 'react';
 import { Question } from 'components';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
+import styles from './QReading.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const QReading = ({question, onChangehandle}) => {
+    if (question === undefined) return;
+    console.log(question)
     return(
-        <div>
-            <div>
+        <div className={cx('qreading')}>
+            <div className={cx('question')}>
                 <Question>
-                    {question}
+                    {question.problem}
                 </Question>
             </div>
-            <div>
+            <div className={cx('answer')}>
                 <RadioGroup onChange={onChangehandle}>
                     <RadioButton value="1">
-                        dd
+                        {question.example[0]}
                     </RadioButton>
                     <RadioButton value="2">
-                        cc
+                        {question.example[1]}
                     </RadioButton>
                     <RadioButton value="3">
-                        aa
+                        {question.example[2]}
                     </RadioButton>
                     <RadioButton value="4">
-                        bb
+                        {question.example[3]}
                     </RadioButton>
                 </RadioGroup>
             </div>

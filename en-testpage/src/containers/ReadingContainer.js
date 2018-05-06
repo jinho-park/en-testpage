@@ -8,7 +8,6 @@ import { QReading } from 'components';
 class ReadingContainer extends Component{
     componentWillMount(){
         const { ReadingActions } = this.props;
-        console.log('dd');
         ReadingActions.readingGetQuestion();
     }
 
@@ -32,12 +31,11 @@ class ReadingContainer extends Component{
     render(){
         const { onChange } = this;
         const { tNum, cpNum, problem, chooseAnswer } = this.props;
-
-        console.log(problem);
+        const data = problem;
 
         return(
             <QReading
-                question={problem}
+                question={problem[cpNum]}
                 onChangehandle={onChange}
             />
         )

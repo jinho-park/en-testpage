@@ -3,7 +3,6 @@ const reading = require('data/reading');
 exports.getQuestion = (req, res) => {
     reading.readQuestion()
         .then(function(result){
-            console.log(result);
             res.send(result);
         }, function(err){
             console.log(err);

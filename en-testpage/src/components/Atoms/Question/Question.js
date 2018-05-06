@@ -1,8 +1,12 @@
 import React from 'react';
+import styles from './Question.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const Question = ({children}) => {
     return(
-        <div>
+        <div className={cx('question')}>
             {children}
         </div>
     );

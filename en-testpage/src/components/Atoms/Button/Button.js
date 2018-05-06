@@ -1,10 +1,13 @@
 import React from 'react';
-import './Button.css';
+import style from './Button.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(style);
 
 const Button = ({children, click}) => {
     return(
         <div 
-            className="Button"
+            className={cx('button')}
             onClick={click}
         >
             {children}

@@ -2,19 +2,30 @@ import React , { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { QReading } from 'components';
+import { QWriting } from 'components';
+import * as writingActions from 'store/modules/writing';
 
 class WritingContainer extends Component{
-    onChange = () => {
+    componentWillMount(){
         const { WritingActions } = this.props;
+        WritingActions.writingGetQuestion();
     }
 
+    onChange = (e) => {
+        const { WritingActions } = this.props;
+        const { cpNum } = this.props;
+
+        WritingActions.writingChangeAnswer({e, cpNum});
+    }
     render(){
+        const {tNum, cpNum, problem, answer } = this.props;
         const { onChange } = this;
-        //const {tNum, cpNum, problem, Answer } = this.props;
+
         return(
-            <QReading
+            <QWriting
+                question={problem}
                 onChangehandle={onChange}
+                answer={answer}
             />
         )
     }
@@ -22,9 +33,12 @@ class WritingContainer extends Component{
 
 export default connect(
     (state) => ({
-        
+        problem : state.writing.get('problem'),
+        tNum : state.writing.get('tNum'),
+        cpNum : state.writing.get('tNum'),
+        answer : state.writing.get('chooseAnswer')
     }),
     (dispatch) => ({
-        
+        WritingActions : bindActionCreators(writingActions, dispatch)
     })
 )(withRouter(WritingContainer));
