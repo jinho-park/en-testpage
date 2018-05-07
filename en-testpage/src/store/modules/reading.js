@@ -53,7 +53,7 @@ export default handleActions({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
             const { data } = action.payload;
-            return state.set('problem', data);
+            return;
         }
     }),
     [READING_NEXT_PROBLEM] : (state, action) => {

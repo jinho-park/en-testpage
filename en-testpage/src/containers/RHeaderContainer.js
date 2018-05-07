@@ -28,9 +28,10 @@ class RHeaderContainer extends Component{
 
     onClickPrevhandle = () => {
         const { ReadingActions } = this.props;
-        const { rcNum, tNum } = this.props;
+        const { rcNum } = this.props;
 
-        ReadingActions.readingPrevProblem(rcNum-1);
+        if(rcNum)
+            ReadingActions.readingPrevProblem(rcNum-1);
     }
 
     render(){

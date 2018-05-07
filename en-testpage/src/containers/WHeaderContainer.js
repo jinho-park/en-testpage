@@ -8,29 +8,41 @@ import * as writingActions from 'store/modules/writing';
 class WHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
-        const { rcNum, tNum } = this.props;
+        const { wcNum, tNum, answer } = this.props;
+        const data = answer.toJS();
 
-        if(tNum === (rcNum-1)){
-            return;
-        }
-
+        if(wcNum+1 >= tNum){
+            WritingActions.writingPostAnswer({data});
+        }else
+            WritingActions.writingNextProblem(wcNum+1);
     }
 
-    onClickNexthandle = () => {
+    onClickPrevhandle = () => {
+        const { WritingActions } = this.props;
+        const { wcNum } = this.props;
 
+        if(wcNum)
+            WritingActions.writingPrevProblem(wcNum-1);
     }
 
     render(){
+        const { onClickNexthandle, onCliPrevhandle } = this;
         return(
-            <Header/>
+            <Header
+                onNext={onClickNexthandle}
+                onPrev={this.onClickPrevhandle}
+            >
+                Writing
+            </Header>
         );
     }
 }
 
 export default connect(
     (state) => ({
-        rcNum : state.writing.get('cpNum'),
-        tNum : state.writing.get('tNum')
+        wcNum : state.writing.get('cpNum'),
+        tNum : state.writing.get('tNum'),
+        answer : state.writing.get('answer')
     }),
     (dispatch) => ({
         WritingActions : bindActionCreators(writingActions, dispatch)

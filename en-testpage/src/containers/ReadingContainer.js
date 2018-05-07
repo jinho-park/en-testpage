@@ -24,7 +24,7 @@ class ReadingContainer extends Component{
         const { ReadingActions } = this.props;
         const data = chooseAnswer.toJS();
 
-        if(data[tNum] === undefined)
+        if(data[cpNum] === undefined)
             ReadingActions.readingInitialAnswer({cpNum});
 
         return(

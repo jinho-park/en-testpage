@@ -20,6 +20,11 @@ class WritingContainer extends Component{
     render(){
         const {tNum, cpNum, problem, answer } = this.props;
         const { onChange } = this;
+        const { WritingActions } = this.props;
+        const data = answer.toJS();
+
+        if(data[cpNum] === undefined)
+            WritingActions.writingInitialAnswer({cpNum});
 
         return(
             <QWriting
@@ -35,8 +40,8 @@ export default connect(
     (state) => ({
         problem : state.writing.get('problem'),
         tNum : state.writing.get('tNum'),
-        cpNum : state.writing.get('tNum'),
-        answer : state.writing.get('chooseAnswer')
+        cpNum : state.writing.get('cpNum'),
+        answer : state.writing.get('answer')
     }),
     (dispatch) => ({
         WritingActions : bindActionCreators(writingActions, dispatch)

@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import { Map } from 'immutable';
 
 const USER_SET_INPUT = "user/USER_SET_INPUT";
 const USER_LOGIN = "user/USER_LOGIN";
