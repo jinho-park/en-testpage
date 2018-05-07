@@ -9,13 +9,18 @@ class RHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { ReadingActions } = this.props;
         const { rcNum, tNum, history, chooseAnswer } = this.props;
+        const data = chooseAnswer.toJS();
 
-        console.log('click next');
+        console.log(data[rcNum]);
+
+        /*if(data[rcNum] === undefined){
+            console.log('inital');
+            ReadingActions.readingInitialAnswer({rcNum});
+        }*/
 
         if(rcNum+1 >= tNum){
-            console.log('next');
-            ReadingActions.readingPostAnswer({chooseAnswer});
-            history.push('./writing');
+            ReadingActions.readingPostAnswer({data});
+            history.push('./listening');
         }
         else
             ReadingActions.readingNextProblem(rcNum+1);
@@ -45,7 +50,8 @@ class RHeaderContainer extends Component{
 export default connect(
     (state) => ({
         rcNum : state.reading.get('cpNum'),
-        tNum : state.reading.get('tNum')
+        tNum : state.reading.get('tNum'),
+        chooseAnswer : state.reading.get('chooseAnswer')
     }),
     (dispatch) => ({
         ReadingActions : bindActionCreators(readingActions, dispatch)

@@ -10,7 +10,7 @@ class App extends Component {
           <Route exact path="/" component={LoginPage}/>
           <Route path="/reading" component={ReadingPage}/>
           <Route path="/writing" component={WritingPage}/>
-          <Route path="/skip" component = {WritingPage}/>
+          <Route path="/skip" component = {SkipPage}/>
           <Route path="/listening" component={ListeningPage}/>
           <Route path="/speaking" component={SpeakingPage}/>
         </Switch>

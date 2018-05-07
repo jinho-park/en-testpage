@@ -1,0 +1,12 @@
+@import 'utils';
+
+.qwriting{
+    display: flex;
+    .question{
+        width: 50%;
+    }
+
+    .answer{
+        width: 50%;
+    }
+}

@@ -6,9 +6,8 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const QReading = ({question, onChangehandle}) => {
+const QReading = ({question, onChangehandle, answer}) => {
     if (question === undefined) return;
-    console.log(question)
     return(
         <div className={cx('qreading')}>
             <div className={cx('question')}>
@@ -17,7 +16,7 @@ const QReading = ({question, onChangehandle}) => {
                 </Question>
             </div>
             <div className={cx('answer')}>
-                <RadioGroup onChange={onChangehandle}>
+                <RadioGroup onChange={onChangehandle} value={answer}>
                     <RadioButton value="1">
                         {question.example[0]}
                     </RadioButton>

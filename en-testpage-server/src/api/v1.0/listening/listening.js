@@ -5,3 +5,9 @@ exports.getQuestion = (req, res) => {
 exports.postAnswer = (req, res) => {
     res.send('listening post answer');
 }
+
+exports.getListening = (req, res) => {
+    const num = req.params.num;
+    console.log(num);
+    res.send('listening file send');
+}

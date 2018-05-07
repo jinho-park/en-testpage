@@ -25,7 +25,7 @@ const initialState = Map({
             answer : 0
         }
     ],
-    tNum : 1,
+    tNum : 0,
     cpNum : 0,
     chooseAnswer : List()
 });
@@ -33,7 +33,8 @@ const initialState = Map({
 export default handleActions({
     [READING_INITIAL_ANSWER] : (state, action) => {
         console.log(action.payload);
-        return state.setIn(['chooseAnswer', action.payload], 0);
+        const { cpNum } = action.payload;
+        return state.setIn(['chooseAnswer', cpNum], 0);
     },
     [READING_CHOOSE_ANSWER] : (state, action) => {
         const { e, cpNum } = action.payload;
@@ -44,7 +45,6 @@ export default handleActions({
         type : READING_GET_QUESTION,
         onSuccess : (state, action) => {
             const { question } = action.payload.data;
-            console.log(question);
             return state.set('problem', question)
                         .set('tNum', question.length);
         }
@@ -53,7 +53,6 @@ export default handleActions({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
             const { data } = action.payload;
-            console.log("data" + data);
             return state.set('problem', data);
         }
     }),

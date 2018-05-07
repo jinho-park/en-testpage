@@ -3,7 +3,7 @@ import axios from 'axios';
 export const getQuestion = () => 
     axios.get('/api/v1.0/reading/get/question');
 
-export const resAnswer = ({answer}) => 
+export const resAnswer = ({data}) => 
     axios.post('/api/v1.0/reading/post/answer', {
-        answer
+        data
     });

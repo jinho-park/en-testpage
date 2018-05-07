@@ -11,19 +11,9 @@ class ReadingContainer extends Component{
         ReadingActions.readingGetQuestion();
     }
 
-    componentDidMount(){
-        const { ReadingActions } = this.props;
-        const { tNum } = this.props;
-
-        for(var i=0;i<tNum;i++){
-            console.log('asdf')
-            ReadingActions.readingInitialAnswer(i);
-        }
-    }
-
     onChange = (e) => {
         const { ReadingActions } = this.props;
-        const { cpNum, chooseAnswer } = this.props;
+        const { cpNum } = this.props;
 
         ReadingActions.readingChooseAnswer({e, cpNum});
     }
@@ -31,12 +21,17 @@ class ReadingContainer extends Component{
     render(){
         const { onChange } = this;
         const { tNum, cpNum, problem, chooseAnswer } = this.props;
-        const data = problem;
+        const { ReadingActions } = this.props;
+        const data = chooseAnswer.toJS();
+
+        if(data[tNum] === undefined)
+            ReadingActions.readingInitialAnswer({cpNum});
 
         return(
             <QReading
                 question={problem[cpNum]}
                 onChangehandle={onChange}
+                answer = {data[cpNum]}
             />
         )
     }

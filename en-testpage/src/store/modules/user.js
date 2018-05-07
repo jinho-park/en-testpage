@@ -1,7 +1,4 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map, fromJS, List } from 'immutable';
-//import * 
-import { pender } from 'redux-pender';
 
 const USER_SET_INPUT = "user/USER_SET_INPUT";
 const USER_LOGIN = "user/USER_LOGIN";
