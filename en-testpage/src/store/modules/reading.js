@@ -9,6 +9,7 @@ const READING_CHOOSE_ANSWER = "reading/READING_CHOOSE_ANSWER";
 const READING_POST_ANSWER = "reading/READING_POST_ANSWER";
 const READING_NEXT_PROBLEM = "reading/READING_NEXT_PROBLEM";
 const READING_PREV_PROBLEM = "reading/READING_PREV_PROBLEM";
+const READING_SET_TIME = "reading/READING_SET_TIME";
 
 export const readingInitialAnswer = createAction(READING_INITIAL_ANSWER);
 export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
@@ -16,6 +17,7 @@ export const readingGetQuestion = createAction(READING_GET_QUESTION, ReadingAPI.
 export const readingPostAnswer = createAction(READING_POST_ANSWER, ReadingAPI.resAnswer);
 export const readingNextProblem = createAction(READING_NEXT_PROBLEM);
 export const readintPrevProblem = createAction(READING_PREV_PROBLEM);
+export const readingSetTime = createAction(READING_SET_TIME);
 
 const initialState = Map({
     problem : [
@@ -61,5 +63,8 @@ export default handleActions({
     },
     [READING_PREV_PROBLEM] : (state, action) => {
         return state.set('cpNum', action.payload);
+    },
+    [READING_SET_TIME] : (state, action) =>{
+        return state.set('startTime', action.payload);
     }
 }, initialState);

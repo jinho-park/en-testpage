@@ -8,6 +8,7 @@ const WRITING_GET_QUESTION = "writing/WRITING_GET_QUESTION";
 const WRITING_POST_ANSWER = "writing/WRITING_POST_ANSWER";
 const WRITING_NEXT_PROBLEM = "writing/WRITING_NEXT_PROBLEM";
 const WRITING_PREV_PROBLEM = "writing/WRITING_PREV_PROBLEM";
+const WIRTING_SET_TIME = "writing/WRITING_SET_TIME";
 
 export const writingInitialAnswer = createAction(WRITING_INITIAL_ANSWER);
 export const writingChangeAnswer = createAction(WRITING_CHANGE_ANSWER);
@@ -15,6 +16,7 @@ export const writingGetQuestion = createAction(WRITING_GET_QUESTION);
 export const writingPostAnswer = createAction(WRITING_POST_ANSWER);
 export const writingNextProblem = createAction(WRITING_NEXT_PROBLEM);
 export const writingPrevProblem = createAction(WRITING_PREV_PROBLEM);
+export const writingSetTime = createAction(WIRTING_SET_TIME);
 
 const initialState = Map({
     problem : List(),
@@ -52,5 +54,8 @@ export default handleActions({
     },
     [WRITING_PREV_PROBLEM] : (state, action) => {
         return state.set('cpNum', action.payload);
+    },
+    [WIRTING_SET_TIME] : (state, action) =>{
+        return state.set('startTime', action.payload);
     }
 }, initialState);

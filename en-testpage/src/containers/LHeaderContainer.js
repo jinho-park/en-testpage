@@ -5,7 +5,25 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as listeningActions from 'store/modules/listening';
 
-class RHeaderContainer extends Component{
+class LHeaderContainer extends Component{
+    componentWillMount(){
+        let sTime = localStorage.getItem("startTime");
+        let {ListeningActions} = this.props;
+
+        if(sTime === null){
+            sTime = new Date().getTime();
+            localStorage.setItem("startTime", sTime);
+            ListeningActions.listeingSetTime({sTime});
+            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+        }
+        else{
+            localStorage.setItem("startTime", sTime);
+            ListeningActions.listeningSetTime({sTime});
+            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+        }
+        
+    }
+
     onClickNexthandle = () => {
 
     }
@@ -37,4 +55,4 @@ export default connect(
     (dispatch) => ({
         ListeningActions : bindActionCreators(listeningActions, dispatch)
     })
-)(withRouter(RHeaderContainer));
+)(withRouter(LHeaderContainer));

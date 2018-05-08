@@ -1,8 +1,14 @@
 import React from 'react';
+import { ListeningContainer, LHeaderContainer } from 'containers';
+import { QuestionTemplate } from 'components';
 
 const ListeningPage = () => {
     return(
-        <div>ListeningPage</div>
+        <QuestionTemplate
+            header={<LHeaderContainer/>}
+        >
+            <ListeningContainer/>
+        </QuestionTemplate>
     );
 }
 

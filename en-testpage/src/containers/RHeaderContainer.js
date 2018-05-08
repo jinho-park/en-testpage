@@ -6,6 +6,24 @@ import { withRouter } from 'react-router-dom';
 import * as readingActions from 'store/modules/reading';
 
 class RHeaderContainer extends Component{
+    componentWillMount(){
+        let sTime = localStorage.getItem("startTime");
+        let {ReadingActions} = this.props;
+
+        if(sTime === null){
+            sTime = new Date().getTime();
+            localStorage.setItem("startTime", sTime);
+            ReadingActions.readingSetTime({sTime});
+            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+        }
+        else{
+            localStorage.setItem("startTime", sTime);
+            ReadingActions.readingSetTime({sTime});
+            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+        }
+        
+    }
+    
     onClickNexthandle = () => {
         const { ReadingActions } = this.props;
         const { rcNum, tNum, history, chooseAnswer } = this.props;

@@ -6,6 +6,23 @@ import { withRouter } from 'react-router-dom';
 import * as writingActions from 'store/modules/writing';
 
 class WHeaderContainer extends Component{
+    componentWillMount(){
+        let sTime = localStorage.getItem("startTime");
+        let {WritingActions} = this.props;
+
+        if(sTime === null){
+            sTime = new Date().getTime();
+            localStorage.setItem("startTime", sTime);
+            WritingActions.writingSetTime({sTime});
+            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+        }
+        else{
+            localStorage.setItem("startTime", sTime);
+            WritingActions.writingSetTime({sTime});
+            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+        }
+        
+    }
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
         const { wcNum, tNum, answer } = this.props;
