@@ -16,7 +16,7 @@ export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
 export const readingGetQuestion = createAction(READING_GET_QUESTION, ReadingAPI.getQuestion);
 export const readingPostAnswer = createAction(READING_POST_ANSWER, ReadingAPI.resAnswer);
 export const readingNextProblem = createAction(READING_NEXT_PROBLEM);
-export const readintPrevProblem = createAction(READING_PREV_PROBLEM);
+export const readingPrevProblem = createAction(READING_PREV_PROBLEM);
 export const readingSetTime = createAction(READING_SET_TIME);
 
 const initialState = Map({

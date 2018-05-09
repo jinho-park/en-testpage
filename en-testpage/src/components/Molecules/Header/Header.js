@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'components';
 import styles from './Header.scss';
 import classNames from 'classnames/bind';
-
+import {Timer} from 'components';
 const cx = classNames.bind(styles);
 
 const Header = ({onNext, onPrev, children}) => {
@@ -12,6 +12,7 @@ const Header = ({onNext, onPrev, children}) => {
                 <div className={cx('chapter')}>
                     {children}
                 </div>
+                <Timer/>
                 <div className={cx('item')}>
                     <Button onClick={onPrev}>이전</Button>
                     <Button click={onNext}>다음</Button>
