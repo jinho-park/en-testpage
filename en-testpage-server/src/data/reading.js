@@ -13,7 +13,8 @@ function readQuestion(){
 function writeAnswer(data){
     return new Promise(
         (resolve, reject)=>{
-            const solve = fs.writeFileSync('./src/data/reading/answer.json', data, 'utf8');
+            console.log(data);
+            const solve = fs.writeFileSync('./src/data/reading/'+data.user+'_answer.json', data.answer, 'utf8');
             if(solve == Error) reject(false);
             resolve(true);
         }

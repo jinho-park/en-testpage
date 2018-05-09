@@ -31,8 +31,8 @@ export default handleActions({
         return state.setIn(['answer', cpNum], '');
     },
     [WRITING_CHANGE_ANSWER] : (state, action) => {
-        const { cpNum, e } = action.payload;
-        return state.setIn(['chooseAnswer', cpNum], e);
+        const { cpNum, data } = action.payload;
+        return state.setIn(['answer', cpNum], data);
     },
     ...pender({
         type : WRITING_GET_QUESTION,

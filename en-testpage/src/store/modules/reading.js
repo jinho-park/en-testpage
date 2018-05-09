@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map, fromJS, List } from 'immutable';
+import { Map, List } from 'immutable';
 import * as ReadingAPI from 'api/reading';
 import { pender } from 'redux-pender';
 
@@ -55,6 +55,7 @@ export default handleActions({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
             const { data } = action.payload;
+            localStorage.setItem('reading', data);
             return;
         }
     }),

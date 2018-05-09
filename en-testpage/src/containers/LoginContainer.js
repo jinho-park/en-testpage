@@ -15,7 +15,7 @@ class LoginContainer extends Component{
 
     onChangeInput = (e) => {
         const { UserActions } = this.props;
-        const { name, value } = e.target;
+        const { value } = e.target;
 
         UserActions.userSetInput({value});
     }

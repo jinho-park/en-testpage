@@ -27,17 +27,11 @@ class RHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { ReadingActions } = this.props;
         const { rcNum, tNum, history, chooseAnswer } = this.props;
-        const data = chooseAnswer.toJS();
-
-        console.log(data[rcNum]);
-
-        /*if(data[rcNum] === undefined){
-            console.log('inital');
-            ReadingActions.readingInitialAnswer({rcNum});
-        }*/
+        const answer = chooseAnswer.toJS();
+        const user = localStorage.getItem('user');
 
         if(rcNum+1 >= tNum){
-            ReadingActions.readingPostAnswer({data});
+            ReadingActions.readingPostAnswer({answer, user});
             history.push('./listening');
         }
         else

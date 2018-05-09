@@ -26,10 +26,12 @@ class WHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
         const { wcNum, tNum, answer } = this.props;
-        const data = answer.toJS();
+        const userAnswer = answer.toJS();
+        const user = localStorage.getItem('user');
 
         if(wcNum+1 >= tNum){
-            WritingActions.writingPostAnswer({data});
+            WritingActions.writingPostAnswer({userAnswer, user});
+            //push finishs
         }else
             WritingActions.writingNextProblem(wcNum+1);
     }
@@ -43,11 +45,11 @@ class WHeaderContainer extends Component{
     }
 
     render(){
-        const { onClickNexthandle, onCliPrevhandle } = this;
+        const { onClickNexthandle, onClickPrevhandle } = this;
         return(
             <Header
                 onNext={onClickNexthandle}
-                onPrev={this.onClickPrevhandle}
+                onPrev={onClickPrevhandle}
             >
                 Writing
             </Header>

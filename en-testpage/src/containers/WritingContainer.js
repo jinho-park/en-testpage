@@ -14,11 +14,12 @@ class WritingContainer extends Component{
     onChange = (e) => {
         const { WritingActions } = this.props;
         const { cpNum } = this.props;
+        const data = e.target.value;
 
-        WritingActions.writingChangeAnswer({e, cpNum});
+        WritingActions.writingChangeAnswer({data, cpNum});
     }
     render(){
-        const {tNum, cpNum, problem, answer } = this.props;
+        const { cpNum, problem, answer } = this.props;
         const { onChange } = this;
         const { WritingActions } = this.props;
         const data = answer.toJS();
@@ -30,7 +31,7 @@ class WritingContainer extends Component{
             <QWriting
                 question={problem}
                 onChangehandle={onChange}
-                answer={answer}
+                answer={data[cpNum]}
             />
         )
     }
@@ -39,7 +40,6 @@ class WritingContainer extends Component{
 export default connect(
     (state) => ({
         problem : state.writing.get('problem'),
-        tNum : state.writing.get('tNum'),
         cpNum : state.writing.get('cpNum'),
         answer : state.writing.get('answer')
     }),
