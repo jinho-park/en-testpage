@@ -7,19 +7,19 @@ import * as speakingActions from 'store/modules/speaking';
 
 class SHeaderContainer extends Component{
     componentWillMount(){
-        let sTime = localStorage.getItem("startTime");
+        let sTime = localStorage.getItem("sStartTime");
         let {SpeakingActions} = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("sStartTime", sTime);
             SpeakingActions.speakingSetTime({sTime});
-            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if null, speaking start time = " + localStorage.getItem("sStartTime"));
         }
         else{
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("sStartTime", sTime);
             SpeakingActions.speakingSetTime({sTime});
-            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if not null, speaking start time = " + localStorage.getItem("sStartTime"));
         }
         
     }
@@ -54,6 +54,8 @@ class SHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
+                total = {30*60}
+                startTime = {localStorage.getItem('lStartTime')}
             >
                 Speaking
             </Header>

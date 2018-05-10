@@ -7,19 +7,19 @@ import * as readingActions from 'store/modules/reading';
 
 class RHeaderContainer extends Component{
     componentWillMount(){
-        let sTime = localStorage.getItem("startTime");
+        let sTime = localStorage.getItem("rStartTime");
         let {ReadingActions} = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("rStartTime", sTime);
             ReadingActions.readingSetTime({sTime});
-            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if null, reading start time = " + localStorage.getItem("rStartTime"));
         }
         else{
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("rStartTime", sTime);
             ReadingActions.readingSetTime({sTime});
-            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if not null, reading start time = " + localStorage.getItem("rStartTime"));
         }
         
     }
@@ -53,6 +53,8 @@ class RHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
+                total = {60*60}
+                startTime = {localStorage.getItem('rStartTime')}
             >
                 Reading
             </Header>

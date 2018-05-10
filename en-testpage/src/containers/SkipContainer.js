@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as skipActions from 'store/modules/skip';
-import { Timer } from 'components';
+import { Header } from 'components';
 
 class SkipContainer extends Component{
     componentWillMount(){
@@ -23,8 +23,16 @@ class SkipContainer extends Component{
         }
     }
     render(){
+        const { onClickNexthandle, onClickPrevhandle } = this;
         return(
-            <Timer/>
+            <Header
+                onNext={onClickNexthandle}
+                onPrev={onClickPrevhandle}
+                total = {5*60}
+                startTime = {localStorage.getItem('lStartTime')}
+            >
+                Skip
+            </Header>
         )
     }
 }

@@ -11,6 +11,7 @@ const LISTENING_NEXT_PROBLEM = "listening/LISTENING_NEXT_PROBLEM";
 const LISTENING_PREV_PROBLEM = "listening/LISTENING_PREV_PROBLEM";
 const LISTENING_GET_LISTEN = "listening/LISTENING_NEXT_LISTEN";
 const LISTENING_SET_TIME = "listening/LISTENING_SET_TIME";
+const LISTENING_SET_TOTAL_TIME = "listening/LISTENING_SET_TOTAL_TIME";
 
 export const listeningGetQuestion = createAction(LISTENING_GET_QUESTION, ListeningAPI.getQuestion);
 export const listeningInitialAnswer = createAction(LISTENING_INITIAL_ANSWER);
@@ -19,6 +20,7 @@ export const listeningPostAnswer = createAction(LISTENING_POST_ANSWER, Listening
 export const listeningNextProblem = createAction(LISTENING_NEXT_PROBLEM);
 export const listeningPrevProblem = createAction(LISTENING_PREV_PROBLEM);
 export const listeningSetTime = createAction(LISTENING_SET_TIME);
+export const listeningSetTotalTime = createAction(LISTENING_SET_TOTAL_TIME);
 
 const initialState = Map({
     listening : null,
@@ -65,6 +67,9 @@ export default handleActions({
         return state.set('cNum', action.payload);
     },
     [LISTENING_SET_TIME] : (state, action) =>{
-        return state.set('startTime', action.payload);
+        return state.set('lStartTime', action.payload);
+    },
+    [LISTENING_SET_TOTAL_TIME] : (state, action) =>{
+        return state.set('lTotalTime', action.payload);
     }
 }, initialState);

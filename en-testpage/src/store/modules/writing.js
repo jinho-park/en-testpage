@@ -56,6 +56,6 @@ export default handleActions({
         return state.set('cpNum', action.payload);
     },
     [WIRTING_SET_TIME] : (state, action) =>{
-        return state.set('startTime', action.payload);
+        return state.set('wStartTime', action.payload);
     }
 }, initialState);

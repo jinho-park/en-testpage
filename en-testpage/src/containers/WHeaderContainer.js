@@ -7,19 +7,19 @@ import * as writingActions from 'store/modules/writing';
 
 class WHeaderContainer extends Component{
     componentWillMount(){
-        let sTime = localStorage.getItem("startTime");
+        let sTime = localStorage.getItem("wStartTime");
         let {WritingActions} = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("wStartTime", sTime);
             WritingActions.writingSetTime({sTime});
-            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if null, writing start time = " + localStorage.getItem("wStartTime"));
         }
         else{
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("wStartTime", sTime);
             WritingActions.writingSetTime({sTime});
-            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if not null, writing start time = " + localStorage.getItem("wStartTime"));
         }
         
     }
@@ -50,6 +50,8 @@ class WHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
+                total = {50*60}
+                startTime = {localStorage.getItem('lStartTime')}
             >
                 Writing
             </Header>
