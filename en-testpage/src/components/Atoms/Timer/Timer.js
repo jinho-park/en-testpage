@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 
 class Timer extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = { 
             timer : null,
-            total : 10, 
-            start : localStorage.getItem('startTime'),
+            total : this.props.total,
+            start : this.props.chapter, //localStorage.getItem('startTime'),
             elapsed : 0,
             hour : 0,
             minute : 0, 
             seconds : 0,
         };
+        window.console.log("in Timer, total = " + this.state.total);
+        window.console.log("in Timer, start = " + this.state.start);
     }
     getInitialState(){
         return { elapsed: 0 };

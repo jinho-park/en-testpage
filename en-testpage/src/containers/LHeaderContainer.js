@@ -7,19 +7,19 @@ import * as listeningActions from 'store/modules/listening';
 
 class LHeaderContainer extends Component{
     componentWillMount(){
-        let sTime = localStorage.getItem("startTime");
+        let sTime = localStorage.getItem("lStartTime");
         let {ListeningActions} = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
-            localStorage.setItem("startTime", sTime);
-            ListeningActions.listeingSetTime({sTime});
-            window.console.log("if null, start time = " + localStorage.getItem("startTime"));
+            localStorage.setItem("lStartTime", sTime);
+            ListeningActions.listeningSetTime({sTime});
+            window.console.log("if null, listening start time = " + localStorage.getItem("lStartTime"));
         }
         else{
-            localStorage.setItem("startTime", sTime);
+            localStorage.setItem("lStartTime", sTime);
             ListeningActions.listeningSetTime({sTime});
-            window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
+            window.console.log("if not null, listening start time = " + localStorage.getItem("lStartTime"));
         }
         
     }
@@ -29,8 +29,6 @@ class LHeaderContainer extends Component{
         const { lNum, cNum, tNum, chooseAnswer } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
-
-        
     }
 
     onClickPrevhandle = () => {
@@ -48,6 +46,8 @@ class LHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
+                total = {30*60}
+                startTime = {localStorage.getItem('lStartTime')}
             >
                 Listening
             </Header>

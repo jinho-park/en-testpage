@@ -72,7 +72,7 @@ export default handleActions({
         return state.set('cpNum', action.payload);
     },
     [READING_SET_TIME] : (state, action) =>{
-        return state.set('startTime', action.payload);
+        return state.set('rStartTime', action.payload);
     },
     ...pender({
         type : READING_GET_MAIN,

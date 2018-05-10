@@ -5,14 +5,17 @@ import classNames from 'classnames/bind';
 import {Timer} from 'components';
 const cx = classNames.bind(styles);
 
-const Header = ({onNext, onPrev, children}) => {
+const Header = ({onNext, onPrev, children, total, startTime}) => {
     return(
         <div className={cx('header')}>
             <div className={cx('wrapper-item')}>
                 <div className={cx('chapter')}>
                     {children}
                 </div>
-                <Timer/>
+                <Timer
+                    total={total}
+                    chapter={startTime}
+                />
                 <div className={cx('item')}>
                     <Button onClick={onPrev}>이전</Button>
                     <Button click={onNext}>다음</Button>
