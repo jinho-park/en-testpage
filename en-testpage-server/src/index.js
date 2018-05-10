@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = new express();
 const api = require('./api');
+const path = require('path');
 
 const {
     PORT : port
@@ -16,7 +17,7 @@ app.use('/api', api);
 
 app.use('/', express.static(__dirname+'/../../en-testpage/build'));
 app.get('*', function(req, res){
-    res.sendFile(path.resolve(__dirname, '/../../en-testpage/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../../en-testpage/build', 'index.html'));
 });
 
 app.listen(port , () => {

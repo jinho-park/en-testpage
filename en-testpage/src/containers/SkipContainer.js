@@ -19,7 +19,6 @@ class SkipContainer extends Component{
             SkipActions.skipSetTime({sTime});
             window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
         }
-        
     }
     render(){
         return(

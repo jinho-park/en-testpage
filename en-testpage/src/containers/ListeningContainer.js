@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as listeningActions from 'store/modules/listening';
-import { QReading } from 'components';
+import { QReading, Listening } from 'components';
 
 class ListeningContainer extends Component{
     render(){
         const { listen } = this.props;
 
         return(
-            {listen} ? <input/>: <QReading/>
+            {listen} ? <Listening/>: <QReading/>
         )
     }
 }
