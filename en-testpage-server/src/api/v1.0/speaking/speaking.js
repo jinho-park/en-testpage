@@ -1,7 +1,24 @@
+const speaking = reauire('data/speaking');
+
 exports.getQuestion = (req, res) => {
-    res.send('getQestion');
+    speaking.readQuestion()
+        .then(function(result){
+            res.send(result);
+        }, function(err){
+            console.log(err);
+            res.send(err);
+        });
 }
 
 exports.postAnswer = (req, res) => {
-    res.send('post answer');
+    const data = req.body;
+    console.log(data.user);
+    speaking.writeAnswer(data)
+        .then(function(result){
+            console.log(req.body);
+            res.send(true);
+        }, function(err){
+            console.log(err);
+            res.send(err);
+        })
 }
