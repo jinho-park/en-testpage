@@ -8,7 +8,12 @@ import * as readingActions from 'store/modules/reading';
 class RHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("startTime");
-        let {ReadingActions} = this.props;
+        const { ReadingActions } = this.props;
+        const { ctNum } = this.props;
+
+        ReadingActions.readingGetMain({ctNum});
+        ReadingActions.readingGetQuestion({ctNum});
+        ReadingActions.readingGetTotal();
 
         if(sTime === null){
             sTime = new Date().getTime();
@@ -64,7 +69,8 @@ export default connect(
     (state) => ({
         rcNum : state.reading.get('cpNum'),
         tNum : state.reading.get('tNum'),
-        chooseAnswer : state.reading.get('chooseAnswer')
+        chooseAnswer : state.reading.get('chooseAnswer'),
+        ctNum : state.reading.get('ctNum')
     }),
     (dispatch) => ({
         ReadingActions : bindActionCreators(readingActions, dispatch)

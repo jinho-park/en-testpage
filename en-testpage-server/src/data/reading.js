@@ -1,9 +1,29 @@
 const fs = require('fs');
 
-function readQuestion(){
+function readingMain(num){
+    return new Promise(
+        (resolve, reject) =>{
+            const data = fs.readFileSync('./src/data/reading/Main_'+num + '.txt', 'utf8');
+            if(data == Error) reject(false);
+            resolve(data);
+        }
+    )
+}
+
+function readingTotal(){
+    return new Promise(
+        (resolve, reject) => {
+            const data = fs.readFileSync('./src/data/reading/info.json', 'utf8');
+            if(data == Error) reject(false);
+            resolve(data);
+        }
+    )
+}
+
+function readQuestion(num){
     return new Promise(
         (resolve, reject)=>{
-            const data = fs.readFileSync('./src/data/reading/question.json', 'utf8');
+            const data = fs.readFileSync('./src/data/reading/question_'+num+'.json', 'utf8');
             if(data == Error) reject(false);
             resolve(data);
         }

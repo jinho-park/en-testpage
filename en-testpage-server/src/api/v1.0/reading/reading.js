@@ -1,5 +1,24 @@
 const reading = require('data/reading');
 
+exports.getMain = (req, res) => {
+    reading.redingMain(req.params.num)
+            .then(function(result){
+                console.log(result);
+                res.send(result);
+            }, (err) => {
+                res.send(err);
+            });
+}
+
+exports.getTotal = (req, res) => {
+    reading.readingTotal()
+            .then((result) => {
+                res.send(result);
+            }, (err) => {
+                res.end(err);
+            });
+}
+
 exports.getQuestion = (req, res) => {
     reading.readQuestion()
         .then(function(result){
@@ -17,7 +36,7 @@ exports.postAnswer = (req, res) => {
         .then(function(result){
             console.log(req.body);
             res.send(true);
-        }, function(error){
+        }, function(err){
             console.log(err);
             res.send(err);
         });

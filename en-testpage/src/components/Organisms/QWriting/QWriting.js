@@ -11,7 +11,7 @@ const QWriting = ({question, onChangehandle, answer}) => {
         <div className={cx('qwriting')}>
             <div className={cx('question')}>
                 <Question>
-                    asdf
+                    {question}
                 </Question>
             </div>
             <div className={cx('answer')}>

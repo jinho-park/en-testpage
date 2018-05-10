@@ -4,7 +4,9 @@ import * as ReadingAPI from 'api/reading';
 import { pender } from 'redux-pender';
 
 const READING_INITIAL_ANSWER = "reading/READING_INITAL_ANSWER";
+const READING_GET_MAIN = "reading/READING_GET_MAIN";
 const READING_GET_QUESTION = "reading/READING_GET_QUESTION";
+const READING_GET_TOTAL = "reading/READING_GET_TOTAL";
 const READING_CHOOSE_ANSWER = "reading/READING_CHOOSE_ANSWER";
 const READING_POST_ANSWER = "reading/READING_POST_ANSWER";
 const READING_NEXT_PROBLEM = "reading/READING_NEXT_PROBLEM";
@@ -13,6 +15,8 @@ const READING_SET_TIME = "reading/READING_SET_TIME";
 
 export const readingInitialAnswer = createAction(READING_INITIAL_ANSWER);
 export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
+export const readingGetMain = createAction(READING_GET_MAIN, ReadingAPI.getMain);
+export const readingGetTotal = createAction(READING_GET_TOTAL, ReadingAPI.getTotal);
 export const readingGetQuestion = createAction(READING_GET_QUESTION, ReadingAPI.getQuestion);
 export const readingPostAnswer = createAction(READING_POST_ANSWER, ReadingAPI.resAnswer);
 export const readingNextProblem = createAction(READING_NEXT_PROBLEM);
@@ -20,6 +24,7 @@ export const readingPrevProblem = createAction(READING_PREV_PROBLEM);
 export const readingSetTime = createAction(READING_SET_TIME);
 
 const initialState = Map({
+    main : '본문',
     problem : [
         {
             problem: 'hello~~~~~~',
@@ -29,6 +34,7 @@ const initialState = Map({
     ],
     tNum : 0,
     cpNum : 0,
+    ctNum : 0,
     chooseAnswer : List()
 });
 
@@ -67,5 +73,19 @@ export default handleActions({
     },
     [READING_SET_TIME] : (state, action) =>{
         return state.set('startTime', action.payload);
-    }
+    },
+    ...pender({
+        type : READING_GET_MAIN,
+        onSuccess : (state, action) => {
+            const { data } = action.payload;
+            return state.set('main', data);
+        }
+    }),
+    ...pender({
+        type : READING_GET_TOTAL,
+        onSuccess : (state, action) => {
+            const { num } = action.payload;
+            return state.set('ctNum', num);
+        }
+    })
 }, initialState);

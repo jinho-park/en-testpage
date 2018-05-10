@@ -29,7 +29,7 @@ class WritingContainer extends Component{
 
         return(
             <QWriting
-                question={problem}
+                question={problem[cpNum]}
                 onChangehandle={onChange}
                 answer={data[cpNum]}
             />
