@@ -51,7 +51,7 @@ class WHeaderContainer extends Component{
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
                 total = {50*60}
-                startTime = {localStorage.getItem('lStartTime')}
+                startTime = {localStorage.getItem('wStartTime')}
             >
                 Writing
             </Header>
