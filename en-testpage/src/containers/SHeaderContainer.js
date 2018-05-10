@@ -3,55 +3,59 @@ import { Header } from 'components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import * as writingActions from 'store/modules/writing';
+import * as speakingActions from 'store/modules/speaking';
 
-class WHeaderContainer extends Component{
+class SHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("startTime");
-        let {WritingActions} = this.props;
+        let {SpeakingActions} = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
             localStorage.setItem("startTime", sTime);
-            WritingActions.writingSetTime({sTime});
+            SpeakingActions.speakingSetTime({sTime});
             window.console.log("if null, start time = " + localStorage.getItem("startTime"));
         }
         else{
             localStorage.setItem("startTime", sTime);
-            WritingActions.writingSetTime({sTime});
+            SpeakingActions.speakingSetTime({sTime});
             window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
         }
         
     }
-    onClickNexthandle = () => {
-        const { WritingActions } = this.props;
-        const { wcNum, tNum, answer } = this.props;
-        const userAnswer = answer.toJS();
-        const user = localStorage.getItem('user');
 
-        if(wcNum+1 >= tNum){
-            WritingActions.writingPostAnswer({userAnswer, user});
-            //push finishs
-        }else
-            WritingActions.writingNextProblem(wcNum+1);
+    onClickNexthandle = () => {
+        const { SpeakingActions } = this.props;
+        const { rcNum, tNum, history, chooseAnswer } = this.props;
+        const data = chooseAnswer.toJS();
+
+        console.log(data[rcNum]);
+
+        if(rcNum+1 >= tNum){
+            SpeakingActions.speakingPostAnswer({data});
+            history.push('./listening');
+        }
+        else
+            SpeakingActions.speakingNextProblem(rcNum+1);
     }
 
     onClickPrevhandle = () => {
-        const { WritingActions } = this.props;
-        const { wcNum } = this.props;
+        const { SpeakingActions } = this.props;
+        const { rcNum } = this.props;
 
-        if(wcNum)
-            WritingActions.writingPrevProblem(wcNum-1);
+        if(rcNum)
+            SpeakingActions.speakingPrevProblem(rcNum-1);
     }
 
     render(){
         const { onClickNexthandle, onClickPrevhandle } = this;
+
         return(
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
             >
-                Writing
+                Speaking
             </Header>
         );
     }
@@ -59,11 +63,11 @@ class WHeaderContainer extends Component{
 
 export default connect(
     (state) => ({
-        wcNum : state.writing.get('cpNum'),
-        tNum : state.writing.get('tNum'),
-        answer : state.writing.get('answer')
+        rcNum : state.speaking.get('cpNum'),
+        tNum : state.speaking.get('tNum'),
+        chooseAnswer : state.speaking.get('chooseAnswer')
     }),
     (dispatch) => ({
-        WritingActions : bindActionCreators(writingActions, dispatch)
+        SpeakingActions : bindActionCreators(speakingActions, dispatch)
     })
-)(withRouter(WHeaderContainer));
+)(withRouter(SHeaderContainer));

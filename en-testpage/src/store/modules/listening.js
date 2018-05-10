@@ -18,7 +18,6 @@ export const listeningChooseAnswer = createAction(LISTENING_CHOOSE_ANSWER);
 export const listeningPostAnswer = createAction(LISTENING_POST_ANSWER, ListeningAPI.reAnswer);
 export const listeningNextProblem = createAction(LISTENING_NEXT_PROBLEM);
 export const listeningPrevProblem = createAction(LISTENING_PREV_PROBLEM);
-export const listeningGetListen = createAction(LISTENING_GET_LISTEN, ListeningAPI.getListening);
 export const listeningSetTime = createAction(LISTENING_SET_TIME);
 
 const initialState = Map({
@@ -67,12 +66,5 @@ export default handleActions({
     },
     [LISTENING_SET_TIME] : (state, action) =>{
         return state.set('startTime', action.payload);
-    },
-    ...pender({
-        type : LISTENING_GET_LISTEN,
-        onSuccess : (state, action) => {
-            const { data } = action.payload;
-            return state.set('listening', data);
-        }
-    })
+    }
 }, initialState);

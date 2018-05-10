@@ -20,7 +20,7 @@ class ReadingContainer extends Component{
 
     render(){
         const { onChange } = this;
-        const { tNum, cpNum, problem, chooseAnswer } = this.props;
+        const { cpNum, problem, chooseAnswer } = this.props;
         const { ReadingActions } = this.props;
         const data = chooseAnswer.toJS();
 
@@ -39,7 +39,6 @@ class ReadingContainer extends Component{
 
 export default connect(
     (state) => ({
-        tNum : state.reading.get('tNum'),
         cpNum : state.reading.get('cpNum'),
         problem : state.reading.get('problem'),
         chooseAnswer : state.reading.get('chooseAnswer')

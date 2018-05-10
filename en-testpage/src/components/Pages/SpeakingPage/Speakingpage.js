@@ -1,9 +1,12 @@
 import React from 'react';
-import { SpeakingContainer } from 'containers';
+import { SpeakingContainer, SHeaderContainer } from 'containers';
 
 const SpeakingPage = () => {
     return(
-        <SpeakingContainer/>
+        <div>
+            <SHeaderContainer/>
+            <SpeakingContainer/>
+        </div>
     );
 }
 

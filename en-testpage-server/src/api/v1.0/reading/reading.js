@@ -11,8 +11,8 @@ exports.getQuestion = (req, res) => {
 }
 
 exports.postAnswer = (req, res) => {
-    console.log(req.body);
-    const data = JSON.stringify(req.body);
+    const data = req.body;
+    console.log(data.user);
     reading.writeAnswer(data)
         .then(function(result){
             console.log(req.body);

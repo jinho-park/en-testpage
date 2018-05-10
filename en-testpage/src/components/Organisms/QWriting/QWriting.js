@@ -14,9 +14,11 @@ const QWriting = ({question, onChangehandle, answer}) => {
                     asdf
                 </Question>
             </div>
-            <div className={cx('answer')} value={answer}>
-                <TextArea>
-                    fdas
+            <div className={cx('answer')}>
+                <TextArea
+                    onChange={onChangehandle}
+                >
+                    {answer}
                 </TextArea>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map, fromJS, List } from 'immutable';
+import { Map, List } from 'immutable';
 import * as ReadingAPI from 'api/reading';
 import { pender } from 'redux-pender';
 
@@ -16,7 +16,7 @@ export const readingChooseAnswer = createAction(READING_CHOOSE_ANSWER);
 export const readingGetQuestion = createAction(READING_GET_QUESTION, ReadingAPI.getQuestion);
 export const readingPostAnswer = createAction(READING_POST_ANSWER, ReadingAPI.resAnswer);
 export const readingNextProblem = createAction(READING_NEXT_PROBLEM);
-export const readintPrevProblem = createAction(READING_PREV_PROBLEM);
+export const readingPrevProblem = createAction(READING_PREV_PROBLEM);
 export const readingSetTime = createAction(READING_SET_TIME);
 
 const initialState = Map({
@@ -55,6 +55,7 @@ export default handleActions({
         type : READING_POST_ANSWER,
         onSuccess : (state, action) => {
             const { data } = action.payload;
+            localStorage.setItem('reading', data);
             return;
         }
     }),

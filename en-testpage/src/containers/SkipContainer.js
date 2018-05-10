@@ -2,6 +2,8 @@ import React , { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import * as skipActions from 'store/modules/skip';
+import { Timer } from 'components';
 
 class SkipContainer extends Component{
     componentWillMount(){
@@ -16,13 +18,13 @@ class SkipContainer extends Component{
         }
         else{
             localStorage.setItem("startTime", sTime);
-            SkipActions.skipSetTime({sTime});
+            SkipActions.skipSetTime({sTime});   
             window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
         }
     }
     render(){
         return(
-            <div></div>
+            <Timer/>
         )
     }
 }
@@ -32,6 +34,6 @@ export default connect(
         
     }),
     (dispatch) => ({
-        
+        SkipActions : bindActionCreators(skipActions, dispatch)
     })
 )(withRouter(SkipContainer));

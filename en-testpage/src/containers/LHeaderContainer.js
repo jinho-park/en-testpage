@@ -25,11 +25,20 @@ class LHeaderContainer extends Component{
     }
 
     onClickNexthandle = () => {
+        const { ListeningActions } = this.props;
+        const { lNum, cNum, tNum, chooseAnswer } = this.props;
+        const answer = chooseAnswer.toJS();
+        const user = localStorage.getItem('user');
 
+        
     }
 
     onClickPrevhandle = () => {
+        const { ListeningActions } = this.props;
+        const { cNum } = this.props;
 
+        if(cNum)
+            ListeningActions.listeningPrevProblem(cNum-1);
     }
 
     render(){
@@ -50,6 +59,7 @@ export default connect(
     (state) => ({
         lNum : state.listening.get('lNum'),
         tNum : state.listening.get('tNum'),
+        cNum : state.listening.get('cNum'),
         chooseAnswer : state.listening.get('chooseAnswer')
     }),
     (dispatch) => ({
