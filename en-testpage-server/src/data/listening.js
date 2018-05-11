@@ -23,7 +23,7 @@ function writeAnswer(data){
 function listeningfile(num){
     return new Promise(
         (resolve, reject) => {
-            const solve = fs.readFileSync('./listening/file'+num+'.mp3', 'utf8');
+            const solve = fs.readFileSync('./listening/file_'+num+'.M4A', 'utf8');
             if(data = Error) reject(false);
             resolve(data);
         }

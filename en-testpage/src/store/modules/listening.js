@@ -12,6 +12,8 @@ const LISTENING_PREV_PROBLEM = "listening/LISTENING_PREV_PROBLEM";
 const LISTENING_GET_LISTEN = "listening/LISTENING_NEXT_LISTEN";
 const LISTENING_SET_TIME = "listening/LISTENING_SET_TIME";
 const LISTENING_SET_TOTAL_TIME = "listening/LISTENING_SET_TOTAL_TIME";
+const LISTENING_PLAY_SET = "listening/LISTENING_PLAY_SET";
+const LISTENING_NEXT_LISTEN = "listening/LISTEING_NEXT_LISTEN";
 
 export const listeningGetQuestion = createAction(LISTENING_GET_QUESTION, ListeningAPI.getQuestion);
 export const listeningInitialAnswer = createAction(LISTENING_INITIAL_ANSWER);
@@ -21,14 +23,17 @@ export const listeningNextProblem = createAction(LISTENING_NEXT_PROBLEM);
 export const listeningPrevProblem = createAction(LISTENING_PREV_PROBLEM);
 export const listeningSetTime = createAction(LISTENING_SET_TIME);
 export const listeningSetTotalTime = createAction(LISTENING_SET_TOTAL_TIME);
+export const listeningPlaySet = createAction(LISTENING_PLAY_SET);
+export const listeningNextListen = createAction(LISTENING_NEXT_LISTEN);
 
 const initialState = Map({
     listening : null,
     tproblem : List(Map()),
     problem : List(),
-    cNum: 0,
-    lNum : 0,
-    tNum : 0,
+    cNum: 0, //current problem number about one listening file
+    lNum : 0, //number of listening file
+    tNum : 0, //total problem bumber about one listening file
+    tlNum : 0, //total number of listening file
     chooseAnswer : List(),
     listen : true
 });
@@ -71,5 +76,11 @@ export default handleActions({
     },
     [LISTENING_SET_TOTAL_TIME] : (state, action) =>{
         return state.set('lTotalTime', action.payload);
+    },
+    [LISTENING_PLAY_SET] : (state, action) => {
+        return state.set('listening', !action.payload);
+    },
+    [LISTENING_NEXT_LISTEN] : (state, action) => {
+        return state.set('lNum', action.payload);
     }
 }, initialState);

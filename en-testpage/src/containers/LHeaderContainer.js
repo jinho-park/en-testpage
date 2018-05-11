@@ -8,7 +8,11 @@ import * as listeningActions from 'store/modules/listening';
 class LHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("lStartTime");
-        let {ListeningActions} = this.props;
+        const { ListeningActions, history } = this.props;
+        const listening = localStorage.getItem('listening');
+
+        if(listening != null)
+            history.push('skip');
 
         if(sTime === null){
             sTime = new Date().getTime();
@@ -26,9 +30,21 @@ class LHeaderContainer extends Component{
 
     onClickNexthandle = () => {
         const { ListeningActions } = this.props;
-        const { lNum, cNum, tNum, chooseAnswer } = this.props;
+        const { lNum, cNum, tNum, chooseAnswer, tlNum, history } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
+
+        if(cNum+1 > tNum){
+            if(lNum + 1 > tlNum){
+                ListeningActions.listeningPostAnswer({answer, user});
+                //localStorage.setItem('listening', true);
+                history.push('./skip');
+            }else{
+                ListeningActions.listeningNextListen(lNum+1);
+            }
+        }else{
+            ListeningActions.listeningNextProblem(cNum+1);
+        }
     }
 
     onClickPrevhandle = () => {
@@ -60,7 +76,8 @@ export default connect(
         lNum : state.listening.get('lNum'),
         tNum : state.listening.get('tNum'),
         cNum : state.listening.get('cNum'),
-        chooseAnswer : state.listening.get('chooseAnswer')
+        chooseAnswer : state.listening.get('chooseAnswer'),
+        tlNum : state.listening.get('tlNum')
     }),
     (dispatch) => ({
         ListeningActions : bindActionCreators(listeningActions, dispatch)

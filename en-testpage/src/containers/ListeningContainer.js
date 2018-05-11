@@ -19,20 +19,34 @@ class ListeningContainer extends Component{
         ListeningActions.listeningChooseAnswer({e, number});
     }
 
+    onEndhandle = () => {
+        const { ListeningActions } = this.props;
+
+        ListeningActions.listeningPaySet();
+    }
+
     render(){
-        const { onChange } = this;
+        const { onChange, onEndhandle } = this;
         const { listen, lNum, cNum, chooseAnswer, problem } = this.props;
         const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
         const number = lNum + cNum;
+        const url = document.location.href.split("/");
+        //const requestUrl = url[0] +"/"+ url[1]+"/"+url[2]+"/api/v1.0/listeing/get/listening/"+lNum;
+        const requestUrl = 'localhost:4000/api/v1.0/listening/get/listening/1';
 
         if(data[number] === undefined)
             ListeningActions.listeningInitialAnswer({number});
 
+        console.log(requestUrl);
+
         return(
 
             {listen} ? 
-                <input/>: 
+                <Listening
+                    url={requestUrl}
+                    onEndhandle={onEndhandle}
+                />: 
                 <QReading
                     question={problem[number]}
                     onChangehandle={onChange}

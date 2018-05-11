@@ -3,11 +3,15 @@ import ReactHowler from 'react-howler';
 
 class Listening extends Component{
     render(){
+        const { url, onEndhanle } = this.props;
         return(
-            <ReactHowler
-                src='http://goldfirestudios.com/proj/howlerjs/sound.ogg'
-                playing={true}
-            />
+            <div>
+                <ReactHowler
+                    src={url}
+                    playing={true}
+                    onEnd={onEndhanle}
+                />
+            </div>
         )
     }
 }

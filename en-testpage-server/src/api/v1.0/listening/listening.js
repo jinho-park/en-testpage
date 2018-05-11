@@ -1,3 +1,6 @@
+const listening = require('data/listening');
+const send = require('send');
+
 exports.getQuestion = (req, res) => {
     res.send('listening get question');
 }
@@ -8,6 +11,15 @@ exports.postAnswer = (req, res) => {
 
 exports.getListening = (req, res) => {
     const num = req.params.num;
-    console.log(num);
-    res.send('listening file send');
+    const path = 'src/data/listening/file_'+num+'.M4A';
+
+    console.log('get listening data');
+    
+    send(req, path)
+        .on('error', (err)=>{
+            console.log('error');
+            res.statuscCode = err.status || 500;
+            res.end(err.message);
+        })
+        .pipe(res);
 }

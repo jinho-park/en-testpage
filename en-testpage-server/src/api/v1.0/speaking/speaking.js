@@ -1,4 +1,4 @@
-const speaking = reauire('data/speaking');
+const speaking = require('data/speaking');
 
 exports.getQuestion = (req, res) => {
     speaking.readQuestion()
