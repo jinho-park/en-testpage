@@ -1,12 +1,14 @@
 import React from 'react';
 import { SpeakingContainer, SHeaderContainer } from 'containers';
+import { QuestionTemplate } from 'components';
 
 const SpeakingPage = () => {
     return(
-        <div>
-            <SHeaderContainer/>
+        <QuestionTemplate
+            header={<SHeaderContainer/>}
+        >
             <SpeakingContainer/>
-        </div>
+        </QuestionTemplate>
     );
 }
 

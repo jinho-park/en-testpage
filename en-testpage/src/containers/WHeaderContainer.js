@@ -25,13 +25,13 @@ class WHeaderContainer extends Component{
     }
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
-        const { wcNum, tNum, answer } = this.props;
+        const { wcNum, tNum, answer, history } = this.props;
         const userAnswer = answer.toJS();
         const user = localStorage.getItem('user');
 
         if(wcNum+1 >= tNum){
             WritingActions.writingPostAnswer({userAnswer, user});
-            //push finishs
+            history.push('./finish');
         }else
             WritingActions.writingNextProblem(wcNum+1);
     }

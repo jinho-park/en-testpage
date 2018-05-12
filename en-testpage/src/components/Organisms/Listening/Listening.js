@@ -8,10 +8,11 @@ class Listening extends Component{
         return(
             <div>
                 <ReactHowler
-                    src='http://localhost:4000/api/v1.0/listening/get/listening/file_1.mp3'
+                    src={url}
                     playing={true}
                     onEnd={onEndhanle}
                 />
+                listening
             </div>
         )
     }

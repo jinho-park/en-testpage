@@ -30,21 +30,18 @@ class ListeningContainer extends Component{
         const { listen, lNum, cNum, chooseAnswer, problem, listening } = this.props;
         const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
+        const list = listening.toJS();
         const number = lNum + cNum;
-        const url = document.location.href.split("/");
-        //const requestUrl = url[0] +"/"+ url[1]+"/"+url[2]+"/api/v1.0/listeing/get/listening/"+lNum;
-        const requestUrl = 'localhost:4000/api/v1.0/listening/get/listening/1';
+        const requestUrl = 'localhost:4000/api/v1.0/listening/get/listening/'+list[lNum];
 
         if(data[number] === undefined)
             ListeningActions.listeningInitialAnswer({number});
-
-        console.log(requestUrl);
 
         return(
 
             {listen} ? 
                 <Listening
-                    url={listening}
+                    url={requestUrl}
                     onEndhandle={onEndhandle}
                 />: 
                 <QReading
@@ -62,7 +59,8 @@ export default connect(
         lNum : state.listening.get('lNum'),
         cNum : state.listening.get('cNum'),
         chooseAnswer : state.listening.get('chooseAnswer'),
-        listen : state.listening.get('listen')
+        listen : state.listening.get('listen'),
+        listening : state.listening.get('listening')
     }),
     (dispatch) => ({
         ListeningActions : bindActionCreators(listeningActions, dispatch)

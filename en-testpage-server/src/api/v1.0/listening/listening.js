@@ -10,7 +10,7 @@ exports.postAnswer = (req, res) => {
 }
 
 exports.getListening = (req, res) => {
-    const num = req.params.num;
+    const file = req.params.file;
     const path = 'src/data/listening/'+num;
     console.log('get listening data');
     
@@ -21,4 +21,13 @@ exports.getListening = (req, res) => {
             res.end(err.message);
         })
         .pipe(res);
+}
+
+exports.getList = (req, res) => {
+    listening.getList()
+            .then((result) => {
+                res.send(result);
+            }, (err) => {
+                res.end(err);
+            });
 }

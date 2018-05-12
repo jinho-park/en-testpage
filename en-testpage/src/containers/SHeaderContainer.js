@@ -8,7 +8,9 @@ import * as speakingActions from 'store/modules/speaking';
 class SHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("sStartTime");
-        let {SpeakingActions} = this.props;
+        const { SpeakingActions } = this.props;
+
+        SpeakingActions.speakingGetQuestion();
 
         if(sTime === null){
             sTime = new Date().getTime();
@@ -26,25 +28,24 @@ class SHeaderContainer extends Component{
 
     onClickNexthandle = () => {
         const { SpeakingActions } = this.props;
-        const { rcNum, tNum, history, chooseAnswer } = this.props;
-        const data = chooseAnswer.toJS();
+        const { cNum, tNum, history, recordData } = this.props;
+        const file = recordData;
 
-        console.log(data[rcNum]);
-
-        if(rcNum+1 >= tNum){
-            SpeakingActions.speakingPostAnswer({data});
-            history.push('./listening');
+        if(cNum+1 >= tNum){
+            history.push('./writing');
         }
-        else
-            SpeakingActions.speakingNextProblem(rcNum+1);
+        else{
+            SpeakingActions.speakingPostAnswer({file});
+            SpeakingActions.speakingNextProblem(cNum+1);
+        }
     }
 
     onClickPrevhandle = () => {
         const { SpeakingActions } = this.props;
-        const { rcNum } = this.props;
+        const { cNum } = this.props;
 
-        if(rcNum)
-            SpeakingActions.speakingPrevProblem(rcNum-1);
+        if(cNum)
+            SpeakingActions.speakingPrevProblem(cNum-1);
     }
 
     render(){
@@ -65,9 +66,9 @@ class SHeaderContainer extends Component{
 
 export default connect(
     (state) => ({
-        rcNum : state.speaking.get('cpNum'),
+        cNum : state.speaking.get('cpNum'),
         tNum : state.speaking.get('tNum'),
-        chooseAnswer : state.speaking.get('chooseAnswer')
+        recordData : state.speaking.get('recordData')
     }),
     (dispatch) => ({
         SpeakingActions : bindActionCreators(speakingActions, dispatch)

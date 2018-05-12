@@ -14,7 +14,7 @@ const LISTENING_SET_TIME = "listening/LISTENING_SET_TIME";
 const LISTENING_SET_TOTAL_TIME = "listening/LISTENING_SET_TOTAL_TIME";
 const LISTENING_PLAY_SET = "listening/LISTENING_PLAY_SET";
 const LISTENING_NEXT_LISTEN = "listening/LISTEING_NEXT_LISTEN";
-const LISTENING_GET_AUDIO = "listening/LISTENING_GET_AUDIO";
+const LISTENING_GET_LIST = "listening/LISTENING_GET_LIST";
 
 export const listeningGetQuestion = createAction(LISTENING_GET_QUESTION, ListeningAPI.getQuestion);
 export const listeningInitialAnswer = createAction(LISTENING_INITIAL_ANSWER);
@@ -26,10 +26,10 @@ export const listeningSetTime = createAction(LISTENING_SET_TIME);
 export const listeningSetTotalTime = createAction(LISTENING_SET_TOTAL_TIME);
 export const listeningPlaySet = createAction(LISTENING_PLAY_SET);
 export const listeningNextListen = createAction(LISTENING_NEXT_LISTEN);
-export const listeningGetAudio = createAction(LISTENING_GET_AUDIO, ListeningAPI.requestAudio);
+export const listeningGetList = createAction(LISTENING_GET_LIST, ListeningAPI.requestList);
 
 const initialState = Map({
-    listening : null,
+    listening : List(),
     tproblem : List(Map()),
     problem : List(),
     cNum: 0, //current problem number about one listening file
@@ -86,7 +86,7 @@ export default handleActions({
         return state.set('lNum', action.payload);
     },
     ...pender({
-        type : LISTENING_GET_AUDIO,
+        type : LISTENING_GET_LIST,
         onSuccess : (state, action) => {
             return state.set('listening', action.payload);
         }

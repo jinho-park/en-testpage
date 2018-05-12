@@ -1,48 +1,28 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map, fromJS, List } from 'immutable';
-//import * as speakingAPI from 'api/speaking';
+import { Map } from 'immutable';
+import * as speakingAPI from 'api/speaking';
 import { pender } from 'redux-pender';
 
-const SPEAKING_INITIAL_ANSWER = "speaking/SPEAKING_INITAL_ANSWER";
 const SPEAKING_GET_QUESTION = "speaking/SPEAKING_GET_QUESTION";
-const SPEAKING_CHOOSE_ANSWER = "speaking/SPEAKING_CHOOSE_ANSWER";
 const SPEAKING_POST_ANSWER = "speaking/SPEAKING_POST_ANSWER";
 const SPEAKING_NEXT_PROBLEM = "speaking/SPEAKING_NEXT_PROBLEM";
 const SPEAKING_PREV_PROBLEM = "speaking/SPEAKING_PREV_PROBLEM";
 const SPEAKING_SET_TIME = "speaking/SPEAKING_SET_TIME";
 
-export const speakingInitialAnswer = createAction(SPEAKING_INITIAL_ANSWER);
-export const speakingChooseAnswer = createAction(SPEAKING_CHOOSE_ANSWER);
-export const speakingGetQuestion = createAction(SPEAKING_GET_QUESTION);
-export const speakingPostAnswer = createAction(SPEAKING_POST_ANSWER);
+export const speakingGetQuestion = createAction(SPEAKING_GET_QUESTION, speakingAPI.getQuestion);
+export const speakingPostAnswer = createAction(SPEAKING_POST_ANSWER, speakingAPI.postAnswer);
 export const speakingNextProblem = createAction(SPEAKING_NEXT_PROBLEM);
 export const speakingPrevProblem = createAction(SPEAKING_PREV_PROBLEM);
 export const speakingSetTime = createAction(SPEAKING_SET_TIME);
 
 const initialState = Map({
-    problem : [
-        {
-            problem: 'hello~~~~~~',
-            example : [1,2,3,4],
-            answer : 0
-        }
-    ],
+    problem : ["this is problem"],
     tNum : 0,
     cpNum : 0,
-    chooseAnswer : List()
+    recordData : null
 });
 
 export default handleActions({
-    [SPEAKING_INITIAL_ANSWER] : (state, action) => {
-        console.log(action.payload);
-        const { cpNum } = action.payload;
-        return state.setIn(['chooseAnswer', cpNum], 0);
-    },
-    [SPEAKING_CHOOSE_ANSWER] : (state, action) => {
-        const { e, cpNum } = action.payload;
-
-        return state.setIn(['chooseAnswer', cpNum], e);
-    },
     ...pender({
         type : SPEAKING_GET_QUESTION,
         onSuccess : (state, action) => {

@@ -9,5 +9,9 @@ export const reAnswer = ({answer, user}) =>
         answer
     });
 
-export const requestAudio = ({num}) => 
-    axios.get('/api/v1.0/listening/get/listening/'+num);
+export const requestAudio = ({file}) => 
+    axios.get('/api/v1.0/listening/get/listening/'+file);
+
+export const requestList = () => {
+    axios.get('/api/v1.0/listening/get/list');
+}

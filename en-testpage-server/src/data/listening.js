@@ -20,10 +20,10 @@ function writeAnswer(data){
     );
 }
 
-function listeningfile(num){
+function getList(){
     return new Promise(
         (resolve, reject) => {
-            const solve = fs.readFileSync('./listening/file_'+num+'.mp3', 'utf8');
+            const list = fs.readFileSync('./listening/list.json', 'utf8');
             if(data = Error) reject(false);
             resolve(data);
         }
@@ -32,4 +32,4 @@ function listeningfile(num){
 
 exports.readQuestion = readQuestion;
 exports.writeAnswer = writeAnswer;
-exports.listeningfile = listeningfile;
+exports.getList = getList;
