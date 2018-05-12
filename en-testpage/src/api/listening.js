@@ -8,3 +8,6 @@ export const reAnswer = ({answer, user}) =>
         user,
         answer
     });
+
+export const requestAudio = ({num}) => 
+    axios.get('/api/v1.0/listening/get/listening/'+num);

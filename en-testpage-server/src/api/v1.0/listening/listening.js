@@ -11,8 +11,7 @@ exports.postAnswer = (req, res) => {
 
 exports.getListening = (req, res) => {
     const num = req.params.num;
-    const path = 'src/data/listening/file_'+num+'.M4A';
-
+    const path = 'src/data/listening/'+num;
     console.log('get listening data');
     
     send(req, path)

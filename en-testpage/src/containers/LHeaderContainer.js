@@ -8,11 +8,14 @@ import * as listeningActions from 'store/modules/listening';
 class LHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("lStartTime");
-        const { ListeningActions, history } = this.props;
+        const { ListeningActions, history, lNum } = this.props;
         const listening = localStorage.getItem('listening');
+        const num = lNum+1;
+
+        ListeningActions.listeningGetAudio({num});
 
         if(listening != null)
-            history.push('skip');
+            history.push('/skip');
 
         if(sTime === null){
             sTime = new Date().getTime();

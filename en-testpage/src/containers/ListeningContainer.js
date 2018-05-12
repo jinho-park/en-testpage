@@ -27,7 +27,7 @@ class ListeningContainer extends Component{
 
     render(){
         const { onChange, onEndhandle } = this;
-        const { listen, lNum, cNum, chooseAnswer, problem } = this.props;
+        const { listen, lNum, cNum, chooseAnswer, problem, listening } = this.props;
         const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
         const number = lNum + cNum;
@@ -44,7 +44,7 @@ class ListeningContainer extends Component{
 
             {listen} ? 
                 <Listening
-                    url={requestUrl}
+                    url={listening}
                     onEndhandle={onEndhandle}
                 />: 
                 <QReading

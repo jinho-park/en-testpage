@@ -14,6 +14,7 @@ const LISTENING_SET_TIME = "listening/LISTENING_SET_TIME";
 const LISTENING_SET_TOTAL_TIME = "listening/LISTENING_SET_TOTAL_TIME";
 const LISTENING_PLAY_SET = "listening/LISTENING_PLAY_SET";
 const LISTENING_NEXT_LISTEN = "listening/LISTEING_NEXT_LISTEN";
+const LISTENING_GET_AUDIO = "listening/LISTENING_GET_AUDIO";
 
 export const listeningGetQuestion = createAction(LISTENING_GET_QUESTION, ListeningAPI.getQuestion);
 export const listeningInitialAnswer = createAction(LISTENING_INITIAL_ANSWER);
@@ -25,6 +26,7 @@ export const listeningSetTime = createAction(LISTENING_SET_TIME);
 export const listeningSetTotalTime = createAction(LISTENING_SET_TOTAL_TIME);
 export const listeningPlaySet = createAction(LISTENING_PLAY_SET);
 export const listeningNextListen = createAction(LISTENING_NEXT_LISTEN);
+export const listeningGetAudio = createAction(LISTENING_GET_AUDIO, ListeningAPI.requestAudio);
 
 const initialState = Map({
     listening : null,
@@ -78,9 +80,15 @@ export default handleActions({
         return state.set('lTotalTime', action.payload);
     },
     [LISTENING_PLAY_SET] : (state, action) => {
-        return state.set('listening', !action.payload);
+        return state.set('listen', !action.payload);
     },
     [LISTENING_NEXT_LISTEN] : (state, action) => {
         return state.set('lNum', action.payload);
-    }
+    },
+    ...pender({
+        type : LISTENING_GET_AUDIO,
+        onSuccess : (state, action) => {
+            return state.set('listening', action.payload);
+        }
+    })
 }, initialState);
