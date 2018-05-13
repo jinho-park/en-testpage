@@ -84,8 +84,8 @@ export default handleActions({
     ...pender({
         type : READING_GET_TOTAL,
         onSuccess : (state, action) => {
-            const { num } = action.payload;
-            return state.set('ctNum', num);
+            const { problemNumber } = action.payload.data;
+            return state.set('ctNum', problemNumber);
         }
     })
 }, initialState);

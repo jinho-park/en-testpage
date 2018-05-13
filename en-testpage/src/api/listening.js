@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getQuestion = () => 
-    axios.get('/api/v1.0/listening/get/question');
+export const getQuestion = ({lNum}) => 
+    axios.get('/api/v1.0/listening/get/problem/'+(lNum*1+1));
 
 export const reAnswer = ({answer, user}) =>
     axios.post('/api/v1.0/litening/post/answer', {
@@ -12,6 +12,5 @@ export const reAnswer = ({answer, user}) =>
 export const requestAudio = ({file}) => 
     axios.get('/api/v1.0/listening/get/listening/'+file);
 
-export const requestList = () => {
+export const requestList = () => 
     axios.get('/api/v1.0/listening/get/list');
-}

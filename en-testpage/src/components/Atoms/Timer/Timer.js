@@ -31,10 +31,11 @@ class Timer extends React.Component{
                     clearInterval(this.timer);
                     let url = document.location.href.split("/");
                     switch(url[3]){
-                        case "reading": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/writing"; break;
-                        case "writing": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/skip"; break;
-                        case "listening": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/speaking"; break;
-                        case "speaking": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2]; break;
+                        case "reading": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/listening"; break;
+                        case "writing": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/finish"; break;
+                        case "listening": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/skip"; break;
+                        case "skip": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/speaking"; break;
+                        case "speaking": document.location.href = url[0] +"/"+ url[1] +"/"+ url[2] + "/writing"; break;
                         default : break;
                     }
                 } 

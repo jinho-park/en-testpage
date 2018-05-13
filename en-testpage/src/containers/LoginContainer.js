@@ -39,6 +39,8 @@ class LoginContainer extends Component{
             userName
         } = this.props;
 
+        localStorage.setItem('thisUrl', document.location.href);
+
         return(
             <Login 
                 changehandle={onChangeInput}

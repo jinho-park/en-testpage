@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-export const getMain = ({num}) => 
-    axios.get('/api/v1.0/reading/get/main/'+num);
+export const getMain = ({ctNum}) => 
+    axios.get('/api/v1.0/reading/get/main/'+(ctNum*1+1));
 
 export const getTotal = () =>
-    axios.get('/api/v1.0/reading/get/total/');
+    axios.get('/api/v1.0/reading/get/total');
 
-export const getQuestion = ({num}) => 
-    axios.get('/api/v1.0/reading/get/question/' + num);
+export const getQuestion = ({ctNum}) => 
+    axios.get('/api/v1.0/reading/get/question/' + (ctNum*1+1));
 
 export const resAnswer = ({answer, user}) => 
     axios.post('/api/v1.0/reading/post/answer', {

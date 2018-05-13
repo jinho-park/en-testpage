@@ -11,6 +11,8 @@ class RHeaderContainer extends Component{
         const { ReadingActions } = this.props;
         const { ctNum } = this.props;
 
+        console.log(ctNum);
+
         ReadingActions.readingGetMain({ctNum});
         ReadingActions.readingGetQuestion({ctNum});
         ReadingActions.readingGetTotal();
@@ -39,8 +41,9 @@ class RHeaderContainer extends Component{
             ReadingActions.readingPostAnswer({answer, user});
             history.push('./listening');
         }
-        else
+        else{
             ReadingActions.readingNextProblem(rcNum+1);
+        }
     }
 
     onClickPrevhandle = () => {

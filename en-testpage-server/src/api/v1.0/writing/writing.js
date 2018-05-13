@@ -19,3 +19,16 @@ exports.postAnswer = (req, res) =>{
                 res.send(err);
             });
 }
+
+exports.getListen = (req, res) => {
+    const file = req.params.file;
+    const path = 'src/data/writing/' + file;
+
+    send(req, path)
+        .on('error', (err) => {
+            console.log('write listening file error');
+            res.stateCode = err.status || 500;
+            res.send(err.message);
+        })
+        .pipe(res);
+}

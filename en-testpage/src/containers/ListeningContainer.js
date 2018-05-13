@@ -8,7 +8,8 @@ import { QReading, Listening } from 'components';
 class ListeningContainer extends Component{
     componentWillMount(){
         const { ListeningActions } = this.props;
-        ListeningActions.listeningGetQuestion();
+        const { lNum } = this.props;
+        ListeningActions.listeningGetQuestion({lNum});
     }
 
     onChange = (e) => {
@@ -22,6 +23,7 @@ class ListeningContainer extends Component{
     onEndhandle = () => {
         const { ListeningActions } = this.props;
 
+        console.log('audio end');
         ListeningActions.listeningPaySet();
     }
 
@@ -30,9 +32,12 @@ class ListeningContainer extends Component{
         const { listen, lNum, cNum, chooseAnswer, problem, listening } = this.props;
         const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
-        const list = listening.toJS();
         const number = lNum + cNum;
-        const requestUrl = 'localhost:4000/api/v1.0/listening/get/listening/'+list[lNum];
+        const thisUrl = localStorage.getItem('thisUrl');
+        const requestUrl = thisUrl+"api/v1.0/listening/get/listening/"+listening[lNum];
+
+        console.log(listen);
+        console.log(problem);
 
         if(data[number] === undefined)
             ListeningActions.listeningInitialAnswer({number});
@@ -43,7 +48,7 @@ class ListeningContainer extends Component{
                 <Listening
                     url={requestUrl}
                     onEndhandle={onEndhandle}
-                />: 
+                />:
                 <QReading
                     question={problem[number]}
                     onChangehandle={onChange}

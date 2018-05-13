@@ -1,9 +1,9 @@
 const fs = require('fs');
 
-function readQuestion(){
+function readQuestion(num){
     return new Promise(
         (resolve, reject)=>{
-            const data = fs.readFileSync('./listening/question.json', 'utf8');
+            const data = fs.readFileSync('./src/data/listening/question_'+num+'.json', 'utf8');
             if(data == Error) reject(false);
             resolve(data);
         }
@@ -13,7 +13,7 @@ function readQuestion(){
 function writeAnswer(data){
     return new Promise(
         (resolve, reject)=>{
-            const solve = fs.writeFileSync('./listening/answer.json', data, 'utf8');
+            const solve = fs.writeFileSync('./src/data/listening/'+data.user+'answer.json', data.answer, 'utf8');
             if(solve == undefined) reject(false);
             resolve(true);
         }
@@ -23,9 +23,9 @@ function writeAnswer(data){
 function getList(){
     return new Promise(
         (resolve, reject) => {
-            const list = fs.readFileSync('./listening/list.json', 'utf8');
-            if(data = Error) reject(false);
-            resolve(data);
+            const list = fs.readFileSync('./src/data/listening/filelist.json', 'utf8');
+            if(list == Error) reject(false);
+            resolve(list);
         }
     )
 }

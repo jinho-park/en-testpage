@@ -43,3 +43,5 @@ function writeAnswer(data){
 
 exports.readQuestion = readQuestion;
 exports.writeAnswer = writeAnswer;
+exports.readingTotal = readingTotal;
+exports.readingMain = readingMain;

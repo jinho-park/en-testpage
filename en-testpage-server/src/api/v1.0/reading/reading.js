@@ -1,9 +1,8 @@
 const reading = require('data/reading');
 
 exports.getMain = (req, res) => {
-    reading.redingMain(req.params.num)
+    reading.readingMain(req.params.num)
             .then(function(result){
-                console.log(result);
                 res.send(result);
             }, (err) => {
                 res.send(err);
@@ -20,7 +19,9 @@ exports.getTotal = (req, res) => {
 }
 
 exports.getQuestion = (req, res) => {
-    reading.readQuestion()
+    const num = req.params.num;
+    console.log(num);
+    reading.readQuestion(num)
         .then(function(result){
             res.send(result);
         }, function(err){

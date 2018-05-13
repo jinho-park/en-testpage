@@ -30,12 +30,17 @@ export const listeningGetList = createAction(LISTENING_GET_LIST, ListeningAPI.re
 
 const initialState = Map({
     listening : List(),
-    tproblem : List(Map()),
-    problem : List(),
+    problem : [
+        {
+            problem: 'hello~~~~~~',
+            example : [1,2,3,4],
+            answer : 0
+        }
+    ],
     cNum: 0, //current problem number about one listening file
     lNum : 0, //number of listening file
-    tNum : 0, //total problem bumber about one listening file
-    tlNum : 0, //total number of listening file
+    tNum : 1, //total problem bumber about one listening file
+    tlNum : 1, //total number of listening file
     chooseAnswer : List(),
     listen : true
 });
@@ -53,9 +58,8 @@ export default handleActions({
         type: LISTENING_GET_QUESTION,
         onSuccess : (state, action) => {
             const { question } = action.payload.data;
-            return state.set('tproblem', question)
-                        .set('lNum', question[0].length)
-                        .set('problem', question[0])
+            console.log(action.payload.data);
+            return state.set('problem', question)
                         .set('tNum', question.length);
         }
     }),
@@ -80,15 +84,27 @@ export default handleActions({
         return state.set('lTotalTime', action.payload);
     },
     [LISTENING_PLAY_SET] : (state, action) => {
-        return state.set('listen', !action.payload);
+        console.log('change');
+        return state.set('listen', false);
     },
     [LISTENING_NEXT_LISTEN] : (state, action) => {
-        return state.set('lNum', action.payload);
+        return state.set('lNum', action.payload)
+                    .set('listen', true);
     },
     ...pender({
         type : LISTENING_GET_LIST,
         onSuccess : (state, action) => {
-            return state.set('listening', action.payload);
+            const { list } = action.payload.data;
+            return state.set('listening', list)
+                        .set('tlNum', list.length);
+        },
+        onPending : (state, action) => {
+            console.log(action.payload);
+            return;
+        },
+        onFailure : (state ,action) => {
+            console.log(action.payload);
+            return;
         }
     })
 }, initialState);

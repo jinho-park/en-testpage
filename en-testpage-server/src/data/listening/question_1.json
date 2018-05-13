@@ -1,0 +1,22 @@
+{
+    "question" : [
+        {
+            "problem" : "The phrase `unique among` in the passage is closest in meaning to",
+            "example" : [
+                "natural to",
+                "different from all other",
+                "quite common among",
+                "familiar to"
+            ]
+        },
+        {
+            "problem" : ". What can be inferred about whales from paragraph 1? ",
+            "example" : [
+                "They are considered by some to be reptiles.",
+                "Their bodies are built in a way that helps them manage extremely cold temperatures",
+                "They are distantly related to leatherback turtles.",
+                "They can swim farther than leatherback turtles."
+            ]
+        }
+    ]
+}

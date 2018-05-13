@@ -10,7 +10,6 @@ class LHeaderContainer extends Component{
         let sTime = localStorage.getItem("lStartTime");
         const { ListeningActions, history } = this.props;
         const listening = localStorage.getItem('listening');
-        //const num = lNum+1;
 
         ListeningActions.listeningGetList();
 
@@ -33,12 +32,14 @@ class LHeaderContainer extends Component{
 
     onClickNexthandle = () => {
         const { ListeningActions } = this.props;
-        const { lNum, cNum, tNum, chooseAnswer, tlNum, history } = this.props;
+        const { lNum, cNum, tNum, chooseAnswer, tlNum, history, listen } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
 
+        console.log(tNum);
+
         if(cNum+1 > tNum){
-            if(lNum + 1 > tlNum){
+            if(lNum + 1 >= tlNum){
                 ListeningActions.listeningPostAnswer({answer, user});
                 //localStorage.setItem('listening', true);
                 history.push('./skip');
@@ -46,7 +47,8 @@ class LHeaderContainer extends Component{
                 ListeningActions.listeningNextListen(lNum+1);
             }
         }else{
-            ListeningActions.listeningNextProblem(cNum+1);
+            if(listen) ListeningActions.listeningPlaySet();
+            else ListeningActions.listeningNextProblem(cNum+1);
         }
     }
 
@@ -80,7 +82,8 @@ export default connect(
         tNum : state.listening.get('tNum'),
         cNum : state.listening.get('cNum'),
         chooseAnswer : state.listening.get('chooseAnswer'),
-        tlNum : state.listening.get('tlNum')
+        tlNum : state.listening.get('tlNum'),
+        listen : state.listening.get('listen')
     }),
     (dispatch) => ({
         ListeningActions : bindActionCreators(listeningActions, dispatch)
