@@ -9,8 +9,11 @@ class SpeakingContainer extends Component{
     onChange = (e) => {
         const { SpeakingActions } = this.props;
         const { recordData } = this.props;
-
-        console.log(e);
+        const user = localStorage.getItem('user');
+        const { audioData } = e;
+        
+        SpeakingActions.speakingPostAnswer({user, audioData});
+        console.log(e.audioData);
     }
 
     render(){
