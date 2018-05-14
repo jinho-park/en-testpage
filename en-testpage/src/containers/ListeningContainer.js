@@ -43,17 +43,7 @@ class ListeningContainer extends Component{
             ListeningActions.listeningInitialAnswer({number});
 
         return(
-
-            {listen} ? 
-                <Listening
-                    url={requestUrl}
-                    onEndhandle={onEndhandle}
-                />:
-                <QReading
-                    question={problem[number]}
-                    onChangehandle={onChange}
-                    answer={data[number]}
-                />
+            listen ? <Listening url={requestUrl} onEndhandle={onEndhandle}/>: <QReading question={problem[number]} onChangehandle={onChange} answer={data[number]}/>
         )
     }
 }

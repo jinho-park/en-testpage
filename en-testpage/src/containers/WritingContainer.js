@@ -2,13 +2,13 @@ import React , { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { QWriting } from 'components';
+import { QWriting, TWriting } from 'components';
 import * as writingActions from 'store/modules/writing';
 
 class WritingContainer extends Component{
     componentWillMount(){
         const { WritingActions } = this.props;
-        WritingActions.writingGetQuestion();
+        WritingActions.writingGetQuestion('dependent');
     }
 
     onChange = (e) => {
@@ -19,20 +19,18 @@ class WritingContainer extends Component{
         WritingActions.writingChangeAnswer({data, cpNum});
     }
     render(){
-        const { cpNum, problem, answer } = this.props;
+        const { cpNum, problem, answer, cond, list } = this.props;
         const { onChange } = this;
         const { WritingActions } = this.props;
         const data = answer.toJS();
+        const thisUrl = localStorage.getItem('thisUrl');
+        const url = thisUrl + 'api/v1.0/writing/get/audio/'+ list[cpNum];
 
-        if(data[cpNum] === undefined)
+        if(data[cpNum] === undefined || cond)
             WritingActions.writingInitialAnswer({cpNum});
 
         return(
-            <QWriting
-                question={problem[cpNum]}
-                onChangehandle={onChange}
-                answer={data[cpNum]}
-            />
+            cond ? <TWriting onChangehandle={onChange}/> : <QWriting question={problem[cpNum]} onChangehandle={onChange} answer={data[cpNum]}/>
         )
     }
 }
@@ -41,7 +39,9 @@ export default connect(
     (state) => ({
         problem : state.writing.get('problem'),
         cpNum : state.writing.get('cpNum'),
-        answer : state.writing.get('answer')
+        answer : state.writing.get('answer'),
+        cond : state.writing.get('cond'),
+        list : state.writing.get('list')
     }),
     (dispatch) => ({
         WritingActions : bindActionCreators(writingActions, dispatch)

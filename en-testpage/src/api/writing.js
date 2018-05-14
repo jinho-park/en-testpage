@@ -8,3 +8,6 @@ export const resAnswer = ({answer, user}) =>
         user,
         answer
     });
+
+export const getList = () => 
+    axios.get('/api/v1.0/writing/get/list');

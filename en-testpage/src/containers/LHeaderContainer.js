@@ -38,7 +38,7 @@ class LHeaderContainer extends Component{
 
         console.log(tNum);
 
-        if(cNum+1 > tNum){
+        if(cNum+1 >= tNum && !listen){
             if(lNum + 1 >= tlNum){
                 ListeningActions.listeningPostAnswer({answer, user});
                 //localStorage.setItem('listening', true);

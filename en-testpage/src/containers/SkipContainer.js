@@ -22,12 +22,19 @@ class SkipContainer extends Component{
             window.console.log("if not null, start time = " + localStorage.getItem("startTime"));
         }
     }
+
+    onClickNexthandle = () => {
+        const { history } = this.props;
+
+        history.push('./speaking');
+    }
+
     render(){
-        const { onClickNexthandle, onClickPrevhandle } = this;
+        const { onClickNexthandle } = this;
+        
         return(
             <Header
                 onNext={onClickNexthandle}
-                onPrev={onClickPrevhandle}
                 total = {5*60}
                 startTime = {localStorage.getItem('lStartTime')}
             >

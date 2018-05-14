@@ -10,6 +10,8 @@ class WHeaderContainer extends Component{
         let sTime = localStorage.getItem("wStartTime");
         let {WritingActions} = this.props;
 
+        WritingActions.writingGetList();
+
         if(sTime === null){
             sTime = new Date().getTime();
             localStorage.setItem("wStartTime", sTime);
@@ -23,15 +25,19 @@ class WHeaderContainer extends Component{
         }
         
     }
+
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
-        const { wcNum, tNum, answer, history } = this.props;
+        const { wcNum, tNum, answer, history, cond } = this.props;
         const userAnswer = answer.toJS();
         const user = localStorage.getItem('user');
 
         if(wcNum+1 >= tNum){
             WritingActions.writingPostAnswer({userAnswer, user});
-            history.push('./finish');
+            if(cond) history.push('./finish');
+            else {
+                WritingActions.writingChangeCondition();
+            }
         }else
             WritingActions.writingNextProblem(wcNum+1);
     }

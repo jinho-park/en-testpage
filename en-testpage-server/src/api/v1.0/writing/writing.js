@@ -10,7 +10,7 @@ exports.getQuestion = (req, res) => {
 }
 
 exports.postAnswer = (req, res) =>{
-    const data = req.body;
+    const { data } = req.body;
     
     writing.writeAnswer(data)
             .then((result)=>{
@@ -31,4 +31,13 @@ exports.getListen = (req, res) => {
             res.send(err.message);
         })
         .pipe(res);
+}
+
+exports.getList = (req, res) => {
+    writing.audioList()
+            .then((result) => {
+                res.send(result);
+            }, (err) => {
+                res.send(err);
+            });
 }

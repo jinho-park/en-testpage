@@ -4,7 +4,7 @@ export const getQuestion = ({lNum}) =>
     axios.get('/api/v1.0/listening/get/problem/'+(lNum*1+1));
 
 export const reAnswer = ({answer, user}) =>
-    axios.post('/api/v1.0/litening/post/answer', {
+    axios.post('/api/v1.0/listening/post/answer', {
         user,
         answer
     });

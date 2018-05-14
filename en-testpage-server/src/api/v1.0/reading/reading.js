@@ -35,10 +35,8 @@ exports.postAnswer = (req, res) => {
     console.log(data.user);
     reading.writeAnswer(data)
         .then(function(result){
-            console.log(req.body);
             res.send(true);
         }, function(err){
-            console.log(err);
             res.send(err);
         });
 }
