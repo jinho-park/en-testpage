@@ -6,7 +6,7 @@ const FinishPage = () => {
     localStorage.removeItem('lStartTime');
     localStorage.removeItem('startTime');
     localStorage.removeItem('wStartTime');
-    localStorage.removeItem('rStartTime');
+    localStorage.removeItem('sStartTime');
     return(
         <div>
             <h1>FINISH TEST</h1>
