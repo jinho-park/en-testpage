@@ -10,7 +10,8 @@ const WRITING_POST_ANSWER = "writing/WRITING_POST_ANSWER";
 const WRITING_NEXT_PROBLEM = "writing/WRITING_NEXT_PROBLEM";
 const WRITING_PREV_PROBLEM = "writing/WRITING_PREV_PROBLEM";
 const WRITING_SET_TIME = "writing/WRITING_SET_TIME";
-const WRITING_GET_LIST = "writing/WRITING_GET_LIST"
+const WRITING_GET_LIST = "writing/WRITING_GET_LIST";
+const WRITING_CHANGE_CONDITION = "writing/WRITING_CHANGE_CONDITION";
 
 export const writingInitialAnswer = createAction(WRITING_INITIAL_ANSWER);
 export const writingChangeAnswer = createAction(WRITING_CHANGE_ANSWER);
@@ -20,13 +21,14 @@ export const writingNextProblem = createAction(WRITING_NEXT_PROBLEM);
 export const writingPrevProblem = createAction(WRITING_PREV_PROBLEM);
 export const writingSetTime = createAction(WRITING_SET_TIME);
 export const writingGetList = createAction(WRITING_GET_LIST, writingAPI.getList);
+export const writingChangeCondition = createAction(WRITING_CHANGE_CONDITION);
 
 const initialState = Map({
     problem : List(),
     tNum : 0,
     cpNum : 0,
     answer : List(),
-    cond : false,
+    cond : true,
     list : List()
 });
 
@@ -42,9 +44,11 @@ export default handleActions({
     ...pender({
         type : WRITING_GET_QUESTION,
         onSuccess : (state, action) => {
-            const { question } = action.payload.data;
-            return state.set('problem', question)
-                        .set('tNum', question.length);
+            const { problem } = action.payload.data;
+            return state.set('problem', problem)
+                        .set('tNum', problem.length)
+                        .set('cond', false)
+                        .set('cpNum', 0);
         }
     }),
     ...pender({
@@ -67,7 +71,13 @@ export default handleActions({
         type : WRITING_GET_LIST,
         onSuccess : (state, action) => {
             const { filelist } =action.payload.data;
-            return state.set('filelist', filelist);
+            console.log(filelist);
+            return state.set('list', filelist)
+                        .set('tNum', filelist.length);
         }
-    })
+    }),
+    [WRITING_CHANGE_CONDITION] : (state, action) => {
+        return state.set('cond', false)
+                    .set('cpNum', 0);
+    }
 }, initialState);

@@ -32,11 +32,14 @@ class WHeaderContainer extends Component{
         const userAnswer = answer.toJS();
         const user = localStorage.getItem('user');
 
+        console.log(cond);
+        console.log(tNum);
+
         if(wcNum+1 >= tNum){
             WritingActions.writingPostAnswer({userAnswer, user});
-            if(cond) history.push('./finish');
+            if(!cond) history.push('./finish');
             else {
-                WritingActions.writingChangeCondition();
+                WritingActions.writingGetQuestion('dependent');
             }
         }else
             WritingActions.writingNextProblem(wcNum+1);
@@ -46,7 +49,7 @@ class WHeaderContainer extends Component{
         const { WritingActions } = this.props;
         const { wcNum } = this.props;
 
-        if(wcNum)
+        if(wcNum != 0)
             WritingActions.writingPrevProblem(wcNum-1);
     }
 
@@ -69,7 +72,8 @@ export default connect(
     (state) => ({
         wcNum : state.writing.get('cpNum'),
         tNum : state.writing.get('tNum'),
-        answer : state.writing.get('answer')
+        answer : state.writing.get('answer'),
+        cond : state.writing.get('cond')
     }),
     (dispatch) => ({
         WritingActions : bindActionCreators(writingActions, dispatch)

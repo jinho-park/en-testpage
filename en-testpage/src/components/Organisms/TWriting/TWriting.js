@@ -5,7 +5,7 @@ const TWriting = ({url, onChangehandle, answer}) => {
     return(
         <div>
             <Listening
-                src={url}
+                url={url}
             />
             <TextArea
                 onChange={onChangehandle}

@@ -8,7 +8,6 @@ import * as writingActions from 'store/modules/writing';
 class WritingContainer extends Component{
     componentWillMount(){
         const { WritingActions } = this.props;
-        WritingActions.writingGetQuestion('dependent');
     }
 
     onChange = (e) => {
@@ -28,9 +27,9 @@ class WritingContainer extends Component{
 
         if(data[cpNum] === undefined || cond)
             WritingActions.writingInitialAnswer({cpNum});
-
+//
         return(
-            cond ? <TWriting onChangehandle={onChange}/> : <QWriting question={problem[cpNum]} onChangehandle={onChange} answer={data[cpNum]}/>
+            cond ? <TWriting onChangehandle={onChange} url={url}/> : <QWriting question={problem[cpNum]} onChangehandle={onChange} answer={data[cpNum]}/>
         )
     }
 }

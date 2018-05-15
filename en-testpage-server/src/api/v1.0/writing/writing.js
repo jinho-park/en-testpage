@@ -1,4 +1,5 @@
 const writing = require('data/writing');
+const send = require('send');
 
 exports.getQuestion = (req, res) => {
     writing.writingQuestion()
@@ -11,6 +12,8 @@ exports.getQuestion = (req, res) => {
 
 exports.postAnswer = (req, res) =>{
     const { data } = req.body;
+
+    console.log(req.body);
     
     writing.writeAnswer(data)
             .then((result)=>{
@@ -23,6 +26,8 @@ exports.postAnswer = (req, res) =>{
 exports.getListen = (req, res) => {
     const file = req.params.file;
     const path = 'src/data/writing/' + file;
+
+    console.log('get audio');
 
     send(req, path)
         .on('error', (err) => {
