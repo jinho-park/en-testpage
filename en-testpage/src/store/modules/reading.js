@@ -24,7 +24,7 @@ export const readingPrevProblem = createAction(READING_PREV_PROBLEM);
 export const readingSetTime = createAction(READING_SET_TIME);
 
 const initialState = Map({
-    main : '본문',
+    main : '<mark>본문</mark><br/>asdf',
     problem : [
         {
             problem: 'hello~~~~~~',

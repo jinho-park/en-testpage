@@ -4,7 +4,7 @@ import { Button } from 'components';
 
 class Listening extends Component{
     render(){
-        const { url, onEndhanle } = this.props;
+        const { url, onEndhanle, image } = this.props;
         return(
             <div>
                 <ReactHowler
@@ -14,6 +14,9 @@ class Listening extends Component{
                     onEnd={onEndhanle}
                 />
                 listening
+                <img
+                    src={image}
+                />
             </div>
         )
     }
