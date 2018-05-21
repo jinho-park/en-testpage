@@ -30,6 +30,17 @@ function getList(){
     )
 }
 
+function getPicture(file){
+    return new Promise(
+        (resolve, reject) => {
+            const image = fs.readFileSync('./src/data/listening/'+file, 'utf8');
+            if(image == Error) reject(false);
+            resolve(image);
+        }
+    )
+}
+
 exports.readQuestion = readQuestion;
 exports.writeAnswer = writeAnswer;
 exports.getList = getList;
+exports.getPicture = getPicture;
