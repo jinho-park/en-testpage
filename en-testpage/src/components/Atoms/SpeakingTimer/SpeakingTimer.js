@@ -26,7 +26,7 @@ class Timer extends React.Component{
     }
 
     componentDidMount(){
-        this.state.timer = setInterval(() => {
+        this.setState({timer : setInterval(() => {
             this.setState({
                 elapsed: Math.round(this.state.total - (new Date().getTime() - this.state.start) / 1000),
                 hour: Math.floor(this.state.elapsed / 3600),
@@ -41,7 +41,23 @@ class Timer extends React.Component{
                 clearInterval(this.state.timer);
             } 
                 
-        }, 1000);
+        }, 1000)});
+        // this.state.timer = setInterval(() => {
+        //     this.setState({
+        //         elapsed: Math.round(this.state.total - (new Date().getTime() - this.state.start) / 1000),
+        //         hour: Math.floor(this.state.elapsed / 3600),
+        //         minute: Math.floor(this.state.elapsed / 60 % 60),
+        //         seconds : Math.floor(this.state.elapsed % 60)
+        //     });
+        //     if(this.state.elapsed === this.state.record - 1){
+        //         this.props.startRecord();
+        //     }
+        //     if(this.state.elapsed < 0){
+        //         this.props.stopRecord();
+        //         clearInterval(this.state.timer);
+        //     } 
+                
+        // }, 1000);
     }
 
     componentWillUnmount(){
