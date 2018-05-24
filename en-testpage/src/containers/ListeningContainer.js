@@ -35,6 +35,7 @@ class ListeningContainer extends Component{
         const number = lNum + cNum;
         const thisUrl = localStorage.getItem('thisUrl');
         const requestUrl = thisUrl+"api/v1.0/listening/get/listening/"+listening[lNum];
+        const imageUrl = thisUrl+"api/v1.0/listening/get/image/"+(lNum*1+1)+'.jpg';
 
         console.log(listen);
         console.log(problem);
@@ -43,7 +44,7 @@ class ListeningContainer extends Component{
             ListeningActions.listeningInitialAnswer({number});
 
         return(
-            listen ? <Listening url={requestUrl} onEndhandle={onEndhandle}/>: <QReading question={problem[number]} onChangehandle={onChange} answer={data[number]}/>
+            listen ? <Listening url={requestUrl} onEndhandle={onEndhandle} image={imageUrl}/>: <QReading question={problem[number]} onChangehandle={onChange} answer={data[number]}/>
         )
     }
 }

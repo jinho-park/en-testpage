@@ -17,9 +17,11 @@ export const speakingSetTime = createAction(SPEAKING_SET_TIME);
 
 const initialState = Map({
     problem : ["this is problem!!"],
-    tNum : 5,
+    tNum : 3,
     cpNum : 0,
-    recordData : null
+    recordData : null,
+    total : 60,
+    start : 40,
 });
 
 export default handleActions({

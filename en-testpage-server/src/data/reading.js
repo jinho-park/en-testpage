@@ -3,9 +3,10 @@ const fs = require('fs');
 function readingMain(num){
     return new Promise(
         (resolve, reject) =>{
-            const data = fs.readFileSync('./src/data/reading/Main_'+num + '.txt', 'utf8');
-            if(data == Error) reject(false);
-            resolve(data);
+            var data = fs.readFileSync('./src/data/reading/Main_'+num + '.txt', 'utf8');
+            const main = data.replace(/\n/g, '<br/> ');
+            if(main == Error) reject(false);
+            resolve(main);
         }
     )
 }

@@ -17,6 +17,7 @@ class WritingContainer extends Component{
 
         WritingActions.writingChangeAnswer({data, cpNum});
     }
+    
     render(){
         const { cpNum, problem, answer, cond, list } = this.props;
         const { onChange } = this;

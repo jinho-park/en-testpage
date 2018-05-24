@@ -1,3 +1,7 @@
 {
-    "question" : ["speaking 'hello'", "speaking 'bye'" ]
+    "question" : [
+        "speaking 'hello'", 
+        "speaking 'bye'",
+        "speaking 'bonjour'"
+    ]
 }

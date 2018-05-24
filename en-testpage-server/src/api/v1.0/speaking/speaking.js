@@ -12,7 +12,8 @@ exports.getQuestion = (req, res) => {
 
 exports.postAnswer = (req, res) => {
     const data = req.body;
-    console.log(data.user);
+    console.log("postAnswer()...");
+    //console.log(data);
     speaking.writeAnswer(data)
         .then(function(result){
             console.log(req.body);

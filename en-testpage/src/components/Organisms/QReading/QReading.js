@@ -10,10 +10,7 @@ const QReading = ({Main, question, onChangehandle, answer}) => {
     if (question === undefined) return;
     return(
         <div className={cx('qreading')}>
-            <div className={cx('question')}>
-                <Question>
-                    {Main}
-                </Question>
+            <div className={cx('question')} dangerouslySetInnerHTML={{__html : Main}}>
             </div>
             <div  className={cx('answer')}>
                 <div>
@@ -23,16 +20,16 @@ const QReading = ({Main, question, onChangehandle, answer}) => {
                 </div>
                 <div>
                     <RadioGroup onChange={onChangehandle} value={answer}>
-                        <RadioButton value="1">
+                        <RadioButton value="1" rootColor='black'>
                             {question.example[0]}
                         </RadioButton>
-                        <RadioButton value="2">
+                        <RadioButton value="2" rootColor='black'>
                             {question.example[1]}
                         </RadioButton>
-                        <RadioButton value="3">
+                        <RadioButton value="3" rootColor='black'>
                             {question.example[2]}
                         </RadioButton>
-                        <RadioButton value="4">
+                        <RadioButton value="4" rootColor='black'>
                             {question.example[3]}
                         </RadioButton>
                     </RadioGroup>

@@ -10,6 +10,9 @@ class WHeaderContainer extends Component{
         let sTime = localStorage.getItem("wStartTime");
         let {WritingActions} = this.props;
 
+        if(localStorage.getItem('writingTest'))
+            
+
         WritingActions.writingGetList();
 
         if(sTime === null){
@@ -37,7 +40,10 @@ class WHeaderContainer extends Component{
 
         if(wcNum+1 >= tNum){
             WritingActions.writingPostAnswer({userAnswer, user});
-            if(!cond) history.push('./finish');
+            if(!cond) {
+                localStorage.setItem('writingTest', true);
+                history.push('./finish');
+            }
             else {
                 WritingActions.writingGetQuestion('dependent');
             }
