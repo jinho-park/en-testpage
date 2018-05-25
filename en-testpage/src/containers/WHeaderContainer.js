@@ -35,6 +35,7 @@ class WHeaderContainer extends Component{
             history.push('./finish');
         }else{
             WritingActions.writingChangeType();
+            WritingActions.writingGetProblem();
             WritingActions.writingNextProblem(wcNum+1);
         }
     }
@@ -43,8 +44,8 @@ class WHeaderContainer extends Component{
         const { WritingActions } = this.props;
         const { type } = this.props;
 
-        if(type)
-            WritingActions.writingPrevProblem(wcNum-1);
+        /*if(type)
+            WritingActions.writingPrevProblem(wcNum-1);*/
     }
 
     render(){

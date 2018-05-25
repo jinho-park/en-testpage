@@ -49,9 +49,7 @@ export default class TWriting extends Component{
                         preload={true}
                         onEnd={onEndhandle}
                     />
-                    <Question>
-                        {question}
-                    </Question>
+                    <div dangerouslySetInnerHTML={{__html : question}}></div>
                 </div>
                 <div className={cx('text')}>
                     <TextArea

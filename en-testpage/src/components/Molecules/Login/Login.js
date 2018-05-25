@@ -13,13 +13,17 @@ const Login = ({
 }) => {
     return(
         <div className={cx('login')}>
-            <Input 
-                changehandle={changehandle}
-                onKeyPress={onKeyPress}
-                name="userName"
-                value={userName}
-            />
-            <Button click={clickhandle}>로그인</Button>
+            <div className={cx('inputid')}>
+                <Input 
+                    changehandle={changehandle}
+                    onKeyPress={onKeyPress}
+                    name="userName"
+                    value={userName}
+                />
+            </div>
+            <div className={cx('loginbutton')}>
+                <Button click={clickhandle}>로그인</Button>
+            </div>
         </div>
     )
 }

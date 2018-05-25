@@ -55,33 +55,5 @@ class QSpeaking extends React.Component{
         );
     }
 }
-// const QSpeaking = ({question, onChangehandle, total, start, record}) => {
-//     console.log(question);
-//     var myRef;
-//     return(
-//         <div className={cx('qspeaking')}>
-//             <div className={cx('question')}>
-//                 <Question>
-//                     {question}
-//                 </Question>
-//             </div>
-//             <div className={cx('answer')}>
-//                 <AudioRecorder
-//                     ref={ref => { this.myRef = ref }}
-//                     onChange={(e)=>{
-//                         e.target = this.myRef;
-//                         onChangehandle(e);
-//                     }}
-//                 />
-//                 <SpeakingTimer
-//                     total={total}
-//                     chapter={start}
-//                     record={record}
-//                     recorder={this.myRef}
-//                 />
-//             </div>
-//         </div>
-//     );
-// }
 
 export default QSpeaking;

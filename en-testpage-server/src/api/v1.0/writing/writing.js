@@ -24,7 +24,7 @@ exports.postAnswer = (req, res) =>{
 
     console.log(req.body);
     
-    writing.writeAnswer(data)
+    writing.postAnswer(data)
             .then((result)=>{
                 res.send(true);
             }, (err)=>{

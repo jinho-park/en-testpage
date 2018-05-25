@@ -50,7 +50,6 @@ export default handleActions({
         type : WRITING_GET_QUESTION,
         onSuccess : (state, action) => {
             const { data } = action.payload;
-            console.log(action.payload);
             return state.set('problem', data)
                         .set('cond', false);
         }
@@ -66,6 +65,7 @@ export default handleActions({
         type : WRITING_GET_PROBLEM,
         onSuccess : (state, action) => {
             const { data } = action.payload;
+            console.log(data);
             return state.set('problem', data);
         }
     }),

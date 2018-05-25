@@ -26,7 +26,7 @@ class WIndepentContainer extends Component{
 
         return(
             <QWriting
-                question={data}
+                question={problem}
                 onChangehandle={onChange}
                 answer={data[cpNum]}
             />

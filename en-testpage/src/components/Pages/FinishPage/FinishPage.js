@@ -1,4 +1,8 @@
 import React from 'react';
+import styles from './FinishPage.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 const FinishPage = () => {
     localStorage.removeItem('user');
@@ -8,7 +12,7 @@ const FinishPage = () => {
     localStorage.removeItem('wStartTime');
     localStorage.removeItem('sStartTime');
     return(
-        <div>
+        <div className={cx('page')}>
             <h1>FINISH TEST</h1>
         </div>
     )
