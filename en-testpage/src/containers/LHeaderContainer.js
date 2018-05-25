@@ -35,7 +35,8 @@ class LHeaderContainer extends Component{
         const { lNum, cNum, tNum, chooseAnswer, tlNum, history, listen } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
-
+        console.log("onClickNexthandle...");
+        console.log(cNum);
         console.log(tNum);
 
         if(cNum+1 >= tNum && !listen){
@@ -62,7 +63,7 @@ class LHeaderContainer extends Component{
 
     render(){
         const { onClickNexthandle, onClickPrevhandle } = this;
-
+        
         return(
             <Header
                 onNext={onClickNexthandle}

@@ -8,9 +8,7 @@ import * as speakingActions from 'store/modules/speaking';
 class SHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("sStartTime");
-        const { SpeakingActions } = this.props;
-
-        SpeakingActions.speakingGetQuestion();
+        const { SpeakingActions, history } = this.props;
 
         if(sTime === null){
             sTime = new Date().getTime();
@@ -30,12 +28,14 @@ class SHeaderContainer extends Component{
         const { SpeakingActions } = this.props;
         const { cNum, tNum, history, recordData } = this.props;
         const file = recordData;
-
+        console.log("onClickNexthandle...");
+        console.log(cNum);
+        console.log(tNum);
         if(cNum+1 >= tNum){
             history.push('./writing');
         }
         else{
-            SpeakingActions.speakingPostAnswer({file});
+            //SpeakingActions.speakingPostAnswer({file});
             SpeakingActions.speakingNextProblem(cNum+1);
         }
     }
@@ -66,7 +66,7 @@ class SHeaderContainer extends Component{
 
 export default connect(
     (state) => ({
-        cNum : state.speaking.get('cpNum'),
+        cNum : state.speaking.get('cNum'),
         tNum : state.speaking.get('tNum'),
         recordData : state.speaking.get('recordData')
     }),

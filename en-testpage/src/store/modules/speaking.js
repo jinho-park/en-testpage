@@ -18,7 +18,7 @@ export const speakingSetTime = createAction(SPEAKING_SET_TIME);
 const initialState = Map({
     problem : ["this is problem!!"],
     tNum : 1,
-    cpNum : 0,
+    cNum : 0,
     recordData : null,
     total : 60,
     start : 40,
@@ -28,9 +28,9 @@ export default handleActions({
     ...pender({
         type : SPEAKING_GET_QUESTION,
         onSuccess : (state, action) => {
-            const { question } = action.payload.data;
-            return state.set('problem', question)
-                        .set('tNum', question.length);
+            const { data } = action.payload;
+            return state.set('problem', data.question)
+                        .set('tNum', data.question.length);
         }
     }),
     ...pender({
@@ -41,10 +41,10 @@ export default handleActions({
         }
     }),
     [SPEAKING_NEXT_PROBLEM] : (state, action) => {
-        return state.set('cpNum', action.payload);
+        return state.set('cNum', action.payload);
     },
     [SPEAKING_PREV_PROBLEM] : (state, action) => {
-        return state.set('cpNum', action.payload);
+        return state.set('cNum', action.payload);
     },
     [SPEAKING_SET_TIME] : (state, action) =>{
         return state.set('sStartTime', action.payload);

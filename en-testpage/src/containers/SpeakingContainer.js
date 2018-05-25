@@ -6,13 +6,19 @@ import { QSpeaking } from 'components';
 import * as speakingActions from 'store/modules/speaking';
 
 class SpeakingContainer extends Component{
+    componentWillMount(){
+        const { SpeakingActions } = this.props;
+        SpeakingActions.speakingGetQuestion();
+        console.log("speakingGetQuestion called");
+    }
+
     onChange = (e) => {
         const { SpeakingActions } = this.props;
         const { recordData } = this.props;
-        const { cpNum } = this.props;
+        const { cNum } = this.props;
         const user = localStorage.getItem('user');
         const myAudioData = e.audioData;
-        console.log(e.target);
+        //console.log(e.target);
         var str = "";
         var reader = new FileReader();
         if(e.audioData !== null){
@@ -24,7 +30,7 @@ class SpeakingContainer extends Component{
 
             const link = document.createElement('A');
             link.href = url;
-            link.download = user+"_speaking_"+cpNum+".wav";
+            link.download = user+"_speaking_"+cNum+".wav";
             link.dispatchEvent(click);
             link.click();
             e.target.onRemoveClick();
@@ -38,15 +44,16 @@ class SpeakingContainer extends Component{
 
     render(){
         const { SpeakingActions } = this.props;
-        const { problem, cpNum } = this.props;
+        const { problem, cNum, tNum } = this.props;
         const { total, start} = this.props;
         const { onChange } = this;
-        console.log(cpNum);
-        console.log(total);
-        console.log(start);
+        console.log("SpeakingContainer...problem");
+        console.log(problem);
+        console.log(cNum);
+        console.log(problem[cNum]);
         return(
             <QSpeaking
-                question={problem[cpNum]}
+                question={problem[cNum]}
                 onChangehandle={onChange}
                 total={60}
                 start={new Date().getTime()}
@@ -58,9 +65,10 @@ class SpeakingContainer extends Component{
 
 export default connect(
     (state) => ({
-        cpNum : state.speaking.get('cpNum'),
+        cNum : state.speaking.get('cNum'),
         problem : state.speaking.get('problem'),
-        recordData : state.speaking.get('recordData')
+        recordData : state.speaking.get('recordData'),
+        tNum : state.speaking.get('tNum')
     }),
     (dispatch) => ({
         SpeakingActions : bindActionCreators(speakingActions, dispatch)

@@ -7,7 +7,7 @@ var Blob = require('w3c-blob');
 function readQuestion(){
     return new Promise(
         (resolve, reject)=>{
-            const data = fs.readFileSync('./speaking/question.json', 'utf8');
+            const data = fs.readFileSync('./src/data/speaking/question.json', 'utf8');
             console.log("readQuestion...");
             console.log(data);
             if(data == Error) reject(false);
@@ -29,6 +29,7 @@ function writeAnswer(data){
                 u8arr[n] = bstr.charCodeAt(n);
             }
             var file = new Blob([u8arr], {type:mime});
+            console.log("writeAnswer...");
             console.log(file);
             var fileReader = new FileReader();
             fileReader.onload = function() {
@@ -43,6 +44,26 @@ function writeAnswer(data){
             resolve(true);
         }
     );
+}
+
+function getList(){
+    return new Promise(
+        (resolve, reject) => {
+            const list = fs.readFileSync('./src/data/speaking/filelist.json', 'utf8');
+            if(list == Error) reject(false);
+            resolve(list);
+        }
+    )
+}
+
+function getPicture(file){
+    return new Promise(
+        (resolve, reject) => {
+            const image = fs.readFileSync('./src/data/speaking/'+file, 'utf8');
+            if(image == Error) reject(false);
+            resolve(image);
+        }
+    )
 }
 
 function downloadBlob(blob, filename){
@@ -60,3 +81,5 @@ function downloadBlob(blob, filename){
 
 exports.readQuestion = readQuestion;
 exports.writeAnswer = writeAnswer;
+exports.getList = getList;
+exports.getPicture = getPicture;

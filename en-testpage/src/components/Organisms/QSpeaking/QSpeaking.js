@@ -17,10 +17,6 @@ class QSpeaking extends React.Component{
         }
         var recorderRef = null;
     }
-    componentDidMount(){
-        console.log("Qspeaking didMount...");
-        console.log(this.recorderRef);
-    }
     startRecord(){
         this.recorderRef.startRecording();
     }
@@ -28,11 +24,13 @@ class QSpeaking extends React.Component{
         if(this.recorderRef.state.isRecording) this.recorderRef.stopRecording();
     }
     render(){
+        const { question, onChangehandle } = this.props;
+        console.log(question);
         return(
             <div className={cx('qspeaking')}>
                 <div className={cx('question')}>
                     <Question>
-                        {this.state.question}
+                        {question}
                     </Question>
                 </div>
                 <div className={cx('answer')}>
