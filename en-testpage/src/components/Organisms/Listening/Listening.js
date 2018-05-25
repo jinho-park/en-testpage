@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import ReactHowler from 'react-howler';
 import { Button } from 'components';
+import styles from './Listening.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
 
 class Listening extends Component{
     render(){
         const { url, onEndhanle, image } = this.props;
         return(
-            <div>
+            <div className={cx('listening')}>
                 <ReactHowler
                     src={url}
                     playing={true}
                     preload={true}
                     onEnd={onEndhanle}
                 />
-                listening
-                <img
+                <img className={cx('image')}
                     src={image}
                 />
             </div>

@@ -10,11 +10,6 @@ class WHeaderContainer extends Component{
         let sTime = localStorage.getItem("wStartTime");
         let {WritingActions} = this.props;
 
-        if(localStorage.getItem('writingTest'))
-            
-
-        WritingActions.writingGetList();
-
         if(sTime === null){
             sTime = new Date().getTime();
             localStorage.setItem("wStartTime", sTime);
@@ -31,36 +26,30 @@ class WHeaderContainer extends Component{
 
     onClickNexthandle = () => {
         const { WritingActions } = this.props;
-        const { wcNum, tNum, answer, history, cond } = this.props;
+        const { answer, history, type, wcNum } = this.props;
         const userAnswer = answer.toJS();
         const user = localStorage.getItem('user');
 
-        console.log(cond);
-        console.log(tNum);
-
-        if(wcNum+1 >= tNum){
-            WritingActions.writingPostAnswer({userAnswer, user});
-            if(!cond) {
-                localStorage.setItem('writingTest', true);
-                history.push('./finish');
-            }
-            else {
-                WritingActions.writingGetQuestion('dependent');
-            }
-        }else
+        if(type){
+            WritingActions.writingPostAnswer({user, userAnswer});
+            history.push('./finish');
+        }else{
+            WritingActions.writingChangeType();
             WritingActions.writingNextProblem(wcNum+1);
+        }
     }
 
     onClickPrevhandle = () => {
         const { WritingActions } = this.props;
-        const { wcNum } = this.props;
+        const { type } = this.props;
 
-        if(wcNum != 0)
+        if(type)
             WritingActions.writingPrevProblem(wcNum-1);
     }
 
     render(){
         const { onClickNexthandle, onClickPrevhandle } = this;
+
         return(
             <Header
                 onNext={onClickNexthandle}
@@ -79,7 +68,7 @@ export default connect(
         wcNum : state.writing.get('cpNum'),
         tNum : state.writing.get('tNum'),
         answer : state.writing.get('answer'),
-        cond : state.writing.get('cond')
+        type : state.writing.get('type')
     }),
     (dispatch) => ({
         WritingActions : bindActionCreators(writingActions, dispatch)

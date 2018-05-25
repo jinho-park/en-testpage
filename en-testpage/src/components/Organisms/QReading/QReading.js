@@ -10,10 +10,10 @@ const QReading = ({Main, question, onChangehandle, answer}) => {
     if (question === undefined) return;
     return(
         <div className={cx('qreading')}>
-            <div className={cx('question')} dangerouslySetInnerHTML={{__html : Main}}>
+            <div className={cx('main_question')} dangerouslySetInnerHTML={{__html : Main}}>
             </div>
             <div  className={cx('answer')}>
-                <div>
+                <div  className={cx('problem')}>
                     <Question>
                         {question.problem}
                     </Question>

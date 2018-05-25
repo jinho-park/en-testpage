@@ -2,6 +2,7 @@
 
 .header{
     height: 3.5rem;
+    background-color : #f44336;
 
     .wrapper-item{
         padding-left: 1rem;
@@ -11,12 +12,13 @@
 
         .logo{
             padding : 0.5rem;
-            width:3rem;
+            font-size : 1rem;
         }
 
         .chapter{
             margin-left: auto;
             margin-right: auto;
+            font-size : 1.5rem;
         }
 
         .item{

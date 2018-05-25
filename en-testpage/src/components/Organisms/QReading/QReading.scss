@@ -2,11 +2,25 @@
 
 .qreading{
     display: flex;
-    .question{
+    margin-top : 1rem;
+    margin-left : 0.5rem;
+    margin-right : 0.5rem;
+
+    .main_question{
+        padding : 0.5rem 0.5rem;
         width: 50%;
+        border : 1px solid #ccc;
+        border-radius: 1rem;
+        margin-right: 1rem;
     }
 
     .answer{
+        margin-left : 1rem;
         width: 50%;
+        .problem{
+            margin-bottom : 3rem;
+        }
+
+        
     }
 }

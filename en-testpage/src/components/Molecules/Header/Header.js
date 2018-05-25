@@ -9,13 +9,15 @@ const Header = ({onNext, onPrev, children, total, startTime}) => {
     return(
         <div className={cx('header')}>
             <div className={cx('wrapper-item')}>
+                <div className={cx('logo')}>
+                    <Timer
+                        total={total}
+                        chapter={startTime}
+                    />
+                </div>
                 <div className={cx('chapter')}>
                     {children}
                 </div>
-                <Timer
-                    total={total}
-                    chapter={startTime}
-                />
                 <div className={cx('item')}>
                     <Button click={onPrev}>이전</Button>
                     <Button click={onNext}>다음</Button>
