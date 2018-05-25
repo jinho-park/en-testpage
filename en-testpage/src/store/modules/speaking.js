@@ -19,7 +19,9 @@ const initialState = Map({
     problem : ["this is problem!!"],
     tNum : 1,
     cpNum : 0,
-    recordData : null
+    recordData : null,
+    total : 60,
+    start : 40,
 });
 
 export default handleActions({

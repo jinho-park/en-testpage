@@ -3,8 +3,8 @@ import axios from 'axios';
 export const getQuestion = () => 
     axios.get('/api/v1.0/speaking/get/problem');
 
-export const postAnswer = ({user, audioData}) =>
+export const postAnswer = ({user, str}) =>
     axios.post('/api/v1.0/speaking/post/answer', {
         user,
-        audioData
+        str
     });
