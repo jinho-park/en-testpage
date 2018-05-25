@@ -10,12 +10,21 @@ exports.getQuestion = (req, res) => {
             });
 }
 
+exports.getProblem = (req, res) => {
+    writing.writingProblem()
+            .then((result) => {
+                res.send(result);
+            }, (err) => {
+                res.send(err);
+            });
+}
+
 exports.postAnswer = (req, res) =>{
     const { data } = req.body;
 
     console.log(req.body);
     
-    writing.writeAnswer(data)
+    writing.postAnswer(data)
             .then((result)=>{
                 res.send(true);
             }, (err)=>{

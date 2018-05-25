@@ -9,10 +9,7 @@ const QWriting = ({question, onChangehandle, answer}) => {
     //if(question === undefined) return;
     return(
         <div className={cx('qwriting')}>
-            <div className={cx('question')}>
-                <Question>
-                    {question}
-                </Question>
+            <div className={cx('question')} dangerouslySetInnerHTML={{__html : question}}>
             </div>
             <div className={cx('answer')}>
                 <TextArea

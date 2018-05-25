@@ -1,0 +1,18 @@
+.twriting{
+    display: flex;
+    margin-top : 1rem;
+    margin-left : 0.5rem;
+    margin-right : 0.5rem;
+    .listen{
+        padding : 0.5rem 0.5rem;
+        width: 50%;
+        border : 1px solid #ccc;
+        border-radius: 1rem;
+        margin-right: 1rem;
+    }
+
+    .text{
+        margin-left : 1rem;
+        width : 50%;
+    }
+}

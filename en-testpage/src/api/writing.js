@@ -3,6 +3,9 @@ import axios from 'axios';
 export const getQuestion = () => 
     axios.get('/api/v1.0/writing/get/question');
 
+export const getProblem = () => 
+    axios.get('/api/v1.0/writing/get/problem');
+
 export const resAnswer = ({userAnswer, user}) => 
     axios.post('/api/v1.0/writing/post/answer', {
         user,

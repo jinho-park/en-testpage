@@ -1,1 +1,16 @@
 @import 'utils';
+
+.qspeaking{
+    margin : 1rem auto;
+    text-align: center;
+    display: block;
+    .question{
+        padding : 0.5rem 0.5rem;
+        border : 1px solid #ccc;
+        border-radius: 1rem;
+        margin : 0 auto;
+    }
+    .answer{
+        margin-top : 1rem;
+    }
+}

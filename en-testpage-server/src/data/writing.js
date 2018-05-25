@@ -1,11 +1,23 @@
 const fs = require('fs');
 
-function writingQuestion(condition){
+function writingQuestion(){
     return new Promise(
         (resolve, reject)=>{
-            const data = fs.readFileSync('./src/data/writing/dependent.json', 'utf8');
-            if(data == Error) reject(false);
-            resolve(data);
+            const data = fs.readFileSync('./src/data/writing/total.txt', 'utf8');
+            const main = data.replace(/\n/g, '<br/> ');
+            if(main == Error) reject(false);
+            resolve(main);
+        }
+    );
+}
+
+function writingProblem(){
+    return new Promise(
+        (resolve, reject)=>{
+            const data = fs.readFileSync('./src/data/writing/independent.txt', 'utf8');
+            const main = data.replace(/\n/g, '<br/> ');
+            if(main == Error) reject(false);
+            resolve(main);
         }
     );
 }
@@ -31,5 +43,6 @@ function audioList(){
 }
 
 exports.writingQuestion = writingQuestion;
+exports.writingProblem = writingProblem;
 exports.postAnswer = postAnswer;
 exports.audioList = audioList;
