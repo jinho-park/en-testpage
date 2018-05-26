@@ -3,5 +3,15 @@
         "speaking 'hello'", 
         "speaking 'bye'",
         "speaking 'bonjour'"
+    ],
+    "total" : [
+        60,
+        50,
+        40
+    ],
+    "start" : [
+        30,
+        25,
+        20
     ]
 }

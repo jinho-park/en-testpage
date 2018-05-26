@@ -8,3 +8,9 @@ export const postAnswer = ({user, str}) =>
         user,
         str
     });
+
+export const requestAudio = ({file}) => 
+    axios.get('/api/v1.0/speaking/get/listening/'+file);
+
+export const requestList = () => 
+    axios.get('/api/v1.0/speaking/get/list');

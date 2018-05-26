@@ -36,9 +36,10 @@ class ListeningContainer extends Component{
         const thisUrl = localStorage.getItem('thisUrl');
         const requestUrl = thisUrl+"api/v1.0/listening/get/listening/"+listening[lNum];
         const imageUrl = thisUrl+"api/v1.0/listening/get/image/"+(lNum*1+1)+'.jpg';
-
-        console.log(listen);
-        console.log(problem);
+        console.log("ListeningContainer");
+        console.log(thisUrl);
+        console.log(requestUrl);
+        console.log(imageUrl);
 
         if(data[number] === undefined)
             ListeningActions.listeningInitialAnswer({number});

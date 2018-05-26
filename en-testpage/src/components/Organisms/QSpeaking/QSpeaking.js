@@ -11,9 +11,6 @@ class QSpeaking extends React.Component{
         this.state = {
             question : this.props.question,
             onChangehandle : this.props.onChangehandle,
-            total : this.props.total,
-            start : this.props.start,
-            record : this.props.record,
         }
         var recorderRef = null;
     }
@@ -25,7 +22,6 @@ class QSpeaking extends React.Component{
     }
     render(){
         const { question, onChangehandle } = this.props;
-        console.log(question);
         return(
             <div className={cx('qspeaking')}>
                 <div className={cx('question')}>
@@ -42,9 +38,9 @@ class QSpeaking extends React.Component{
                         }}
                     />
                     <SpeakingTimer
-                        total={this.state.total}
-                        chapter={this.state.start}
-                        record={this.state.record}
+                        total={this.props.total}
+                        start={this.props.start}
+                        record={this.props.record}
                         startRecord={this.startRecord.bind(this)}
                         stopRecord={this.stopRecord.bind(this)}
                     />

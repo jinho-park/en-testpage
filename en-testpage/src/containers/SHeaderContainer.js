@@ -10,16 +10,16 @@ class SHeaderContainer extends Component{
         let sTime = localStorage.getItem("sStartTime");
         const { SpeakingActions, history } = this.props;
 
+        SpeakingActions.speakingGetList();
+
         if(sTime === null){
             sTime = new Date().getTime();
             localStorage.setItem("sStartTime", sTime);
             SpeakingActions.speakingSetTime({sTime});
-            window.console.log("if null, speaking start time = " + localStorage.getItem("sStartTime"));
         }
         else{
             localStorage.setItem("sStartTime", sTime);
             SpeakingActions.speakingSetTime({sTime});
-            window.console.log("if not null, speaking start time = " + localStorage.getItem("sStartTime"));
         }
         
     }
@@ -28,14 +28,11 @@ class SHeaderContainer extends Component{
         const { SpeakingActions } = this.props;
         const { cNum, tNum, history, recordData } = this.props;
         const file = recordData;
-        console.log("onClickNexthandle...");
-        console.log(cNum);
-        console.log(tNum);
+
         if(cNum+1 >= tNum){
             history.push('./writing');
         }
         else{
-            //SpeakingActions.speakingPostAnswer({file});
             SpeakingActions.speakingNextProblem(cNum+1);
         }
     }
@@ -68,7 +65,8 @@ export default connect(
     (state) => ({
         cNum : state.speaking.get('cNum'),
         tNum : state.speaking.get('tNum'),
-        recordData : state.speaking.get('recordData')
+        recordData : state.speaking.get('recordData'),
+        listen : state.listening.get('listen')
     }),
     (dispatch) => ({
         SpeakingActions : bindActionCreators(speakingActions, dispatch)

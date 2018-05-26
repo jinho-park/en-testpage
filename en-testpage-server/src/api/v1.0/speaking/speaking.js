@@ -1,4 +1,5 @@
 const speaking = require('data/speaking');
+const send = require('send');
 
 exports.getQuestion = (req, res) => {
     speaking.readQuestion()
@@ -22,6 +23,18 @@ exports.postAnswer = (req, res) => {
         })
 }
 
+exports.getListening = (req, res) => {
+    const file = req.params.file;
+    const path = 'src/data/speaking/'+file;
+    console.log(path);
+    send(req, path)
+        .on('error', (err)=>{
+            res.statusCode = err.status || 500;
+            res.send(err.message);
+        })
+        .pipe(res);
+}
+
 exports.getList = (req, res) => {
     speaking.getList()
             .then((result) => {
@@ -33,7 +46,6 @@ exports.getList = (req, res) => {
 
 exports.getPicture = (req, res) => {
     const file = req.params.file;
-    console.log('image');
     const url = 'src/data/speaking/'+file;
     send(req, url)
         .on('error', (err) => {
