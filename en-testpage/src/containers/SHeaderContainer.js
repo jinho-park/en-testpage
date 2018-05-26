@@ -55,7 +55,7 @@ class SHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
-                total = {30*60}
+                total = {20*60}
                 startTime = {localStorage.getItem('sStartTime')}
             >
                 Speaking

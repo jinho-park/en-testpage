@@ -68,7 +68,7 @@ class LHeaderContainer extends Component{
             <Header
                 onNext={onClickNexthandle}
                 onPrev={onClickPrevhandle}
-                total = {30*60}
+                total = {60*60}
                 startTime = {localStorage.getItem('lStartTime')}
             >
                 Listening
