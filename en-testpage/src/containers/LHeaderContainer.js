@@ -35,9 +35,6 @@ class LHeaderContainer extends Component{
         const { lNum, cNum, tNum, chooseAnswer, tlNum, history, listen } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
-        console.log("onClickNexthandle...");
-        console.log(cNum);
-        console.log(tNum);
 
         if(cNum+1 >= tNum && !listen){
             if(lNum + 1 >= tlNum){
@@ -48,7 +45,10 @@ class LHeaderContainer extends Component{
                 ListeningActions.listeningNextListen(lNum+1);
             }
         }else{
-            if(listen) ListeningActions.listeningPlaySet();
+            if(listen) {
+                ListeningActions.listeningPlaySet();
+                ListeningActions.listeningGetQuestion({lNum});
+            }
             else ListeningActions.listeningNextProblem(cNum+1);
         }
     }

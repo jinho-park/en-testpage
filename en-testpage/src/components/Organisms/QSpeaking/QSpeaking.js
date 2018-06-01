@@ -21,9 +21,14 @@ class QSpeaking extends React.Component{
         if(this.recorderRef.state.isRecording) this.recorderRef.stopRecording();
     }
     render(){
-        const { question, onChangehandle } = this.props;
+        const { main, question, onChangehandle } = this.props;
         return(
             <div className={cx('qspeaking')}>
+                <div className={cx('question')}>
+                    <Question>
+                        {main}
+                    </Question>
+                </div>
                 <div className={cx('question')}>
                     <Question>
                         {question}

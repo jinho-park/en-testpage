@@ -6,6 +6,6 @@ router.get('/get/question/', speaking.getQuestion);
 router.post('/post/answer', speaking.postAnswer);
 router.get('/get/speaking/:file', speaking.getListening);
 router.get('/get/list', speaking.getList);
-router.get('/get/image/:file', speaking.getPicture);
+router.get('/get/main/:num', speaking.getMain);
 
 module.exports = router;

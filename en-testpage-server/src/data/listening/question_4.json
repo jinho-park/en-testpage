@@ -1,0 +1,40 @@
+{
+    "question" : [
+        {
+            "problem" : "18. Why does the student talk to the professor?",
+            "example" : [
+                "To ask him what journalism classes he is offering for the semester",
+                "To check the requirements for a switch to mass communications",
+                "To determine who the easiest professors in journalism are",
+                "To get his recommendation on an elective she wants to take"
+            ]
+        },
+        {
+            "problem" : "19. Listen again to part of the conversation. Then answer the question. Why does the professor say this:",
+            "example" : [
+                "To indicate that the electives the student wants are not available",
+                "To encourage the student to try harder to fulfill her electives",
+                "To express disagreement with what the student said",
+                "To assure the student that he doubts her request will be rejected"
+            ]
+        },
+        {
+            "problem" : "21. What does the professor say about studying under Professor Meyer?",
+            "example" : [
+                "He provides students with a topic when they do research papers.",
+                "He has rigorous standards that stimulate his students to do their best.",
+                "He is an appealing and entertaining professor in the classroom.",
+                "He makes research easier by giving students a list of source materials."
+            ]
+        },
+        {
+            "problem" : "22. Listen again to part of the conversation. Then answer the question. What does the student mean when she says this:",
+            "example" : [
+                "She thinks writing for the university paper was difficult.",
+                "She does not think writing for the paper was worth the effort.",
+                "She believes she should have studied journalism first.",
+                "She thinks she should have worked on more interesting articles."
+            ]
+        }
+    ]
+}

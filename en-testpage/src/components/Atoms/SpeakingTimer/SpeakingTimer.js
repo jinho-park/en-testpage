@@ -16,6 +16,9 @@ class Timer extends React.Component{
     }
 
     componentDidMount(){
+        console.log(this.props.total);
+        console.log(this.props.start);
+        console.log(this.props.record);
         this.setState({timer : setInterval(() => {
             this.setState({
                 elapsed: Math.round(this.props.total - (new Date().getTime() - this.props.start) / 1000),
@@ -28,7 +31,7 @@ class Timer extends React.Component{
             }
             if(this.state.elapsed < 0){
                 this.props.stopRecord();
-                clearInterval(this.state.timer);
+                this.setState({elapsed : 0});
             } 
                 
         }, 1000)});

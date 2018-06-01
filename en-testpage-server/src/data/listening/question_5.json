@@ -1,0 +1,58 @@
+{
+    "question" : [
+        {
+            "problem" : "23. What is the talk mainly about?",
+            "example" : [
+                "The mixed reactions to the realist paintings of Andrew Wyeth",
+                "The gradual evolution of Wyeth realist style",
+                "The subject matter of popular realist masterpieces",
+                "The prevalence of abstract expressionism in the mid-20th century"
+            ]
+        },
+        {
+            "problem" : "24. Listen again to part of the conversation. Then answer the question. What does the professor mean when he says this:",
+            "example" : [
+                "He does not think that Andrew Wyeth had talent.",
+                "He wants to correct some information he gave about Andrew Wyeth.",
+                "He does not understand why N.C. Wyeth taught his son painting techniques.",
+                "He thinks N.C. Wyeth had a reason to give his son assistance."
+            ]
+        },
+        {
+            "problem" : "25. What does the professor say about Christina’s World?",
+            "example" : [
+                "It became famous only after Wyeth’s death.",
+                "It was inspired by a woman who Wyeth knew.",
+                "It contrasted sharply with the fashionable art at the time.",
+                "It differed significantly from works Wyeth had done earlier in life."
+            ]
+        },
+        {
+            "problem" : "26. According to the professor, why were many artists and critics unwilling to give Wyeth’s art any acclaim?",
+            "example" : [
+                "They claimed that it put too much emphasis on natural beauty.",
+                "They felt that his technical ability as an artist was overrated.",
+                "They thought that he was too strongly influenced by an earlier artist.",
+                "They contended that it was insignificant from the viewpoint of contemporary art."
+            ]
+        },
+        {
+            "problem" : "27. Listen again to part of the conversation. Then answer the question. Why does the student say this:",
+            "example" : [
+                "To show that she understands the professor’s point",
+                "To indicate her familiarity with exhibits at art museums",
+                "To explain that she has a different idea from the professor",
+                "To express that she is in agreement with the curator’s perspective"
+            ]
+        },
+        {
+            "problem" : "28. What is the professor’s opinion of the controversy surrounding Wyeth’s work?",
+            "example" : [
+                "It is irrelevant considering the art’s market value.",
+                "It reflected the critics’ resentment of Wyeth’s fame.",
+                "It contributed to the high prices of some of his paintings.",
+                "It is the primary reason the American public became aware of Wyeth’s works."
+            ]
+        }
+    ]
+}

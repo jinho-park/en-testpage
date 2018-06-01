@@ -6,6 +6,7 @@ exports.getQuestion = (req, res) => {
     const num = req.params.num;
     listening.readQuestion(num)
             .then((result)=>{
+                //console.log(result);
                 res.send(result);
             }, (err) => {
                 res.send(err);
@@ -46,7 +47,6 @@ exports.getList = (req, res) => {
 
 exports.getPicture = (req, res) => {
     const file = req.params.file;
-    console.log('image');
     const url = 'src/data/listening/'+file;
     send(req, url)
         .on('error', (err) => {

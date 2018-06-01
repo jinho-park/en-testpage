@@ -16,16 +16,23 @@ export default class TWriting extends Component{
         }
 
         this.onEndhandle = this.onEndhandle.bind(this);
-    }
-
-    componuntDidMount(){
+        this.startPlayer = this.startPlayer.bind(this);
         this._timer();
     }
 
     _timer(){
         console.log('timer start');
         setTimeout(
-            this.setState({play : true, visible : 'hidden'}), 10*60*1000);
+            this.startPlayer, 10*10*1000);
+    }
+
+    startPlayer(){
+        this.setState({
+            play : true, 
+            visible : 'hidden'
+        })
+
+        console.log(this.state.play);
     }
 
     onEndhandle(){

@@ -1,21 +1,48 @@
 {
     "question" : [
         {
-            "problem" : "The phrase `unique among` in the passage is closest in meaning to",
+            "problem" : "What is the conversation mainly about?",
             "example" : [
-                "natural to",
-                "different from all other",
-                "quite common among",
-                "familiar to"
+                "References for a research paper",
+                "Films being shown at a festival",
+                "A student’s topic for a presentation",
+                "The differences between film and literature"
             ]
         },
         {
-            "problem" : ". What can be inferred about whales from paragraph 1? ",
+            "problem" : "Listen again to part of the conversation. Then answer the question. Why does the student say this:",
             "example" : [
-                "They are considered by some to be reptiles.",
-                "Their bodies are built in a way that helps them manage extremely cold temperatures",
-                "They are distantly related to leatherback turtles.",
-                "They can swim farther than leatherback turtles."
+                "To indicate agreement with her professor",
+                "To inquire about an important question",
+                "To show excitement about her topic",
+                "To express uncertainty about her topic"
+            ]
+        },
+        {
+            "problem" : "What does the professor suggest the student do?",
+            "example" : [
+                "Work on her public speaking skills",
+                "Choose a different topic",
+                "Attend an upcoming film festival",
+                "Narrow the scope of the topic"
+            ]
+        },
+        {
+            "problem" : "What paper does the student want to present at the film festival?",
+            "example" : [
+                "A history of film and literature",
+                "Films based on literary masterpieces",
+                "Film and literature in the 20th century",
+                "Story-telling techniques in film and literature"
+            ]
+        },
+        {
+            "problem" : "Listen again to part of the conversation. Then answer the question. What does the professor mean when he says this:",
+            "example" : [
+                "He thinks the student’s idea may be promising.",
+                "He thinks the student needs help.",
+                "He wants to discourage the student.",
+                "He is not confident about the student’s proposal."
             ]
         }
     ]
