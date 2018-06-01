@@ -1,3 +1,10 @@
 {
-    "list" : ["conversation_1.mp3"]
+    "list" : [
+        "[P082-083]Chapter 3 Hackers Test 1-5.mp3", 
+        "[P084-085]Chapter 3 Hackers Test 6-11.mp3", 
+        "[P086-087]Chapter 3 Hackers Test 12-17.mp3",
+        "[P088-089]Chapter 3 Hackers Test 18-22.mp3",
+        "[P090-091]Chapter 3 Hackers Test 23-28.mp3",
+        "[P092-093]Chapter 3 Hackers Test 29-34.mp3"
+    ]
 }

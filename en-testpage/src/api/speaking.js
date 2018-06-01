@@ -14,3 +14,6 @@ export const requestAudio = ({file}) =>
 
 export const requestList = () => 
     axios.get('/api/v1.0/speaking/get/list');
+
+export const getMain = ({cNum}) =>
+    axios.get('/api/v1.0/speaking/get/main/'+(cNum*1+2));

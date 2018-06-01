@@ -85,7 +85,8 @@ export default handleActions({
     },
     [LISTENING_PLAY_SET] : (state, action) => {
         console.log('change');
-        return state.set('listen', false);
+        return state.set('listen', false)
+                    .set('cNum', 0);
     },
     [LISTENING_NEXT_LISTEN] : (state, action) => {
         return state.set('lNum', action.payload)

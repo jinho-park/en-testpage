@@ -79,7 +79,18 @@ function downloadBlob(blob, filename){
     return link;
   }
 
+function getMain(num){
+    return new Promise(
+        (resolve, reject) => {
+            const data = fs.readFileSync('./src/data/speaking/Main_'+num + '.txt', 'utf8');
+            if(data == Error) reject(false);
+            resolve(data);
+        }
+    )
+}
+
 exports.readQuestion = readQuestion;
 exports.writeAnswer = writeAnswer;
 exports.getList = getList;
 exports.getPicture = getPicture;
+exports.getMain = getMain;

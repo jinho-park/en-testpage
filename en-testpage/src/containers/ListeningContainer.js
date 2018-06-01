@@ -9,7 +9,6 @@ class ListeningContainer extends Component{
     componentWillMount(){
         const { ListeningActions } = this.props;
         const { lNum } = this.props;
-        ListeningActions.listeningGetQuestion({lNum});
     }
 
     onChange = (e) => {
@@ -32,14 +31,10 @@ class ListeningContainer extends Component{
         const { listen, lNum, cNum, chooseAnswer, problem, listening } = this.props;
         const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
-        const number = lNum + cNum;
+        const number = cNum;
         const thisUrl = localStorage.getItem('thisUrl');
         const requestUrl = thisUrl+"api/v1.0/listening/get/listening/"+listening[lNum];
         const imageUrl = thisUrl+"api/v1.0/listening/get/image/"+(lNum*1+1)+'.jpg';
-        console.log("ListeningContainer");
-        console.log(thisUrl);
-        console.log(requestUrl);
-        console.log(imageUrl);
 
         if(data[number] === undefined)
             ListeningActions.listeningInitialAnswer({number});

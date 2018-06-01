@@ -1,0 +1,49 @@
+{
+    "question" : [
+        {
+            "problem" : "What is the lecture mainly about?",
+            "example" : [
+                "Methods that management can use to increase profits",
+                "Techniques to prevent a crisis from occurring",
+                "A common problem many different companies face",
+                "An aspect of the crisis management process"
+            ]
+        },
+        {
+            "problem" : "Listen again to part of the conversation. Then answer the question. What does the student mean when he says this:",
+            "example" : [
+                "He has heard a term before.",
+                "He would like to clarify the question.",
+                "He is unfamiliar with a concept.",
+                "He believes the risks are exaggerated."
+            ]
+        },
+        {
+            "problem" : "9. What is the professor’s attitude toward a crisis response team?",
+            "example" : [
+                "It requires too many company resources.",
+                "It should be established in advance of a crisis.",
+                "It complicates the development of a plan.",
+                "It should be a temporary arrangement."
+            ]
+        },
+        {
+            "problem" : "10. What is the final stage of the contingency planning process?",
+            "example" : [
+                "The team members are selected.",
+                "The measures are regularly updated.",
+                "The company is significantly expanded.",
+                "The potential threat is eliminated."
+            ]
+        },
+        {
+            "problem" : "11. Listen again to part of the conversation. Then answer the question. Why does the professor say this:",
+            "example" : [
+                "To stress the impressiveness of an accomplishment",
+                "To check whether the class understands a point",
+                "To introduce an idea that contradicts the previous one",
+                "To suggest that successful mining rescues are infrequent"
+            ]
+        }
+    ]
+}

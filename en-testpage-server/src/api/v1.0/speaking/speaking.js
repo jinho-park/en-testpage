@@ -44,13 +44,12 @@ exports.getList = (req, res) => {
             });
 }
 
-exports.getPicture = (req, res) => {
-    const file = req.params.file;
-    const url = 'src/data/speaking/'+file;
-    send(req, url)
-        .on('error', (err) => {
-            res.statusCode = err.status || 500;
-            res.send(err.message);
-        })
-        .pipe(res);
+exports.getMain = (req, res) => {
+    const num = req.params.num;
+    speaking.getMain(num)
+            .then((result) => {
+                res.send(result);
+            }, (err) => {
+                res.send(err);
+            });
 }

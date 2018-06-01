@@ -1,0 +1,58 @@
+{
+    "question" : [
+        {
+            "problem" : "29. What is the main topic of the lecture?",
+            "example" : [
+                "The applicability of the Sally-Anne test to animals",
+                "How vervet monkeys behave toward new monkeys",
+                "Views on whether vervet monkeys have a theory of mind",
+                "The reasons vervet monkeys sound false alarm calls"
+            ]
+        },
+        {
+            "problem" : "30. Listen again to part of the conversation. Then answer the question. Why does the professor say this:",
+            "example" : [
+                "To suggest that the students will obtain similar results",
+                "To express uncertainty about the results of the test",
+                "To encourage the students to research a topic",
+                "To indicate the reason she described the experiment"
+            ]
+        },
+        {
+            "problem" : "31. Listen again to part of the conversation. Then answer the question Why does the professor say this:",
+            "example" : [
+                "To provide the meaning of a word she just mentioned",
+                "To find out if the students understood what she said",
+                "To explain a criterion used in the experiment",
+                "To emphasize the significance of a term she used"
+            ]
+        },
+        {
+            "problem" : "32. What does the professor say about vervet monkey alarm calls?",
+            "example" : [
+                "They are only made when monkeys from outside the group approach.",
+                "Monkeys make them only if their immediate family is endangered.",
+                "They sound different depending on the type of threat.",
+                "High-ranking monkeys in the group typically make them."
+            ]
+        },
+        {
+            "problem" : "33. According to the professor, what is a reason some scientists believe that vervet monkeys have a theory of mind?",
+            "example" : [
+                "A monkey may understand how a false alarm can affect another monkey.",
+                "Monkeys deliberately ignore false alarms.",
+                "Monkeys are concerned with their own social status.",
+                "Some monkeys know where to look for the marble."
+            ]
+        },
+        {
+            "problem" : "34. What is the professor’s attitude concerning a theory of mind in animals?",
+            "example" : [
+                "Experiments have proved it to be credible.",
+                "It likely does not exist in all animals.",
+                "Its viability has not been proven or disproven.",
+                "It does not exist except in humans."
+            ]
+        }
+    ]
+}

@@ -1,17 +1,26 @@
 {
     "question" : [
-        "speaking 'hello'", 
-        "speaking 'bye'",
-        "speaking 'bonjour'"
+        "What are your study methods? Please include specific examples and details in your explanation.", 
+        "Which do you prefer, playing individual sports or team sports? Please include specific examples and details to support your explanation. ",
+        "The man expresses his opinion about the article in the school newspaper. Explain his opinion and the reasons he gives for holding that opinion.",
+        "The professor talks about her son and daughter. Explain how their actions are related to reactance.",
+        "The students discuss two possible solutions to the man’s problem. Describe the problem. Then state which of the two solutions you prefer and explain why.",
+        "Using points and examples from the talk, explain two ways that natural arches are formed."
     ],
     "total" : [
         60,
         50,
+        80,
+        80,
+        40,
         40
     ],
     "start" : [
         30,
         25,
-        20
+        40,
+        40,
+        15,
+        15
     ]
 }

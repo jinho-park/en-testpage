@@ -1,0 +1,49 @@
+{
+    "question" : [
+        {
+            "problem" : "12. What is the professor mainly discussing?",
+            "example" : [
+                "The characteristics of Saturn’s regular satellites",
+                "The similarities between Titan and Dione",
+                "The discovery of new moons around Saturn",
+                "The atmospheric conditions on Saturn’s moons"
+            ]
+        },
+        {
+            "problem" : "13. Listen again to part of the conversation. Then answer the question. Why does the professor say this:",
+            "example" : [
+                "To discount the possibility of life outside of Earth",
+                "To contrast a common opinion with that of experts",
+                "To show disagreement with speculative science",
+                "To emphasize that life on Titan might be plausible"
+            ]
+        },
+        {
+            "problem" : "15. What does the professor say about Dione’s terrain?",
+            "example" : [
+                "It was formed by the process of erosion.",
+                "It contains see-through sections made of ice.",
+                "It is not a result of the moon’s tectonic movements.",
+                "It is unusually smooth and contains few variations"
+            ]
+        },
+        {
+            "problem" : "16. What do some scientists imply about Dione’s trailing hemisphere?",
+            "example" : [
+                "It is bombarded by meteors more often than Saturn’s other moons.",
+                "It is the most geologically active part of the moon in the solar system.",
+                "It is being eroded by the ice cliff and heavy winds.",
+                "It may once have been the leading hemisphere."
+            ]
+        },
+        {
+            "problem" : "17. What is the professor’s opinion about research on Saturn’s moons?",
+            "example" : [
+                "She thinks not enough research is being conducted.",
+                "She does not think that current research is accurate.",
+                "She feels that research findings have not been fully supported.",
+                "She is confident that continued research will lead to new findings."
+            ]
+        }
+    ]
+}

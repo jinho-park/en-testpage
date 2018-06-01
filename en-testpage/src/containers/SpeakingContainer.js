@@ -48,7 +48,7 @@ class SpeakingContainer extends Component{
 
     render(){
         const { SpeakingActions } = this.props;
-        const { problem, cNum, tNum, listen, listening, total, start } = this.props;
+        const { problem, cNum, tNum, listen, listening, total, start, main } = this.props;
         const { onChange, onEndhandle } = this;
         const thisUrl = localStorage.getItem('thisUrl');
         const requestUrl = thisUrl+"api/v1.0/speaking/get/speaking/"+listening[cNum];
@@ -56,7 +56,8 @@ class SpeakingContainer extends Component{
         
         return(
             <QSpeaking
-                question={[<Listening url={requestUrl} onEndhandle={onEndhandle} image={imageUrl}/>, problem[cNum]]}
+                main={main}
+                question={[<Listening url={requestUrl} onEndhandle={onEndhandle}/>, problem[cNum]]}
                 onChangehandle={onChange}
                 total={total[cNum]}
                 start={new Date().getTime()}
@@ -75,7 +76,8 @@ export default connect(
         listen : state.speaking.get('listen'),
         listening : state.speaking.get('listening'),
         total : state.speaking.get('total'),
-        start : state.speaking.get('start')
+        start : state.speaking.get('start'),
+        main : state.speaking.get('main')
     }),
     (dispatch) => ({
         SpeakingActions : bindActionCreators(speakingActions, dispatch)

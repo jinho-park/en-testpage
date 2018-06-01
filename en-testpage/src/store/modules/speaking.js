@@ -11,6 +11,8 @@ const SPEAKING_SET_TIME = "speaking/SPEAKING_SET_TIME";
 const SPEAKING_PLAY_SET = "speaking/SPEAKING_PLAY_SET";
 const SPEAKING_NEXT_LISTEN = "speaking/SPEAKING_NEXT_LISTEN";
 const SPEAKING_GET_LIST = "speaking/SPEAKING_GET_LIST";
+const SPEAKING_GET_MAIN = "speaking/SPEAKING_GET_MAIN";
+const SPEAKING_SET_MAIN = "speaking/SPEAKING_SET_MAIN";
 
 export const speakingGetQuestion = createAction(SPEAKING_GET_QUESTION, speakingAPI.getQuestion);
 export const speakingPostAnswer = createAction(SPEAKING_POST_ANSWER, speakingAPI.postAnswer);
@@ -20,6 +22,8 @@ export const speakingSetTime = createAction(SPEAKING_SET_TIME);
 export const speakingPlaySet = createAction(SPEAKING_PLAY_SET);
 export const speakingNextListen = createAction(SPEAKING_NEXT_LISTEN);
 export const speakingGetList = createAction(SPEAKING_GET_LIST, speakingAPI.requestList);
+export const speakingGetMain = createAction(SPEAKING_GET_MAIN, speakingAPI.getMain);
+export const speakingSetMain = createAction(SPEAKING_SET_MAIN);
 
 const initialState = Map({
     listening : List(),
@@ -30,6 +34,7 @@ const initialState = Map({
     total : [30],
     start : [25],
     listen : true,
+    main : ''
 });
 
 export default handleActions({
@@ -79,5 +84,15 @@ export default handleActions({
             console.log(action.payload);
             return;
         }
-    })
+    }),
+    ...pender({
+        type : SPEAKING_GET_MAIN,
+        onSuccess : (state, action) => {
+            const { data } = action.payload;
+            return state.set('main', data);
+        }
+    }),
+    [SPEAKING_SET_MAIN] : (state, action) => {
+        return state.set('main', '');
+    }
 }, initialState);
