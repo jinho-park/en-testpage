@@ -13,9 +13,9 @@ exports.getQuestion = (req, res) => {
 
 exports.postAnswer = (req, res) => {
     const data = req.body;
+    console.log("speaking " + data.user);
     speaking.writeAnswer(data)
         .then(function(result){
-            console.log(req.body);
             res.send(true);
         }, function(err){
             console.log(err);
@@ -26,7 +26,6 @@ exports.postAnswer = (req, res) => {
 exports.getListening = (req, res) => {
     const file = req.params.file;
     const path = 'src/data/speaking/'+file;
-    console.log(path);
     send(req, path)
         .on('error', (err)=>{
             res.statusCode = err.status || 500;

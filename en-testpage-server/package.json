@@ -15,6 +15,6 @@
   },
   "scripts": {
     "start:dev": "cross-env NODE_PATH=src nodemon --watch src/ src/index.js",
-    "start": "cross-env NODE_PATH=src src/index.js"
+    "start": "cross-env NODE_PATH=src node src/index.js"
   }
 }

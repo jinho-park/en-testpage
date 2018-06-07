@@ -6,38 +6,27 @@ import * as listeningActions from 'store/modules/listening';
 import { QReading, Listening } from 'components';
 
 class ListeningContainer extends Component{
-    componentWillMount(){
-        const { ListeningActions } = this.props;
-        const { lNum } = this.props;
-    }
-
     onChange = (e) => {
         const { ListeningActions } = this.props;
-        const { cNum, lNum } = this.props;
-        const number = cNum + lNum;
+        const { cNum } = this.props;
 
-        ListeningActions.listeningChooseAnswer({e, number});
+        ListeningActions.listeningChooseAnswer({e, cNum});
     }
 
     onEndhandle = () => {
         const { ListeningActions } = this.props;
 
-        console.log('audio end');
         ListeningActions.listeningPaySet();
     }
 
     render(){
         const { onChange, onEndhandle } = this;
         const { listen, lNum, cNum, chooseAnswer, problem, listening } = this.props;
-        const { ListeningActions } = this.props;
         const data = chooseAnswer.toJS();
         const number = cNum;
         const thisUrl = localStorage.getItem('thisUrl');
         const requestUrl = thisUrl+"api/v1.0/listening/get/listening/"+listening[lNum];
         const imageUrl = thisUrl+"api/v1.0/listening/get/image/"+(lNum*1+1)+'.jpg';
-
-        if(data[number] === undefined)
-            ListeningActions.listeningInitialAnswer({number});
 
         return(
             listen ? <Listening url={requestUrl} onEndhandle={onEndhandle} image={imageUrl}/>: <QReading question={problem[number]} onChangehandle={onChange} answer={data[number]}/>

@@ -8,7 +8,6 @@ import * as userActions from 'store/modules/user';
 class LoginContainer extends Component{
     handleKeyPress = (e) => {
         if(e.key !== 'Enter') return;
-        console.log('get');
 
         this.onLoginhandle();
     }

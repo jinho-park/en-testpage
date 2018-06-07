@@ -33,7 +33,6 @@ class SHeaderContainer extends Component{
             history.push('./writing');
         }
         else{
-            console.log(cNum);
             if(parseInt((cNum+1)/2) == 1) {
                 SpeakingActions.speakingGetMain({cNum});
             }else{

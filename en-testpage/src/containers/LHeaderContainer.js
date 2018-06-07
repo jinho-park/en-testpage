@@ -37,8 +37,8 @@ class LHeaderContainer extends Component{
         const user = localStorage.getItem('user');
 
         if(cNum+1 >= tNum && !listen){
+            ListeningActions.listeningPostAnswer({answer, user, lNum});
             if(lNum + 1 >= tlNum){
-                ListeningActions.listeningPostAnswer({answer, user});
                 //localStorage.setItem('listening', true);
                 history.push('./skip');
             }else{
@@ -49,7 +49,7 @@ class LHeaderContainer extends Component{
                 ListeningActions.listeningPlaySet();
                 ListeningActions.listeningGetQuestion({lNum});
             }
-            else ListeningActions.listeningNextProblem(cNum+1);
+            else ListeningActions.listeningChangeProblem(cNum+1);
         }
     }
 
@@ -58,7 +58,7 @@ class LHeaderContainer extends Component{
         const { cNum } = this.props;
 
         if(cNum)
-            ListeningActions.listeningPrevProblem(cNum-1);
+            ListeningActions.listeningChangeProblem(cNum-1);
     }
 
     render(){

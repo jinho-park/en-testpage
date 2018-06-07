@@ -13,7 +13,7 @@ function readQuestion(num){
 function writeAnswer(data){
     return new Promise(
         (resolve, reject)=>{
-            const solve = fs.writeFileSync('./src/data/listening/'+data.user+'_answer.txt', data.answer, 'utf8');
+            const solve = fs.writeFileSync('./src/data/listening/'+data.user+'_answer_'+(data.lNum*1+1)+'.txt', data.answer, 'utf8');
             if(solve == undefined) reject(false);
             resolve(true);
         }

@@ -1,6 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
 import { Map, List } from 'immutable';
-import { pender } from 'redux-pender';
 
 const SKIP_SET_TIME = "skip/SKIP_SET_TIME";
 

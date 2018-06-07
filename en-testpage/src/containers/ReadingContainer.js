@@ -8,26 +8,23 @@ import { QReading } from 'components';
 class ReadingContainer extends Component{
     onChange = (e) => {
         const { ReadingActions } = this.props;
-        const { cpNum } = this.props;
+        const { cNum } = this.props;
 
-        ReadingActions.readingChooseAnswer({e, cpNum});
+        ReadingActions.readingChooseAnswer({e, cNum});
     }
 
     render(){
         const { onChange } = this;
-        const { cpNum, problem, chooseAnswer, Main } = this.props;
+        const { cNum, problem, chooseAnswer, Main } = this.props;
         const { ReadingActions } = this.props;
         const data = chooseAnswer.toJS();
-
-        if(data[cpNum] === undefined)
-            ReadingActions.readingInitialAnswer({cpNum});
 
         return(
             <QReading
                 Main={Main}
-                question={problem[cpNum]}
+                question={problem[cNum]}
                 onChangehandle={onChange}
-                answer = {data[cpNum]}
+                answer = {data[cNum]}
             />
         )
     }
@@ -35,7 +32,7 @@ class ReadingContainer extends Component{
 
 export default connect(
     (state) => ({
-        cpNum : state.reading.get('cpNum'),
+        cNum : state.reading.get('cNum'),
         problem : state.reading.get('problem'),
         chooseAnswer : state.reading.get('chooseAnswer'),
         Main : state.reading.get('main')

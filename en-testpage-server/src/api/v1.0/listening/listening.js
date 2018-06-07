@@ -15,7 +15,8 @@ exports.getQuestion = (req, res) => {
 
 exports.postAnswer = (req, res) => {
     const data = req.body;
-
+    console.log('listening 답안 등록 - 유저 : ' + data.user);
+    console.log(data);
     listening.writeAnswer(data)
             .then((result) => {
                 res.send(true);

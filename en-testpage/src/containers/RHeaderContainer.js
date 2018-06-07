@@ -9,53 +9,62 @@ class RHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("rStartTime");
         const { ReadingActions } = this.props;
-        const { ctNum } = this.props;
+        const { pNum } = this.props;
+        const Num = pNum;
 
-        console.log(ctNum);
-
-        ReadingActions.readingGetMain({ctNum});
-        ReadingActions.readingGetQuestion({ctNum});
         ReadingActions.readingGetTotal();
+        ReadingActions.readingGetMain({Num});
+        ReadingActions.readingGetQuestion({Num});
 
         if(sTime === null){
             sTime = new Date().getTime();
             localStorage.setItem("rStartTime", sTime);
             ReadingActions.readingSetTime({sTime});
-            window.console.log("if null, reading start time = " + localStorage.getItem("rStartTime"));
         }
         else{
             localStorage.setItem("rStartTime", sTime);
             ReadingActions.readingSetTime({sTime});
-            window.console.log("if not null, reading start time = " + localStorage.getItem("rStartTime"));
         }
-        
     }
     
     onClickNexthandle = () => {
         const { ReadingActions } = this.props;
-        const { rcNum, tNum, history, chooseAnswer } = this.props;
+        const { cNum, tNum, history, chooseAnswer, ctNum, pNum } = this.props;
         const answer = chooseAnswer.toJS();
         const user = localStorage.getItem('user');
+        const Num = pNum + 1;
 
-        if(rcNum+1 >= tNum){
-            ReadingActions.readingPostAnswer({answer, user});
-            history.push('./listening');
+        if(cNum+1 >= tNum){
+            ReadingActions.readingPostAnswer({answer, user, pNum});
+            ReadingActions.readingChangeMain(pNum+1);
+            if(Num >= ctNum){
+                history.push('./listening');
+            }else {
+                ReadingActions.readingGetMain({Num});
+                ReadingActions.readingGetQuestion({Num});
+            }
         }
         else{
-            ReadingActions.readingNextProblem(rcNum+1);
+            ReadingActions.readingChangeProblem(cNum+1);
         }
     }
 
     onClickPrevhandle = () => {
         const { ReadingActions } = this.props;
-        const { rcNum } = this.props;
+        const { cNum, pNum } = this.props;
+        const Num = pNum -1;
 
-        if(rcNum)
-            ReadingActions.readingPrevProblem(rcNum-1);
+        if(cNum)
+            ReadingActions.readingChangeProblem(cNum-1);
+        else{
+            ReadingActions.readingChangeMain(pNum-1);
+            ReadingActions.readingGetMain({Num});
+            ReadingActions.readingGetQuestion({Num});
+        }
     }
 
     render(){
-        const { onClickNexthandle, onClickPrevhandle } = this;
+        const { onClickNexthandle, onClickPrevhandle  } = this;
 
         return(
             <Header
@@ -72,10 +81,11 @@ class RHeaderContainer extends Component{
 
 export default connect(
     (state) => ({
-        rcNum : state.reading.get('cpNum'),
+        pNum : state.reading.get('pNum'),
         tNum : state.reading.get('tNum'),
         chooseAnswer : state.reading.get('chooseAnswer'),
-        ctNum : state.reading.get('ctNum')
+        ctNum : state.reading.get('ctNum'),
+        cNum : state.reading.get('cNum'),
     }),
     (dispatch) => ({
         ReadingActions : bindActionCreators(readingActions, dispatch)

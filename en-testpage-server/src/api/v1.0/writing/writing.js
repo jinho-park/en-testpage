@@ -20,11 +20,11 @@ exports.getProblem = (req, res) => {
 }
 
 exports.postAnswer = (req, res) =>{
-    const { data } = req.body;
 
     console.log(req.body);
+    //console.log("Writing 답안 등록 - 유저 : " + data.user);
     
-    writing.postAnswer(data)
+    writing.postAnswer(req.body)
             .then((result)=>{
                 res.send(true);
             }, (err)=>{
@@ -35,8 +35,6 @@ exports.postAnswer = (req, res) =>{
 exports.getListen = (req, res) => {
     const file = req.params.file;
     const path = 'src/data/writing/' + file;
-
-    console.log('get audio');
 
     send(req, path)
         .on('error', (err) => {

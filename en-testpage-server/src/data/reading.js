@@ -34,8 +34,7 @@ function readQuestion(num){
 function writeAnswer(data){
     return new Promise(
         (resolve, reject)=>{
-            console.log(data);
-            const solve = fs.writeFileSync('./src/data/reading/'+data.user+'_answer.txt', data.answer, 'utf8');
+            const solve = fs.writeFileSync('./src/data/reading/'+data.user+'_answer_'+(data.pNum*1+1)+'.txt', data.answer, 'utf8');
             if(solve == Error) reject(false);
             resolve(true);
         }

@@ -25,7 +25,8 @@ function writingProblem(){
 function postAnswer(data){
     return new Promise(
         (resolve, reject)=>{
-            const solve = fs.writeFileSync('./src/data/writing/'+data.user+'_answer.json', data.userAnswer, 'utf8');
+            const solve = fs.writeFileSync('./src/data/writing/'+data.user+'_total_answer.txt', data.userAnswer[0], 'utf8');
+            const solve1 = fs.writeFileSync('./src/data/writing/'+data.user+'_independent_answer.txt', data.userAnswer[1], 'utf8');
             if(solve == Error) reject(false);
             resolve(true);
         }

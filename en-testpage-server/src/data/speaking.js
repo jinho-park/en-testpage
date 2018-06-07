@@ -8,8 +8,6 @@ function readQuestion(){
     return new Promise(
         (resolve, reject)=>{
             const data = fs.readFileSync('./src/data/speaking/question.json', 'utf8');
-            console.log("readQuestion...");
-            console.log(data);
             if(data == Error) reject(false);
             resolve(data);
         }
@@ -29,8 +27,6 @@ function writeAnswer(data){
                 u8arr[n] = bstr.charCodeAt(n);
             }
             var file = new Blob([u8arr], {type:mime});
-            console.log("writeAnswer...");
-            console.log(file);
             var fileReader = new FileReader();
             fileReader.onload = function() {
                 solve = fs.writeFileSync('./src/data/speaking/'+data.user+'_answer.wav', Buffer.from(new Uint8Array(this.result)));
