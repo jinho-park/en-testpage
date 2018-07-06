@@ -24,31 +24,26 @@ class QSpeaking extends React.Component{
         const { main, question, onChangehandle } = this.props;
         return(
             <div className={cx('qspeaking')}>
-                <div className={cx('question')}>
-                    <Question>
-                        {main}
-                    </Question>
-                </div>
-                <div className={cx('question')}>
-                    <Question>
+                <div className={cx('boxing')}>
+                    <div className={cx('question')}>
                         {question}
-                    </Question>
-                </div>
-                <div className={cx('answer')}>
-                    <AudioRecorder
-                        ref={ref => { this.recorderRef = ref }}
-                        onChange={(e)=>{
-                            e.target = this.recorderRef;
-                            this.state.onChangehandle(e);
-                        }}
-                    />
-                    <SpeakingTimer
-                        total={this.props.total}
-                        start={this.props.start}
-                        record={this.props.record}
-                        startRecord={this.startRecord.bind(this)}
-                        stopRecord={this.stopRecord.bind(this)}
-                    />
+                    </div>
+                    <div className={cx('answer')}>
+                        <AudioRecorder
+                            ref={ref => { this.recorderRef = ref }}
+                            onChange={(e)=>{
+                                e.target = this.recorderRef;
+                                this.state.onChangehandle(e);
+                            }}
+                        />
+                        <SpeakingTimer
+                            total={this.props.total}
+                            start={this.props.start}
+                            record={this.props.record}
+                            startRecord={this.startRecord.bind(this)}
+                            stopRecord={this.stopRecord.bind(this)}
+                        />
+                    </div>
                 </div>
             </div>
         );

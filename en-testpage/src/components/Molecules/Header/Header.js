@@ -19,8 +19,8 @@ const Header = ({onNext, onPrev, children, total, startTime}) => {
                     {children}
                 </div>
                 <div className={cx('item')}>
-                    <Button click={onPrev}>이전</Button>
-                    <Button click={onNext}>다음</Button>
+                    <Button click={onPrev}>PREV</Button>
+                    <Button click={onNext}>NEXT</Button>
                 </div>
             </div>
         </div>

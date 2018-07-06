@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import * as listeningActions from 'store/modules/listening';
-import { QReading, Listening } from 'components';
+import { QListening, Listening } from 'components';
 
 class ListeningContainer extends Component{
     onChange = (e) => {
@@ -29,7 +29,7 @@ class ListeningContainer extends Component{
         const imageUrl = thisUrl+"api/v1.0/listening/get/image/"+(lNum*1+1)+'.jpg';
 
         return(
-            listen ? <Listening url={requestUrl} onEndhandle={onEndhandle} image={imageUrl}/>: <QReading question={problem[number]} onChangehandle={onChange} answer={data[number]}/>
+            listen ? <Listening url={requestUrl} onEndhandle={onEndhandle} image={imageUrl}/>: <QListening question={problem[number]} onChangehandle={onChange} answer={data[number]}/>
         )
     }
 }

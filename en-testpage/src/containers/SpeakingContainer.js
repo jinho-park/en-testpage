@@ -57,7 +57,7 @@ class SpeakingContainer extends Component{
         return(
             <QSpeaking
                 main={main}
-                question={[<Listening url={requestUrl} onEndhandle={onEndhandle}/>, problem[cNum]]}
+                question={problem[cNum]}
                 onChangehandle={onChange}
                 total={total[cNum]}
                 start={new Date().getTime()}

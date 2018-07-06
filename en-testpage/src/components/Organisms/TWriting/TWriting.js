@@ -49,6 +49,13 @@ export default class TWriting extends Component{
 
         return(
             <div className={cx('twriting')}>
+                <div className={cx('text')}>
+                    <TextArea
+                        onChange={onChangehandle}
+                    >
+                        {answer}
+                    </TextArea>
+                </div>
                 <div className={cx('listen')} visibility={this.state.visible}>
                     <ReactHowler
                         src={url}
@@ -57,13 +64,6 @@ export default class TWriting extends Component{
                         onEnd={onEndhandle}
                     />
                     <div dangerouslySetInnerHTML={{__html : question}}></div>
-                </div>
-                <div className={cx('text')}>
-                    <TextArea
-                        onChange={onChangehandle}
-                    >
-                        {answer}
-                    </TextArea>
                 </div>
             </div>
         )

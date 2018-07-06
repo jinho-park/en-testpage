@@ -1,22 +1,20 @@
 import React from 'react';
 import { Question } from 'components';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
-import styles from './QReading.scss';
+import styles from './QListening.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const QReading = ({Main, question, onChangehandle, answer}) => {
-    if (question === undefined) return;
+const QListening = ({question, onChangehandle, answer}) => {
+    if( question === undefined) return;
     return(
-        <div className={cx('qreading')}>
-            <div  className={cx('answer')}>
-                <div  className={cx('problem')}>
-                    <Question>
-                        {question.problem}
-                    </Question>
+        <div className={cx('listening')}>
+            <div className={cx('answer')}>
+                <div className={cx('problem')}>
+                    {question.problem}
                 </div>
-                <div>
+                <div calssName={cx('example')}>
                     <RadioGroup onChange={onChangehandle} value={answer}>
                         <RadioButton value="1" rootColor='black' pointColor='black'>
                             {question.example[0]}
@@ -33,10 +31,8 @@ const QReading = ({Main, question, onChangehandle, answer}) => {
                     </RadioGroup>
                 </div>
             </div>
-            <div className={cx('main_question')} dangerouslySetInnerHTML={{__html : Main}}>
-            </div>
         </div>
-    );
+    )
 }
 
-export default QReading;
+export default QListening;
