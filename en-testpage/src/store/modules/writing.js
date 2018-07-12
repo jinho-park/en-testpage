@@ -57,8 +57,7 @@ export default handleActions({
     ...pender({
         type : WRITING_POST_ANSWER,
         onSuccess : (state, action) => {
-            const { data } = action.payload;
-            return;
+            return state;
         }
     }),
     ...pender({

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextArea, Listening, Question } from 'components';
+import { TextArea } from 'components';
 import styles from './TWriting.scss';
 import classNames from 'classnames/bind';
 import ReactHowler from 'react-howler';
@@ -49,13 +49,6 @@ export default class TWriting extends Component{
 
         return(
             <div className={cx('twriting')}>
-                <div className={cx('text')}>
-                    <TextArea
-                        onChange={onChangehandle}
-                    >
-                        {answer}
-                    </TextArea>
-                </div>
                 <div className={cx('listen')} visibility={this.state.visible}>
                     <ReactHowler
                         src={url}
@@ -64,6 +57,13 @@ export default class TWriting extends Component{
                         onEnd={onEndhandle}
                     />
                     <div dangerouslySetInnerHTML={{__html : question}}></div>
+                </div>
+                <div className={cx('text')}>
+                    <TextArea
+                        onChange={onChangehandle}
+                    >
+                        {answer}
+                    </TextArea>
                 </div>
             </div>
         )

@@ -1,5 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
-import { Map, fromJS, List } from 'immutable';
+import { Map, List } from 'immutable';
 import { pender } from 'redux-pender';
 import * as ListeningAPI from 'api/listening';
 
@@ -7,7 +7,6 @@ const LISTENING_GET_QUESTION = "listening/LISTENING_GET_QUESTION";
 const LISTENING_CHOOSE_ANSWER = "listening/LISTENING_CHOOSE_ANSWER";
 const LISTENING_POST_ANSWER = "listening/LISTENING_POST_ANSWER";
 const LISTENING_CHANGE_PROBLEM = "listening/LISTENING_NEXT_PROBLEM";
-const LISTENING_GET_LISTEN = "listening/LISTENING_NEXT_LISTEN";
 const LISTENING_SET_TIME = "listening/LISTENING_SET_TIME";
 const LISTENING_SET_TOTAL_TIME = "listening/LISTENING_SET_TOTAL_TIME";
 const LISTENING_PLAY_SET = "listening/LISTENING_PLAY_SET";
@@ -58,7 +57,6 @@ export default handleActions({
     ...pender({
         type : LISTENING_POST_ANSWER,
         onSuccess : (state, action) => {
-            const { data } = action.payload;
             return state;
         }
     }),
@@ -72,7 +70,6 @@ export default handleActions({
         return state.set('lTotalTime', action.payload);
     },
     [LISTENING_PLAY_SET] : (state, action) => {
-        console.log('change');
         return state.set('listen', false)
                     .set('cNum', 0);
     },

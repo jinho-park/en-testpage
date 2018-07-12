@@ -1,5 +1,4 @@
 import React from 'react';
-import { Question } from 'components';
 import styles from './QSpeaking.scss';
 import classNames from 'classnames/bind';
 import AudioRecorder from 'react-audio-recorder';
@@ -12,7 +11,6 @@ class QSpeaking extends React.Component{
             question : this.props.question,
             onChangehandle : this.props.onChangehandle,
         }
-        var recorderRef = null;
     }
     startRecord(){
         this.recorderRef.startRecording();
@@ -21,7 +19,7 @@ class QSpeaking extends React.Component{
         if(this.recorderRef.state.isRecording) this.recorderRef.stopRecording();
     }
     render(){
-        const { main, question, onChangehandle } = this.props;
+        const { question } = this.props;
         return(
             <div className={cx('qspeaking')}>
                 <div className={cx('boxing')}>

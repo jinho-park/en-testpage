@@ -16,7 +16,6 @@ class ReadingContainer extends Component{
     render(){
         const { onChange } = this;
         const { cNum, problem, chooseAnswer, Main } = this.props;
-        const { ReadingActions } = this.props;
         const data = chooseAnswer.toJS();
 
         return(

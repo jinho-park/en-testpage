@@ -1,0 +1,121 @@
+{
+    "question" : [
+        {
+            "problem" : "The word “interlocked” in the passage is closest in meaning to ",
+            "example" : [
+                "intermediate",
+                "linked",
+                "frozen",
+                "fully developed"
+            ]
+        },
+        {
+            "problem" : "According to paragraph 1, which of the following does NOT describe a stage in the development of firn",
+            "example" : [
+                "Hexagonal crystals become larger and interlock to form a thick layer.",
+                "Snow crystals become compacted into grains.",
+                "Granules recrystallize after melting, refreezing, and further compaction.",
+                "Grains become denser owing to reduced air space around them."
+            ]
+        },
+        {
+            "problem" : "The word “match” in the passage is closest in meaning to",
+            "example" : [
+                "measure",
+                "enlarge",
+                "approximate",
+                "equal"
+            ]
+        },
+        {
+            "problem" : "The word “transform” in the passage is closest in meaning to",
+            "example" : [
+                "break",
+                "push",
+                "change",
+                "extend"
+            ]
+        },
+        {
+            "problem" : "According to paragraph 2, surplus snow affects a glacier in all the following ways EXCEPT:",
+            "example" : [
+                "It provides the pressure needed to cause glacial ice to flow.",
+                "It offsets losses of ice due to melting, evaporation, and calving.",
+                "It brings about the formation of firn in the snow it buries.",
+                "It results in temperate glaciers that are thicker than polar glaciers."
+            ]
+        },
+        {
+            "problem" : "Paragraph 2 implies that which of the following conditions produces the fastest moving glaciers?",
+            "example" : [
+                "A climate characteristic of the polar regions",
+                "A thick layer of ice in a temperate climate ",
+                "Long, warm summers",
+                "Snow, firn, and ice that have been buried for several years"
+            ]
+        },
+        {
+            "problem" : "The word “deceiving” in the passage is closest in meaning to ",
+            "example" : [
+                "approximate",
+                "exaggerated",
+                "unusual",
+                "misleading"
+            ]
+        },
+        {
+            "problem" : "Why does the author consider the hypothetical melting of the world's glaciers?",
+            "example" : [
+                "To contrast the effects of this event with the opposite effects of a new ice age",
+                "To emphasize how much water is frozen in glaciers",
+                "To illustrate the disastrous effects of a warming trend",
+                "To support the claim that glaciers are part of Earth's hydrologic cycle"
+            ]
+        },
+        {
+            "problem" : "The discussion in paragraph 3 answers all the following questions EXCEPT:",
+            "example" : [
+                "Where is most of Earth's freshwater?",
+                "What effect would a new ice age have on sea levels?",
+                "What is the total amount of water in Earth's oceans?",
+                "How much of Earth's water is in ice?"
+            ]
+        },
+        {
+            "problem" : "The word “static” in the passage is closest in meaning to",
+            "example" : [
+                "unchanging",
+                "usable",
+                "thick",
+                "harmless"
+            ]
+        },
+        {
+            "problem" : "Which of the sentences below best expresses the essential information in the highlighted sentence in the passage? Incorrect choices change the meaning in important ways or leave out essential information.",
+            "example" : [
+                "As a glacier moves, it leaves behind rock formations that have been engulfed, pushed, and dragged by the glacier.",
+                "Glaciers reshape the landscape by carving into rock and transporting the resulting debris to distant locations.",
+                "Glaciers carve the hardest rock formations with great energy and slowly reshape them into debris.",
+                "The tremendous energy of slowly moving glaciers transports and finally deposits rock debris into large rock formations."
+            ]
+        },
+        {
+            "problem" : "According to paragraph 5, in what way is the present time unusual in the history of Earth? ",
+            "example" : [
+                "There are glaciers.",
+                "More land is covered by glaciers than at anytime in the past.",
+                "There is no ice age",
+                "No glaciers are found in Australia."
+            ]
+        },
+        {
+            "problem" : "Where would the sentence best fit?",
+            "example" : [
+                "As the air space around them is lessened by compaction and melting, the grains become denser. ",
+                "With further melting, refreezing, and increased weight from newer snowfall above, the snow reaches a granular recrystallized stage intermediate between flakes and ice known as firn.",
+                "With additional time, pressure, and refrozen meltwater from above, the small firn granules become larger, interlocked crystals of blue glacial ice.",
+                "When the ice is thick enough, usually over 30 meters, the weight of the snow and firn will cause the ice crystals toward the bottom to become plastic and to flow outward or downward from the area of snow accumulation."
+            ]
+        }
+    ]
+}

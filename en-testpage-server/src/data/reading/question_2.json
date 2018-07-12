@@ -1,93 +1,120 @@
 {
     "question" : [
         {
-            "problem" : "The phrase `unique among` in the passage is closest in meaning to",
+            "problem" : "supports which of the following statements about mass extinctions?",
             "example" : [
-                "natural to",
-                "different from all other",
-                "quite common among",
-                "familiar to"
+                "They take place over a period of 70 million years.",
+                "They began during the Cretaceous period.",
+                "They eliminate many animal species that exist at the time they occur.",
+                "They occur every 250 million years"
             ]
         },
         {
-            "problem" : ". What can be inferred about whales from paragraph 1? ",
+            "problem" : "According to paragraph 2, scientists base their belief that a mass extinction is going on at present on which of the following?",
             "example" : [
-                "They are considered by some to be reptiles.",
-                "Their bodies are built in a way that helps them manage extremely cold temperatures",
-                "They are distantly related to leatherback turtles.",
-                "They can swim farther than leatherback turtles."
+                "The speed with which mass extinctions are happening today is similar to the speed of past extinctions.",
+                "The number of species that have died out since the last extinction event is extremely large.",
+                "Mass extinctions occur with regularity and it is time for another one.",
+                "Fossil records of many marine species have disappeared."
             ]
         },
         {
-            "problem" : "The word “feat” in the passage is closest in meaning to ",
+            "problem" : "The word `extended` in the passage is closest in meaning to",
             "example" : [
-                "remarkable achievement",
-                "common transformation",
-                "daily activity",
-                "complex solution"
+                "specific",
+                "unlimited",
+                "reasonable",
+                "long"
             ]
         },
         {
-            "problem" : "all of the following as true about the body heat of adult leatherback turtles EXCEPT:",
+            "problem" : "each of the following has been proposed as a possible cause of mass extinctions EXCEPT",
             "example" : [
-                "remarkable achievement",
-                "common transformation",
-                "daily activity",
-                "complex solution"
+                "habitat destruction",
+                "continental movement",
+                "fierce interspecies competition",
+                "changes in Earth's temperature"
             ]
         },
         {
-            "problem" : "The word “bulk” in the passage is closest in meaning to",
+            "problem" : "supports which of the following ideas about mass extinctions? ",
             "example" : [
-                "strength",
-                "effort",
-                "activity",
-                "mass"
+                "Scientists know the exact causes of most mass extinctions.",
+                "Mass extinctions are unlikely to happen again in the future.",
+                "Insects, flowering plants, and bottom-feeding predators in the oceans tend to be the first organisms to disappear during episodes of mass extinctions.",
+                "Some mass extinctions occurred on land and in the seas at the same time."
             ]
         },
         {
-            "problem" : "The word “it” in paragraph 4 refers to ",
+            "problem" : "Which of the sentences below best expresses the essential information in the `highlighted` sentence in the passage? Incorrect choices change the meaning in important ways or leave out essential information.",
             "example" : [
-                "the problem",
-                "blood",
-                "the turtle",
-                "body temperature"
+                "Based on their studies of extinction rates of numerous fossil groups, paleontologists David Raup and John Sepkoski have determined that mass extinctions occur about every 26 million years.",
+                "David Raup and John Sepkoski studied extinction rates of numerous fossil groups and suggest that mass extinctions during the Cretaceous period continued for 26 million years.",
+                "Studies that paleontologists David Raup and John Sepkoski conducted of various fossil groups have revealed that extinction rates have increased over the past 26 million years.",
+                "The studies conducted by paleontologists David Raup and John Sepkoski of the fossil remains of species suggest that the extinction rate of species started to increase by the middle of the Cretaceous period."
             ]
         },
         {
-            "problem" : "According to paragraph 4, which of the following features enables the leatherback turtle to stay warm?",
+            "problem" : "According to paragraph 4, what aspect of extinction episodes does the companion-star hypothesis supposedly clarify?",
             "example" : [
-                "An insulating layer of blubber",
-                "A thick, oily skin covering fatty tissue",
-                "The aerodynamic shape of its flippers",
-                "A well-insulated head"
+                "Their location",
+                "Their frequency",
+                "Their duration",
+                "Their severity"
             ]
         },
         {
-            "problem" : "Which of the sentences below best expresses the essential information in the highlighted sentence in the passage? Incorrect choices change the meaning in important ways or leave out essential information",
+            "problem" : "The phrase `account for` in the passage is closest in meaning to",
             "example" : [
-                "In a turtle's countercurrent exchange system, outgoing vessels lie near enough to ingoing ones that heat can be exchanged from the former to the latter before reaching the turtle's flippers.",
-                "Within the turtle's flippers, there is a countercurrent exchange system that allows colder blood vessels to absorb heat from nearby warmer blood vessels and then return warmed blood to the turtle's body.",
-                "In a countercurrent exchange system, a turtle can pick up body heat from being close enough to other turtles, thus raising its blood temperature as it passes them.",
-                "When a turtle places its flippers close to its body, it is able to use its countercurrent exchange system to transfer heat from the warmer blood vessels in its body to the cooler blood vessels in its flippers."
+                "describe",
+                "challenge",
+                "explain",
+                "test"
             ]
         },
         {
-            "problem" : "Why does the author mention old-fashioned steam radiator in the discussion of countercurrent exchange systems?",
+            "problem" : "According to paragraph 6, what made iridium a useful test of the Alvarez hypothesis? ",
             "example" : [
-                "rises through",
-                "heats up in ",
-                "runs through ",
-                "collects in"
+                "Its occurrence in a few locations on Earth against several locations on other planets",
+                "Its occurrence in limited quantities on Earth against its abundance in asteroids",
+                "Its ability to remain solid at extremely high temperatures",
+                "Its ease of detection even in very small amounts"
             ]
         },
         {
-            "problem" : ". According to paragraph 6, which of the following statements is most accurate about young leatherback turtles?",
+            "problem" : "In stating that `no asteroid itself has ever been recovered`, the author emphasizes which of the following?",
             "example" : [
-                "They lack the countercurrent exchange systems that develop in adulthood.",
-                "Their rate of growth is slower than that of other sea turtles.",
-                "They lose heat easily even with insulation and countercurrent exchange systems.",
-                "They switch between cold-blooded and warm-blooded modes throughout their hatchling stage."
+                "The importance of the indirect evidence for a large asteroid",
+                "The fact that no evidence supports the asteroid impact hypothesis",
+                "The reason many researchers reject the Alvarez hypothesis",
+                "The responsibility of scientists for not making the effort to discover the asteroid itself"
+            ]
+        },
+        {
+            "problem" : "The word intense in the passage is closest in meaning to",
+            "example" : [
+                "sudden",
+                "unusual",
+                "immediate",
+                "extreme"
+            ]
+        },
+        {
+            "problem" : "What is the purpose of paragraph 7 in the passage? ",
+            "example" : [
+                "It proposes a decisive new test of the Alvarez hypothesis.",
+                "It presents additional supporting evidence for the Alvarez hypothesis.",
+                "It explains why evidence relating to the Alvarez hypothesis is hard to find.",
+                "It shows how recent evidence has raised doubts about the Alvarez hypothesis."
+            ]
+        },
+        {
+            "problem" : "Where would the sentence best fit?",
+            "example" : [
+                "Cases in which many species become extinct within a geologically short interval of time are called mass extinctions.",
+                "There was one such event at the end of the Cretaceous period (around 70 million years ago).",
+                "There was another, even larger, mass extinction at the end of the Permian period (around 250 million years ago). ",
+                "The Permian event has attracted much less attention than other mass extinctions because mostly unfamiliar species perished at that time."
             ]
         }
     ]

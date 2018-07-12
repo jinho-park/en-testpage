@@ -15,7 +15,7 @@ class WTotalContainer extends Component{
     }
 
     render(){
-        const { cond, answer, problem, list, cpNum } = this.props;
+        const { answer, problem, list, cpNum } = this.props;
         const { WritingActions } = this.props;
         const { onChange } = this;
         const thisUrl = localStorage.getItem('thisUrl');

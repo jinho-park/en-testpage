@@ -2,7 +2,7 @@ import React , { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { QSpeaking, Listening } from 'components';
+import { QSpeaking } from 'components';
 import * as speakingActions from 'store/modules/speaking';
 
 class SpeakingContainer extends Component{
@@ -12,12 +12,8 @@ class SpeakingContainer extends Component{
     }
 
     onChange = (e) => {
-        const { SpeakingActions } = this.props;
-        const { recordData } = this.props;
         const { cNum } = this.props;
         const user = localStorage.getItem('user');
-        const myAudioData = e.audioData;
-        var str = "";
         var reader = new FileReader();
         if(e.audioData !== null){
             reader.readAsDataURL(e.audioData);
@@ -47,13 +43,9 @@ class SpeakingContainer extends Component{
     }
 
     render(){
-        const { SpeakingActions } = this.props;
-        const { problem, cNum, tNum, listen, listening, total, start, main } = this.props;
-        const { onChange, onEndhandle } = this;
-        const thisUrl = localStorage.getItem('thisUrl');
-        const requestUrl = thisUrl+"api/v1.0/speaking/get/speaking/"+listening[cNum];
-        const imageUrl = thisUrl+"api/v1.0/speaking/get/image/"+(cNum+1)+'.jpg';
-        
+        const { problem, cNum, listening, total, start, main } = this.props;
+        const { onChange } = this;
+              
         return(
             <QSpeaking
                 main={main}

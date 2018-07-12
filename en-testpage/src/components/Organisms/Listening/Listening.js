@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactHowler from 'react-howler';
-import { Button } from 'components';
 import styles from './Listening.scss';
 import classNames from 'classnames/bind';
 

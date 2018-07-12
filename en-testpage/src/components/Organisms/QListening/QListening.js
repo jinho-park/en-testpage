@@ -1,5 +1,4 @@
 import React from 'react';
-import { Question } from 'components';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import styles from './QListening.scss';
 import classNames from 'classnames/bind';

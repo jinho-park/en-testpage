@@ -8,7 +8,7 @@ import * as speakingActions from 'store/modules/speaking';
 class SHeaderContainer extends Component{
     componentWillMount(){
         let sTime = localStorage.getItem("sStartTime");
-        const { SpeakingActions, history } = this.props;
+        const { SpeakingActions } = this.props;
 
         SpeakingActions.speakingGetList();
 
@@ -27,13 +27,12 @@ class SHeaderContainer extends Component{
     onClickNexthandle = () => {
         const { SpeakingActions } = this.props;
         const { cNum, tNum, history, recordData } = this.props;
-        const file = recordData;
 
         if(cNum+1 >= tNum){
             history.push('./writing');
         }
         else{
-            if(parseInt((cNum+1)/2) == 1) {
+            if(parseInt((cNum+1)/2) === 1) {
                 SpeakingActions.speakingGetMain({cNum});
             }else{
                 SpeakingActions.speakingSetMain();
